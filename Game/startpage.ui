@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>startPage</class>
+ <widget class="QMainWindow" name="startPage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>760</width>
+    <height>533</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow{
+	
+	background-image: url(:/new/prefix2/IMG_20250416_025855.png);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+QLabel {
+    color: #3E3A39; /* رنگ متن گرم و تیره */
+    font-family: &quot;Black Ops One&quot;;
+    font-size: 20px;
+    letter-spacing: 1px;
+    background: transparent; /* لیبل شفاف بمونه */
+    border-bottom: 4px solid #6a415e;
+	padding-bottom: 4px;
+}
+
+QMessageBox{
+    
+	background-color: rgb(240, 228, 218);
+    padding: 6px 12px;
+    font-family: &quot;Black Ops One&quot;;
+    font-size: 17px;
+    letter-spacing: 1px;
+}
+QPushButton {
+    background-color: #D6C2B2; /* پس‌زمینه‌ای ملایم و روشن، برگرفته از نور آفتاب در مه */
+    color: #3E3A39; /* رنگ متن، تیره ولی گرم */
+    border: 2px solid #C8A974; /* حاشیه طلایی */
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-family: &quot;Black Ops One&quot;;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+QPushButton:hover {
+    background-color: #E9D6C0; /* کمی روشن‌تر و گرم‌تر هنگام هاور */
+    border: 2px solid #DABF85;
+}
+
+QPushButton:pressed {
+    background-color: #BBA89A; /* حالت فشار داده شده، کمی تیره‌تر برای حس وزن */
+    border: 2px solid #A68756;
+    color: #2C2A28;
+}
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>160</y>
+      <width>381</width>
+      <height>371</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+    /*background-color: qlineargradient(
+		x1:0, y1:0, x2:0, y2:1,
+		stop:0 rgb(197, 164, 156),
+		stop:0.5 rgb(146, 126, 131),
+		stop:1 rgb(118, 116, 134)
+	);*/
+    border: 2px solid #D8B47D; /* رنگ طلایی-خورشیدی */
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 10px;
+    color: #3E3A39; /* متن تیره ولی نه خیلی مشکی */
+    font-family: &quot;Black Ops One&quot;;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top center;
+    padding: 16px 32px;
+    background-color: rgba(255, 239, 200, 0.5); /* رنگ گرم و شفاف مثل نور خورشید در مه */
+    color: #5C4634; /* تیره و جنگی */
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid #CBA86E;
+    border-radius: 6px;
+}
+</string>
+    </property>
+    <property name="title">
+     <string>Game of Samurai</string>
+    </property>
+    <widget class="QPushButton" name="Gallery">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>110</y>
+       <width>321</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+
+QPushButton {
+    background-color: #D6C2B2; /* پس‌زمینه‌ای ملایم و روشن، برگرفته از نور آفتاب در مه */
+    color: #3E3A39; /* رنگ متن، تیره ولی گرم */
+    border: 2px solid #C8A974; /* حاشیه طلایی */
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-family: &quot;Black Ops One&quot;;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+QPushButton:hover {
+    background-color: #E9D6C0; /* کمی روشن‌تر و گرم‌تر هنگام هاور */
+    border: 2px solid #DABF85;
+}
+
+QPushButton:pressed {
+    background-color: #BBA89A; /* حالت فشار داده شده، کمی تیره‌تر برای حس وزن */
+    border: 2px solid #A68756;
+    color: #2C2A28;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Gallery</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="start">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>190</y>
+       <width>321</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+
+QPushButton {
+    background-color: #D6C2B2; /* پس‌زمینه‌ای ملایم و روشن، برگرفته از نور آفتاب در مه */
+    color: #3E3A39; /* رنگ متن، تیره ولی گرم */
+    border: 2px solid #C8A974; /* حاشیه طلایی */
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-family: &quot;Black Ops One&quot;;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+QPushButton:hover {
+    background-color: #E9D6C0; /* کمی روشن‌تر و گرم‌تر هنگام هاور */
+    border: 2px solid #DABF85;
+}
+
+QPushButton:pressed {
+    background-color: #BBA89A; /* حالت فشار داده شده، کمی تیره‌تر برای حس وزن */
+    border: 2px solid #A68756;
+    color: #2C2A28;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Start a Sync PVP Match</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="exit">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>280</y>
+       <width>321</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+
+QPushButton {
+    background-color: #D6C2B2; /* پس‌زمینه‌ای ملایم و روشن، برگرفته از نور آفتاب در مه */
+    color: #3E3A39; /* رنگ متن، تیره ولی گرم */
+    border: 2px solid #C8A974; /* حاشیه طلایی */
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-family: &quot;Black Ops One&quot;;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+QPushButton:hover {
+    background-color: #E9D6C0; /* کمی روشن‌تر و گرم‌تر هنگام هاور */
+    border: 2px solid #DABF85;
+}
+
+QPushButton:pressed {
+    background-color: #BBA89A; /* حالت فشار داده شده، کمی تیره‌تر برای حس وزن */
+    border: 2px solid #A68756;
+    color: #2C2A28;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Exit</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>110</y>
+       <width>321</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+    color: #3E3A39; /* رنگ متن گرم و تیره */
+    font-family: &quot;Black Ops One&quot;;
+    font-size: 20px;
+    letter-spacing: 1px;
+    background: transparent; /* لیبل شفاف بمونه */
+}</string>
+     </property>
+     <property name="text">
+      <string>             Player 1:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>190</y>
+       <width>321</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLineEdit {
+    background-color: #F0E4DA;
+    color: #3E3A39;
+    border: 2px solid #C8A974;
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-family: &quot;Black Ops One&quot;;
+    font-size: 20px;
+    letter-spacing: 1px;
+    qproperty-alignment: 'AlignCenter'; /* کلید کار این خطه */
+}</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ok">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>280</y>
+       <width>121</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+
+QPushButton {
+    background-color: #D6C2B2; /* پس‌زمینه‌ای ملایم و روشن، برگرفته از نور آفتاب در مه */
+    color: #3E3A39; /* رنگ متن، تیره ولی گرم */
+    border: 2px solid #C8A974; /* حاشیه طلایی */
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-family: &quot;Black Ops One&quot;;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+QPushButton:hover {
+    background-color: #E9D6C0; /* کمی روشن‌تر و گرم‌تر هنگام هاور */
+    border: 2px solid #DABF85;
+}
+
+QPushButton:pressed {
+    background-color: #BBA89A; /* حالت فشار داده شده، کمی تیره‌تر برای حس وزن */
+    border: 2px solid #A68756;
+    color: #2C2A28;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>OK</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>280</y>
+       <width>121</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+
+QPushButton {
+    background-color: #D6C2B2; /* پس‌زمینه‌ای ملایم و روشن، برگرفته از نور آفتاب در مه */
+    color: #3E3A39; /* رنگ متن، تیره ولی گرم */
+    border: 2px solid #C8A974; /* حاشیه طلایی */
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-family: &quot;Black Ops One&quot;;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+QPushButton:hover {
+    background-color: #E9D6C0; /* کمی روشن‌تر و گرم‌تر هنگام هاور */
+    border: 2px solid #DABF85;
+}
+
+QPushButton:pressed {
+    background-color: #BBA89A; /* حالت فشار داده شده، کمی تیره‌تر برای حس وزن */
+    border: 2px solid #A68756;
+    color: #2C2A28;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Start</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>760</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
