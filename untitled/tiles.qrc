@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>grass.png</file>
+        <file>hand-drawn-samurai-silhouette_23-2151184880.png</file>
+        <file>s.jpg</file>
+        <file>images.jpg</file>
+    </qresource>
+    <qresource prefix="/new/prefix2">
+        <file>rock.png</file>
+    </qresource>
+    <qresource prefix="/new/prefix3">
+        <file>water.png</file>
+    </qresource>
+    <qresource prefix="/new/prefix4">
+        <file>GH.png</file>
+    </qresource>
+    <qresource prefix="/new/prefix5">
+        <file>RH.png</file>
+    </qresource>
+    <qresource prefix="/new/prefix6">
+        <file>WH.png</file>
+    </qresource>
+    <qresource prefix="/new/prefix7">
+        <file>2.jpg</file>
+    </qresource>
+</RCC>
