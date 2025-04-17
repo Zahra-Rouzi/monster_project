@@ -6,7 +6,7 @@
 namespace Ui {
 class Gallery;
 }
-
+////////
 class Gallery : public QMainWindow
 {
     Q_OBJECT
