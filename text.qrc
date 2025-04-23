@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>board/grid1.txt</file>
+    </qresource>
+    <qresource prefix="/new/prefix2">
+        <file>board/grid2.txt</file>
+    </qresource>
+    <qresource prefix="/new/prefix3">
+        <file>board/grid3.txt</file>
+    </qresource>
+    <qresource prefix="/new/prefix4">
+        <file>board/grid4.txt</file>
+    </qresource>
+    <qresource prefix="/new/prefix5">
+        <file>board/grid5.txt</file>
+    </qresource>
+    <qresource prefix="/new/prefix6">
+        <file>board/grid6.txt</file>
+    </qresource>
+    <qresource prefix="/new/prefix7">
+        <file>board/grid7.txt</file>
+    </qresource>
+    <qresource prefix="/new/prefix8">
+        <file>board/grid8.txt</file>
+    </qresource>
+</RCC>

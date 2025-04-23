@@ -1,0 +1,27 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>Welcome.png</file>
+    </qresource>
+    <qresource prefix="/new/prefix2">
+        <file>IMG_20250416_025855.png</file>
+    </qresource>
+    <qresource prefix="/new/prefix3">
+        <file>d.png</file>
+    </qresource>
+    <qresource prefix="/new/prefix4">
+        <file>water.png</file>
+    </qresource>
+    <qresource prefix="/new/prefix5">
+        <file>rock.png</file>
+    </qresource>
+    <qresource prefix="/new/prefix6">
+        <file>a1.png</file>
+    </qresource>
+    <qresource prefix="/new/prefix7">
+        <file>a2.png</file>
+    </qresource>
+    <qresource prefix="/new/prefix8">
+        <file>a3.png</file>
+    </qresource>
+    <qresource prefix="/new/prefix9"/>
+</RCC>
