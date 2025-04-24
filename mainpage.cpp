@@ -2,26 +2,125 @@
 #include "ui_mainpage.h"
 #include <QApplication>
 #include <QLabel>
+#include <QObject>
 #include <QWidget>
 #include <QFile>
 #include <QTextStream>
 #include <QDebug>
 #include <vector>
 
-class tile{
+#include <QMessageBox>
+#include <QWidget>
+#include <QPushButton>
+#include <QLabel>
 
-    public:
-    tile(double x, double y, QWidget *p){
-        w = new QLabel(p);
-     //   w->lower();
-        w->setGeometry(x, y, 100, 86);
-    }
-    void pic(int c){
+#include <QEvent>
+#include <QDebug>
 
+QVector<QPushButton*> vec, v1, v2;
+std::vector<int> hex;
+
+void changeStyle(QPushButton *p, int c){
+
+    if(c == 0 || c == 1 || c == 2)
+        p->setStyleSheet("image: url(:/new/prefix9/dgray.png); "
+                         "background-color: transparent");
+    if(c == 3)
+        p->setStyleSheet("image: url(:/new/prefix10/watergray.png); "
+                         "background-color: transparent");
+    if(c == 4)
+        p->setStyleSheet("image: url(:/new/prefix11/rockgray.png); "
+                         "background-color: transparent");
+}
+
+void changeBack(){
+
+    for(int i = 0; i < vec.size(); i++){
+        QPushButton *p = vec[i];
+        int c = hex[i];
         if(c == 0 || c == 1 || c == 2)
+            p->setStyleSheet("image: url(:/new/prefix3/d.png); "
+                             "background-color: transparent");
+        if(c == 3)
+            p->setStyleSheet("image: url(:/new/prefix4/water.png); "
+                             "background-color: transparent");
+        if(c == 4)
+            p->setStyleSheet("image: url(:/new/prefix5/rock.png); "
+                             "background-color: transparent");
+    }
+
+}
+class SelectButton : public QPushButton {
+
+public:
+    SelectButton(QLabel *linkedCharacter,const QVector<QPushButton*>& buttons,
+        const QVector<QPushButton*>& valid, QWidget *parent = nullptr)
+        : QPushButton("Select", parent),
+        characterLabel(linkedCharacter),
+        allButtons(buttons),
+        validButtons(valid)   {
+        connect(this, &QPushButton::clicked, this, [this, parent]() {
+            waitingForTarget = true;
+            int cnt = 0;
+            for(QPushButton *p : allButtons){
+                p->raise();
+                if(!validButtons.contains(p))
+                    changeStyle(p, hex[cnt]);
+                cnt++;
+            }
+        });
+    }
+        void addvec(const QVector<QPushButton*>& buttons,
+                    const QVector<QPushButton*>& valid,
+                    MainPage *parent){
+            MainPage *m = parent;
+            for(QPushButton *p : allButtons){
+                connect(p, &QPushButton::clicked, p, [=](){
+                    if(waitingForTarget){
+                        if(validButtons.contains(p)){
+                            double x = p->x() - 80;
+                            double y = p->y() - 50;
+                            characterLabel->setGeometry(x, y, 271, 181);
+                            m->centralWidget()->raise();
+                        }
+                        else{
+                            QMessageBox::warning(parent, "Warning", "Choose a valid tile to continue", "OK");
+                            changeBack();
+                            m->centralWidget()->raise();
+                            this->raise();
+
+                        }
+                        waitingForTarget = false;
+
+                    }
+                });
+            }
+        }
+
+
+private:
+    QLabel *characterLabel;
+    QVector<QPushButton*> allButtons;
+    QVector<QPushButton*> validButtons;
+    bool waitingForTarget = false;
+};
+
+class tile : public QPushButton {
+   // Q_OBJECT
+    public:
+    tile(double x, double y, QWidget *p) {
+        w = new QPushButton(p);
+        w->setGeometry(x, y, 100, 86);
+        w->installEventFilter(p);
+        vec.push_back(w);  // اضافه کردن پوش باتن به لیست
+
+    }
+
+    void pic(int c) {
+        if (c == 0 || c == 1 || c == 2)
             w->setStyleSheet("image: url(:/new/prefix3/d.png); "
                              "background-color: transparent");
-        else if(c == 3)
+        else if (c == 3)
             w->setStyleSheet("image: url(:/new/prefix4/water.png);"
                              "background-color: transparent");
         else
@@ -30,9 +129,13 @@ class tile{
         w->show();
     }
 
-    private:
-        QLabel *w;
+
+private:
+    QPushButton *w;
 };
+
+
+
 
 tile *cell[8][8] = {};
 
@@ -42,102 +145,72 @@ MainPage::MainPage(QWidget *parent)
 {
     ui->setupUi(this);
 
-
-    std::vector<int> hex;
-
-    // نام فایل را مشخص کنید
     QString fileName = ":/new/prefix1/board/grid1.txt";
 
-    // ایجاد یک شی QFile
     QFile file(fileName);
 
-    // بررسی اینکه آیا فایل باز می‌شود یا خیر
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         qDebug() << "Cannot open file for reading:" << file.errorString();
-        exit;
+        exit(0);
     }
 
-    // ایجاد یک QTextStream برای خواندن محتویات فایل
     QTextStream in(&file);
 
-    // خواندن خط به خط
+
     while (!in.atEnd()) {
         QString line = in.readLine();
         int startIndex = 0;
-        // جستجوی کاراکترها بین / و \
 
         while (true) {
             startIndex = line.indexOf('/', startIndex);
-            if (startIndex == -1) break; // اگر / پیدا نشد، جستجو را متوقف کنید
+            if (startIndex == -1) break;
 
             int endIndex = line.indexOf('\\', startIndex);
-            if (endIndex == -1) break; // اگر \ پیدا نشد، جستجو را متوقف کنید
+            if (endIndex == -1) break;
             QString content = line.mid(startIndex + 1, endIndex - startIndex - 1);
-            // استخراج محتوای بین / و \
-
-
-            // بررسی شرایط
-
-
-
-
-
-            if (content.isEmpty()) {
-                // اگر دو تا اسپیس بود، هیچ کاری نکنید
-                //qDebug() << "Found empty content between slashes.";
+            if (content[0] == " ")
                 hex.push_back(0);
-
-            } else {
-                // اگر چیز دیگه‌ای بود، ذخیره کنید
-                qDebug() << "Found content:" << content;
-                if(content[0]=='~'){
-                    hex.push_back(3);
-                }
-                if(content[0]=='#'){
-                    hex.push_back(4);
-                }
-                if(content[0]=='1'){
-                    hex.push_back(1);
-                }
-                if(content[0]=='2'){
-                    hex.push_back(2);
-              }
-
-        }
-
-            // ادامه جستجو
-        startIndex = endIndex + 1;
+            if(content[0]=='~')
+                hex.push_back(3);
+            if(content[0]=='#')
+                hex.push_back(4);
+            if(content[0]=='1')
+                hex.push_back(1);
+            if(content[0]=='2')
+                hex.push_back(2);
+            //qDebug() << hex[hex.size()-1];
+            startIndex = endIndex + 1;
+       }
     }
- }
-
-
-    // بستن فایل
     file.close();
+
+    for(int i : hex)
+        qDebug() << i;
+
     float size = 20; // اندازه هر شش‌ضلعی
     float height = sqrt(3) * size;
 
     int cnt = 0;
     for (int row = 0; row < 5; ++row) {
-        for (int col = 0; col < 9; ++col) {
+        for (int col = 0; col < 9; col+=2) {
             double x = (size * 3.0/2 + 55.0) * col;
             double y = (height + 55.0) * (row + 0.5 * (col % 2));
-            if(row == 2 && col == 4)
-                ui->label_2->setGeometry(x+200, y+100, 271, 181);
-            if(row == 4 && col == 8)
-                ui->label_3->setGeometry(x+200, y+100, 271, 181);
             if(col % 2 && row == 4) continue;
             cell[row][col] = new tile(x + 280, y + 150, this);
+            if(hex[cnt] == 1) v1.push_back(vec[cnt]);
+            else if(hex[cnt] == 2) v2.push_back(vec[cnt]);
             cell[row][col]->pic( hex[cnt++] );
+            if(col == 8) col = -1;
 
         }
     }
-    ui->label->setGeometry(200, 100, 271, 181);
 
     ui->centralwidget->raise();
     ui->centralwidget->setStyleSheet("background-color: transparent");
-    ui->centralwidget->hide();
+    SelectButton *btn = new SelectButton(ui->label, vec, v1, this);
+    btn->setGeometry(100, 250, 74, 24);
+    btn->addvec(vec, v1, this);
 
- //   ui->graphicsView->rotate(-90);
 }
 
 MainPage::~MainPage()

@@ -2,7 +2,7 @@
 #define MAINPAGE_H
 
 #include <QMainWindow>
-
+#include <QObject>
 namespace Ui {
 class MainPage;
 }

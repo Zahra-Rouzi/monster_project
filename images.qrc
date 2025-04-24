@@ -23,5 +23,14 @@
     <qresource prefix="/new/prefix8">
         <file>a3.png</file>
     </qresource>
-    <qresource prefix="/new/prefix9"/>
+    <qresource prefix="/new/prefix9">
+        <file>dgray.png</file>
+    </qresource>
+    <qresource prefix="/new/prefix10">
+        <file>watergray.png</file>
+    </qresource>
+    <qresource prefix="/new/prefix11">
+        <file>rockgray.png</file>
+    </qresource>
+    <qresource prefix="/new/prefix12"/>
 </RCC>
