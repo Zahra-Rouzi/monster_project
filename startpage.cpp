@@ -71,7 +71,8 @@ void startPage::on_pushButton_clicked()
 void startPage::on_Gallery_clicked()
 {
     Gallery *w4 = new Gallery;
-    w4->show();
+    //w4->show();
+    w4->showFullScreen();
     this->close();
 }
 

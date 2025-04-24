@@ -33,4 +33,7 @@
         <file>rockgray.png</file>
     </qresource>
     <qresource prefix="/new/prefix12"/>
+    <qresource prefix="/new/prefix13">
+        <file>Game/galleri_bg.jpg</file>
+    </qresource>
 </RCC>

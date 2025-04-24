@@ -7,15 +7,16 @@
 #include <QFile>
 #include <QTextStream>
 #include <QDebug>
-#include <vector>
-
-#include <QMessageBox>
-#include <QWidget>
-#include <QPushButton>
-#include <QLabel>
-
 #include <QEvent>
-#include <QDebug>
+#include <vector>
+#include <QPushButton>
+#include <QMessageBox>
+
+
+
+
+
+
 
 QVector<QPushButton*> vec, v1, v2;
 std::vector<int> hex;
@@ -145,7 +146,39 @@ MainPage::MainPage(QWidget *parent)
 {
     ui->setupUi(this);
 
-    QString fileName = ":/new/prefix1/board/grid1.txt";
+    //QString fileName = ":/new/prefix1/board/grid1.txt";
+    QString fileName;
+    int r=rand()%8;
+    switch (r) {
+    case 0:
+        fileName = ":/new/prefix1/board/grid1.txt";
+
+        break;
+    case 1:
+        fileName = ":/new/prefix2/board/grid2.txt";
+        break;
+    case 2:
+        fileName = ":/new/prefix3/board/grid3.txt";
+        break;
+    case 3:
+        fileName = ":/new/prefix4/board/grid4.txt";
+
+        break;
+    case 4:
+        fileName = ":/new/prefix5/board/grid5.txt";
+        break;
+    case 5:
+        fileName = ":/new/prefix6/board/grid6.txt";
+        break;
+    case 6:
+        fileName = ":/new/prefix7/board/grid7.txt";
+
+        break;
+    case 7:
+        fileName = ":/new/prefix8/board/grid8.txt";
+        break;
+
+    }
 
     QFile file(fileName);
 

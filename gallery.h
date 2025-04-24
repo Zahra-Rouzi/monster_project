@@ -15,6 +15,9 @@ public:
     explicit Gallery(QWidget *parent = nullptr);
     ~Gallery();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::Gallery *ui;
 };
