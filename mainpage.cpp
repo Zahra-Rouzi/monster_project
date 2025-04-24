@@ -14,11 +14,6 @@
 
 
 
-
-
-
-
-
 QVector<QPushButton*> vec, v1, v2;
 std::vector<int> hex;
 
@@ -65,7 +60,36 @@ public:
         validButtons(valid)   {
         connect(this, &QPushButton::clicked, this, [this, parent]() {
             if(hasCharachter){
-                QMessageBox::warning(parent, "Warning", "This charachter has already been chosen");
+                QMessageBox msgBox(QMessageBox::Warning,
+                                   "Warning",
+                                   "This character has already been chosen",
+                                   QMessageBox::Ok,
+                                   parent);
+                msgBox.setStyleSheet(
+                    "QMessageBox {"
+                    "background-color: #FFC07C;" /* رنگ نارنجی ملایم */
+                    "color: #000000;"            /* متن مشکی برای وضوح بیشتر */
+                    "font-size: 12px;"
+                    "padding: 10px;"
+                    "}"
+                    "QLabel {"
+                    "color: #000000;"            /* رنگ متن داخل پیام */
+                    "font-size: 12px;"           /* اندازه‌ی متن مناسب */
+                    "}"
+                    "QPushButton {"
+                    "background-color: #FFF;"    /* رنگ سفید برای دکمه‌ها */
+                    "color: #000000;"            /* متن مشکی روی دکمه‌ها */
+                    "border: 1px solid #FFC07C;" /* حاشیه نارنجی */
+                    "border-radius: 5px;"
+                    "padding: 5px;"
+                    "}"
+                    );
+                msgBox.exec();
+
+
+
+
+
             }
             else{
             waitingForTarget = true;
@@ -99,7 +123,34 @@ public:
                             hasCharachter = true;
                         }
                         else{
-                            QMessageBox::warning(parent, "Warning", "Choose a valid tile to continue", "OK");
+                            QMessageBox msgBox1(QMessageBox::Warning,
+                                               "Warning",
+                                               "Choose a valid tile to continue",
+                                               QMessageBox::Ok,
+                                               parent);
+                            msgBox1.setStyleSheet(
+                                "QMessageBox {"
+                                "background-color: #FFC07C;" /* رنگ نارنجی ملایم */
+                                "color: #000000;"            /* متن مشکی برای وضوح بیشتر */
+                                "font-size: 12px;"
+                                "padding: 10px;"
+                                "}"
+                                "QLabel {"
+                                "color: #000000;"            /* رنگ متن داخل پیام */
+                                "font-size: 12px;"           /* اندازه‌ی متن مناسب */
+                                "}"
+                                "QPushButton {"
+                                "background-color: #FFF;"    /* رنگ سفید برای دکمه‌ها */
+                                "color: #000000;"            /* متن مشکی روی دکمه‌ها */
+                                "border: 1px solid #FFC07C;" /* حاشیه نارنجی */
+                                "border-radius: 5px;"
+                                "padding: 5px;"
+                                "}"
+                                );
+                            msgBox1.exec();
+
+                            //QMessageBox::warning(parent, "Warning", "Choose a valid tile to continue", "OK");
+
                             changeBack();
                             m->centralWidget()->raise();
                             for(SelectButton *s : sb)
@@ -270,6 +321,7 @@ MainPage::MainPage(QWidget *parent)
     ui->centralwidget->setStyleSheet("background-color: transparent");
 
     chars.push_back(ui->label); chars.push_back(ui->label_2); chars.push_back(ui->label_3);
+    chars.push_back(ui->label_4); chars.push_back(ui->label_5); chars.push_back(ui->label_6);
     charbuttons.push_back(new SelectButton(ui->label, vec, v1, this) );
     charbuttons[0]->setGeometry(80, 170, 75, 24);
 
@@ -279,9 +331,26 @@ MainPage::MainPage(QWidget *parent)
     charbuttons.push_back(new SelectButton(ui->label_3, vec, v1, this) );
     charbuttons[2]->setGeometry(90, 660, 75, 24);
 
+    charbuttons.push_back(new SelectButton(ui->label_4, vec, v2, this) );
+    charbuttons[3]->setGeometry(1190, 170, 75, 24);
+
+    charbuttons.push_back(new SelectButton(ui->label_5, vec, v2, this) );
+    charbuttons[4]->setGeometry(1200, 430, 75, 24);
+
+    charbuttons.push_back(new SelectButton(ui->label_6, vec, v2, this) );
+    charbuttons[5]->setGeometry(1200, 660, 75, 24);
+
     charbuttons[0]->addvec(this, charbuttons);
     charbuttons[1]->addvec(this, charbuttons);
     charbuttons[2]->addvec(this, charbuttons);
+    charbuttons[3]->addvec(this, charbuttons);
+    charbuttons[4]->addvec(this, charbuttons);
+    charbuttons[5]->addvec(this, charbuttons);
+
+    //
+
+
+
 }
 
 MainPage::~MainPage()
