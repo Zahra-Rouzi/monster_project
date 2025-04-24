@@ -17,6 +17,7 @@
 #include <QEvent>
 #include <QDebug>
 
+
 QVector<QPushButton*> vec, v1, v2;
 std::vector<int> hex;
 
@@ -50,16 +51,22 @@ void changeBack(){
     }
 
 }
+
+
 class SelectButton : public QPushButton {
 
 public:
-    SelectButton(QLabel *linkedCharacter,const QVector<QPushButton*>& buttons,
-        const QVector<QPushButton*>& valid, QWidget *parent = nullptr)
+    SelectButton(QLabel *linkedCharacter,QVector<QPushButton*>& buttons,
+        QVector<QPushButton*>& valid, QWidget *parent = nullptr)
         : QPushButton("Select", parent),
         characterLabel(linkedCharacter),
         allButtons(buttons),
         validButtons(valid)   {
         connect(this, &QPushButton::clicked, this, [this, parent]() {
+            if(hasCharachter){
+                QMessageBox::warning(parent, "Warning", "This charachter has already been chosen");
+            }
+            else{
             waitingForTarget = true;
             int cnt = 0;
             for(QPushButton *p : allButtons){
@@ -68,11 +75,10 @@ public:
                     changeStyle(p, hex[cnt]);
                 cnt++;
             }
+            }
         });
     }
-        void addvec(const QVector<QPushButton*>& buttons,
-                    const QVector<QPushButton*>& valid,
-                    MainPage *parent){
+        void addvec(MainPage *parent, QVector<SelectButton*>sb){
             MainPage *m = parent;
             for(QPushButton *p : allButtons){
                 connect(p, &QPushButton::clicked, p, [=](){
@@ -82,12 +88,21 @@ public:
                             double y = p->y() - 50;
                             characterLabel->setGeometry(x, y, 271, 181);
                             m->centralWidget()->raise();
+
+                            validButtons.removeAll(p);
+
+                            changeBack();
+                            m->centralWidget()->raise();
+                            for(SelectButton *s : sb)
+                                s->raise();
+                            hasCharachter = true;
                         }
                         else{
                             QMessageBox::warning(parent, "Warning", "Choose a valid tile to continue", "OK");
                             changeBack();
                             m->centralWidget()->raise();
-                            this->raise();
+                            for(SelectButton *s : sb)
+                                s->raise();
 
                         }
                         waitingForTarget = false;
@@ -101,9 +116,13 @@ public:
 private:
     QLabel *characterLabel;
     QVector<QPushButton*> allButtons;
-    QVector<QPushButton*> validButtons;
+    QVector<QPushButton*> &validButtons;
     bool waitingForTarget = false;
+    bool hasCharachter = false;
 };
+
+QVector <QLabel*> chars;
+QVector <SelectButton*> charbuttons;
 
 class tile : public QPushButton {
    // Q_OBJECT
@@ -129,9 +148,19 @@ class tile : public QPushButton {
         w->show();
     }
 
+    bool hasChar(){
+        return hasCharachter;
+    }
+
+    void setCharachter(QLabel *l){
+        charachter = l;
+    }
+
 
 private:
     QPushButton *w;
+    QLabel *charachter;
+    bool hasCharachter = false;
 };
 
 
@@ -178,7 +207,6 @@ MainPage::MainPage(QWidget *parent)
                 hex.push_back(1);
             if(content[0]=='2')
                 hex.push_back(2);
-            //qDebug() << hex[hex.size()-1];
             startIndex = endIndex + 1;
        }
     }
@@ -207,10 +235,20 @@ MainPage::MainPage(QWidget *parent)
 
     ui->centralwidget->raise();
     ui->centralwidget->setStyleSheet("background-color: transparent");
-    SelectButton *btn = new SelectButton(ui->label, vec, v1, this);
-    btn->setGeometry(100, 250, 74, 24);
-    btn->addvec(vec, v1, this);
 
+    chars.push_back(ui->label); chars.push_back(ui->label_2); chars.push_back(ui->label_3);
+    charbuttons.push_back(new SelectButton(ui->label, vec, v1, this) );
+    charbuttons[0]->setGeometry(80, 170, 75, 24);
+
+    charbuttons.push_back(new SelectButton(ui->label_2, vec, v1, this) );
+    charbuttons[1]->setGeometry(90, 430, 75, 24);
+
+    charbuttons.push_back(new SelectButton(ui->label_3, vec, v1, this) );
+    charbuttons[2]->setGeometry(90, 660, 75, 24);
+
+    charbuttons[0]->addvec(this, charbuttons);
+    charbuttons[1]->addvec(this, charbuttons);
+    charbuttons[2]->addvec(this, charbuttons);
 }
 
 MainPage::~MainPage()
