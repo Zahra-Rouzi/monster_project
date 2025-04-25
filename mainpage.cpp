@@ -190,9 +190,7 @@ class tile : public QPushButton {
     tile(double x, double y, QWidget *p) {
         w = new QPushButton(p);
         w->setGeometry(x, y, 100, 86);
-        w->installEventFilter(p);
         vec.push_back(w);  // اضافه کردن پوش باتن به لیست
-
     }
 
     void pic(int c) {
@@ -208,19 +206,10 @@ class tile : public QPushButton {
         w->show();
     }
 
-    bool hasChar(){
-        return hasCharachter;
-    }
-
-    void setCharachter(QLabel *l){
-        charachter = l;
-    }
 
 
 private:
     QPushButton *w;
-    QLabel *charachter;
-    bool hasCharachter = false;
 };
 
 
