@@ -58,6 +58,14 @@ public:
         characterLabel(linkedCharacter),
         allButtons(buttons),
         validButtons(valid)   {
+        this->setStyleSheet("background-color: #F0E4DA;"
+                            "color: #3E3A39;"
+                            "border: 2px solid #C8A974;"
+                            "border-radius: 6px;"
+                            "padding: 4px 8px;"
+                            "font-family: 'Black Ops One' ;"
+                            "font-size: 14px;"
+                            "letter-spacing: 1px;");
         connect(this, &QPushButton::clicked, this, [this, parent]() {
             if(hasCharachter){
                 QMessageBox msgBox(QMessageBox::Warning,
@@ -182,9 +190,7 @@ class tile : public QPushButton {
     tile(double x, double y, QWidget *p) {
         w = new QPushButton(p);
         w->setGeometry(x, y, 100, 86);
-        w->installEventFilter(p);
         vec.push_back(w);  // اضافه کردن پوش باتن به لیست
-
     }
 
     void pic(int c) {
@@ -200,19 +206,10 @@ class tile : public QPushButton {
         w->show();
     }
 
-    bool hasChar(){
-        return hasCharachter;
-    }
-
-    void setCharachter(QLabel *l){
-        charachter = l;
-    }
 
 
 private:
     QPushButton *w;
-    QLabel *charachter;
-    bool hasCharachter = false;
 };
 
 
@@ -346,8 +343,6 @@ MainPage::MainPage(QWidget *parent)
     charbuttons[3]->addvec(this, charbuttons);
     charbuttons[4]->addvec(this, charbuttons);
     charbuttons[5]->addvec(this, charbuttons);
-
-    //
 
 
 
