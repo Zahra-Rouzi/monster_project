@@ -75,19 +75,19 @@ public:
                                    parent);
                 msgBox.setStyleSheet(
                     "QMessageBox {"
-                    "background-color: #FFC07C;" /* رنگ نارنجی ملایم */
-                    "color: #000000;"            /* متن مشکی برای وضوح بیشتر */
+                    "background-color: #FFC07C;"
+                    "color: #000000;"
                     "font-size: 12px;"
                     "padding: 10px;"
                     "}"
                     "QLabel {"
-                    "color: #000000;"            /* رنگ متن داخل پیام */
-                    "font-size: 12px;"           /* اندازه‌ی متن مناسب */
+                    "color: #000000;"
+                    "font-size: 12px;"
                     "}"
                     "QPushButton {"
-                    "background-color: #FFF;"    /* رنگ سفید برای دکمه‌ها */
-                    "color: #000000;"            /* متن مشکی روی دکمه‌ها */
-                    "border: 1px solid #FFC07C;" /* حاشیه نارنجی */
+                    "background-color: #FFF;"
+                    "color: #000000;"
+                    "border: 1px solid #FFC07C;"
                     "border-radius: 5px;"
                     "padding: 5px;"
                     "}"
@@ -138,19 +138,19 @@ public:
                                                parent);
                             msgBox1.setStyleSheet(
                                 "QMessageBox {"
-                                "background-color: #FFC07C;" /* رنگ نارنجی ملایم */
-                                "color: #000000;"            /* متن مشکی برای وضوح بیشتر */
+                                "background-color: #FFC07C;"
+                                "color: #000000;"
                                 "font-size: 12px;"
                                 "padding: 10px;"
                                 "}"
                                 "QLabel {"
-                                "color: #000000;"            /* رنگ متن داخل پیام */
-                                "font-size: 12px;"           /* اندازه‌ی متن مناسب */
+                                "color: #000000;"
+                                "font-size: 12px;"
                                 "}"
                                 "QPushButton {"
-                                "background-color: #FFF;"    /* رنگ سفید برای دکمه‌ها */
-                                "color: #000000;"            /* متن مشکی روی دکمه‌ها */
-                                "border: 1px solid #FFC07C;" /* حاشیه نارنجی */
+                                "background-color: #FFF;"
+                                "color: #000000;"
+                                "border: 1px solid #FFC07C;"
                                 "border-radius: 5px;"
                                 "padding: 5px;"
                                 "}"

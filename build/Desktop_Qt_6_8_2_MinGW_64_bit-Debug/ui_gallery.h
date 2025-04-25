@@ -55,7 +55,7 @@ public:
         widget->setGeometry(QRect(410, 480, 120, 80));
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName("groupBox");
-        groupBox->setGeometry(QRect(360, 130, 751, 571));
+        groupBox->setGeometry(QRect(320, 80, 751, 571));
         groupBox->setStyleSheet(QString::fromUtf8("    border: 2px solid #D8B47D; \n"
 "    border-radius: 10px;\n"
 "    margin-top: 20px;\n"
@@ -85,7 +85,7 @@ public:
 "background-color: rgb(214, 194, 178);"));
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(690, 720, 101, 31));
+        pushButton->setGeometry(QRect(630, 680, 121, 41));
         pushButton->setStyleSheet(QString::fromUtf8("  \n"
 "\n"
 "\n"
@@ -95,6 +95,7 @@ public:
 "    border: 2px solid #e8a6a1;\n"
 "    border-radius: 0px;\n"
 "    padding: 6px 12px;\n"
+"	font-family: 'Black Ops One' ;\n"
 "    font-size: 16px;\n"
 "    font-weight: bold;\n"
 "}\n"
@@ -111,7 +112,7 @@ public:
         Gallery->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Gallery);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1143, 25));
+        menubar->setGeometry(QRect(0, 0, 1143, 22));
         Gallery->setMenuBar(menubar);
         statusbar = new QStatusBar(Gallery);
         statusbar->setObjectName("statusbar");
