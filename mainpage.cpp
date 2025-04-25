@@ -355,8 +355,6 @@ MainPage::MainPage(QWidget *parent)
     charbuttons[4]->addvec(this, charbuttons);
     charbuttons[5]->addvec(this, charbuttons);
 
-    //
-
 
 
 }
