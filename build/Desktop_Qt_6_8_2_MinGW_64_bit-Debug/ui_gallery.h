@@ -56,7 +56,7 @@ public:
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName("groupBox");
         groupBox->setGeometry(QRect(360, 130, 751, 571));
-        groupBox->setStyleSheet(QString::fromUtf8("    border: 2px solid #D8B47D; /* \330\261\331\206\332\257 \330\267\331\204\330\247\333\214\333\214-\330\256\331\210\330\261\330\264\333\214\330\257\333\214 */\n"
+        groupBox->setStyleSheet(QString::fromUtf8("    border: 2px solid #D8B47D; \n"
 "    border-radius: 10px;\n"
 "    margin-top: 20px;\n"
 "    padding: 10px;\n"

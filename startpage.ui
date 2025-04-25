@@ -22,11 +22,11 @@
 }
 
 QLabel {
-    color: #3E3A39; /* رنگ متن گرم و تیره */
+    color: #3E3A39; 
     font-family: &quot;Black Ops One&quot;;
     font-size: 20px;
     letter-spacing: 1px;
-    background: transparent; /* لیبل شفاف بمونه */
+    background: transparent; 
     border-bottom: 4px solid #6a415e;
 	padding-bottom: 4px;
 }
@@ -40,9 +40,9 @@ QMessageBox{
     letter-spacing: 1px;
 }
 QPushButton {
-    background-color: #D6C2B2; /* پس‌زمینه‌ای ملایم و روشن، برگرفته از نور آفتاب در مه */
-    color: #3E3A39; /* رنگ متن، تیره ولی گرم */
-    border: 2px solid #C8A974; /* حاشیه طلایی */
+    background-color: #D6C2B2; 
+    color: #3E3A39; 
+    border: 2px solid #C8A974; 
     border-radius: 8px;
     padding: 6px 12px;
     font-family: &quot;Black Ops One&quot;;
@@ -51,12 +51,12 @@ QPushButton {
 }
 
 QPushButton:hover {
-    background-color: #E9D6C0; /* کمی روشن‌تر و گرم‌تر هنگام هاور */
+    background-color: #E9D6C0; 
     border: 2px solid #DABF85;
 }
 
 QPushButton:pressed {
-    background-color: #BBA89A; /* حالت فشار داده شده، کمی تیره‌تر برای حس وزن */
+    background-color: #BBA89A;  
     border: 2px solid #A68756;
     color: #2C2A28;
 }
@@ -384,7 +384,7 @@ QPushButton:pressed {
      <x>0</x>
      <y>0</y>
      <width>760</width>
-     <height>22</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
