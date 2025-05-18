@@ -45,7 +45,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">    border: 2px solid #D8B47D; /* رنگ طلایی-خورشیدی */
+     <string notr="true">    border: 2px solid #D8B47D; 
     border-radius: 10px;
     margin-top: 20px;
     padding: 10px;

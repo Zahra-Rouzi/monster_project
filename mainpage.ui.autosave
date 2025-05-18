@@ -255,7 +255,7 @@ background-color: transparent;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">
-  background-color:  rgba(255, 239, 200, 0.5);
+  background-color:  transparent;
     border: 2px solid #D8B47D;
     border-radius: 10px;
     margin-top: 20px;
@@ -390,44 +390,35 @@ background-color: transparent;</string>
      <string/>
     </property>
    </widget>
-   <widget class="QWidget" name="verticalLayoutWidget">
+   <widget class="QListWidget" name="listWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>271</width>
-      <height>851</height>
+      <x>1</x>
+      <y>1</y>
+      <width>231</width>
+      <height>751</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QListWidget" name="listWidget">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>231</width>
-         <height>751</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>231</width>
-         <height>751</height>
-        </size>
-       </property>
-       <property name="sizeIncrement">
-        <size>
-         <width>0</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">
+    <property name="minimumSize">
+     <size>
+      <width>231</width>
+      <height>751</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>231</width>
+      <height>751</height>
+     </size>
+    </property>
+    <property name="sizeIncrement">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
   background-color: rgba(255, 239, 200, 0.5);
     border: 2px solid #D8B47D;
     border-radius: 10px;
@@ -437,13 +428,10 @@ background-color: transparent;</string>
    
 
 </string>
-       </property>
-       <property name="verticalScrollBarPolicy">
-        <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOn</enum>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
+    </property>
    </widget>
    <zorder>listWidget_2</zorder>
    <zorder>pushButton_5</zorder>
@@ -455,16 +443,16 @@ background-color: transparent;</string>
    <zorder>pushButton</zorder>
    <zorder>pushButton_2</zorder>
    <zorder>pushButton_3</zorder>
-   <zorder>label_7</zorder>
-   <zorder>label_8</zorder>
-   <zorder>label_9</zorder>
    <zorder>label_10</zorder>
    <zorder>label_11</zorder>
    <zorder>label_12</zorder>
    <zorder>verticalLayoutWidget</zorder>
-   <zorder>label_3</zorder>
    <zorder>label</zorder>
    <zorder>label_2</zorder>
+   <zorder>label_3</zorder>
+   <zorder>label_9</zorder>
+   <zorder>label_8</zorder>
+   <zorder>label_7</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
