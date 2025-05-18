@@ -396,12 +396,18 @@ background-color: transparent;</string>
       <x>0</x>
       <y>0</y>
       <width>271</width>
-      <height>631</height>
+      <height>851</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <widget class="QListWidget" name="listWidget">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="minimumSize">
         <size>
          <width>231</width>
@@ -455,10 +461,10 @@ background-color: transparent;</string>
    <zorder>label_10</zorder>
    <zorder>label_11</zorder>
    <zorder>label_12</zorder>
+   <zorder>verticalLayoutWidget</zorder>
    <zorder>label_3</zorder>
    <zorder>label</zorder>
    <zorder>label_2</zorder>
-   <zorder>verticalLayoutWidget</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

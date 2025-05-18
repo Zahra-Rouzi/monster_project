@@ -36,4 +36,10 @@
     <qresource prefix="/new/prefix13">
         <file>Game/galleri_bg.jpg</file>
     </qresource>
+    <qresource prefix="/new/prefix14">
+        <file>bg8.jpg</file>
+    </qresource>
+    <qresource prefix="/new/prefix15">
+        <file>bg9.jpg</file>
+    </qresource>
 </RCC>
