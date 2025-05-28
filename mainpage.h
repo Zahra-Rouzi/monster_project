@@ -1,8 +1,12 @@
 #ifndef MAINPAGE_H
 #define MAINPAGE_H
 
+#include "qpushbutton.h"
 #include <QMainWindow>
 #include <QObject>
+
+extern QVector<QPushButton*> vec, v1, v2;
+
 namespace Ui {
 class MainPage;
 }

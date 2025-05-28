@@ -3,12 +3,13 @@
 #include "QMessageBox"
 #include "mainpage.h"
 #include "gallery.h"
-
+#include "player.h"
 startPage::startPage(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::startPage)
 {
     ui->setupUi(this);
+
     ui->lineEdit->hide();
     ui->label->hide();
     ui->ok->hide();
@@ -43,6 +44,7 @@ void startPage::on_ok_clicked()
     QString s = ui->lineEdit->text();
 
     if(s != ""){
+        player1.name = s;
         ui->label->setText("                Player 2:");
         ui->lineEdit->setText("");
         ui->ok->hide();
@@ -61,6 +63,7 @@ void startPage::on_pushButton_clicked()
         QMessageBox::warning(this, "Warning!", "Please Enter Your Name");
     }
     else{
+        player2.name = s;
         MainPage *w3 = new MainPage;
         w3->showFullScreen();
         this->close();

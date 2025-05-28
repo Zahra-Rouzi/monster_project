@@ -42,4 +42,14 @@
     <qresource prefix="/new/prefix15">
         <file>bg9.jpg</file>
     </qresource>
+    <qresource prefix="/new/prefix16">
+        <file>agents/Screenshot_2025-04-19-18-12-23-074_com.android.chrome-edit (4).png</file>
+        <file>agents/Screenshot_2025-04-19-18-12-23-074_com.android.chrome-edit (5).png</file>
+        <file>agents/Screenshot_2025-04-19-18-12-23-074_com.android.chrome-edit (6).png</file>
+        <file>agents/Screenshot_2025-04-19-18-12-23-074_com.android.chrome-edit (7).png</file>
+        <file>agents/Screenshot_2025-04-19-18-12-23-074_com.android.chrome-edit (8).png</file>
+        <file>agents/Screenshot_2025-04-19-18-12-23-074_com.android.chrome-edit (9).png</file>
+        <file>agents/Screenshot_2025-04-19-18-12-23-074_com.android.chrome-edit (10).png</file>
+        <file>agents/Screenshot_2025-04-19-18-12-23-074_com.android.chrome-edit (11).png</file>
+    </qresource>
 </RCC>
