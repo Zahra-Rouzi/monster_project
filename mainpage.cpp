@@ -1,4 +1,5 @@
 #include "mainpage.h"
+#include "grounded.h"
 #include "ui_mainpage.h"
 #include <QApplication>
 #include <QLabel>
@@ -54,7 +55,7 @@ class SelectButton : public QPushButton {
 
 public:
     SelectButton(QLabel *linkedCharacter,QVector<QPushButton*>& buttons,
-        QVector<QPushButton*>& valid,
+        QVector<QPushButton*>& valid, int type,
         QPushButton *s, QWidget *parent1 = nullptr,
                  MainPage *parent2 = nullptr)
         : QPushButton(parent1),
@@ -119,7 +120,15 @@ public:
                     if(validButtons.contains(p)){
                         double x = p->x() - 80;
                         double y = p->y() - 40;
-                        Agent *charachter = new Agent(parent2);
+                        Agent *charachter = new Grounded; // از نوعش نیو کن
+
+                        switch (type) {
+                        case 0:
+                            charachter = new Grounded;
+                            break;
+                        default:
+                            break;
+                        }
                         QString oldStyle = characterLabel->styleSheet();
                         QString newRule = "border: none;\nbackground-color: transparent;";
                         QString updatedStyle = oldStyle + "\n" + newRule;

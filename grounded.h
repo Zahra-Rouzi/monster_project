@@ -15,7 +15,16 @@ class Grounded : public Agent
     Q_OBJECT
     QML_ELEMENT
 public:
-    Grounded();
+    bool canMoveT0(int type) const override{
+        if(type == 0 || type == 1 || type == 2)
+            return 1;
+        return 0;
+    }
+    bool canStandOn(int type) const override{
+        if(type == 0 || type == 1 || type == 2)
+            return 1;
+        return 0;
+    }
 
 
 private:

@@ -11,6 +11,8 @@ CONFIG += c++17
 
 SOURCES += \
     agent.cpp \
+    floating.cpp \
+    flying.cpp \
     gallery.cpp \
     grounded.cpp \
     main.cpp \
@@ -18,16 +20,20 @@ SOURCES += \
     player.cpp \
     startpage.cpp \
     tile.cpp \
+    waterwalking.cpp \
     welcome.cpp
 
 HEADERS += \
     agent.h \
+    floating.h \
+    flying.h \
     gallery.h \
     grounded.h \
     mainpage.h \
     player.h \
     startpage.h \
     tile.h \
+    waterwalking.h \
     welcome.h
 
 FORMS += \
