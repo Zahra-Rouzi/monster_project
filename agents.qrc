@@ -1,0 +1,33 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>newagents/floating1.png</file>
+        <file>newagents/floating2.png</file>
+        <file>newagents/floating3.png</file>
+        <file>newagents/flying1.png</file>
+        <file>newagents/grounded1.png</file>
+        <file>newagents/grounded2.png</file>
+        <file>newagents/grounded3.png</file>
+        <file>newagents/grounded4.png</file>
+        <file>newagents/grounded5.png</file>
+        <file>newagents/grounded6.png</file>
+        <file>newagents/grounded7.png</file>
+        <file>newagents/grounded8.png</file>
+        <file>newagents/grounded9.png</file>
+        <file>newagents/grounded10.png</file>
+        <file>newagents/grounded11.png</file>
+        <file>newagents/grounded12.png</file>
+        <file>newagents/grounded13.png</file>
+        <file>newagents/grounded14.png</file>
+        <file>newagents/grounded15.png</file>
+        <file>newagents/grounded16.png</file>
+        <file>newagents/grounded17.png</file>
+        <file>newagents/waterwalking2.png</file>
+        <file>newagents/waterwalking4.png</file>
+        <file>newagents/waterwalking5.png</file>
+        <file>newagents/waterwalking6.png</file>
+        <file>newagents/waterwalking7.png</file>
+        <file>newagents/waterwalking8.png</file>
+        <file>newagents/waterwalking3.png</file>
+        <file>newagents/waterwalking1.png</file>
+    </qresource>
+</RCC>

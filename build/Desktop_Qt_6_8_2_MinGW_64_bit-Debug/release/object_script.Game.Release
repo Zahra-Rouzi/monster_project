@@ -1,11 +1,16 @@
+release/agent.o
 release/gallery.o
 release/main.o
 release/mainpage.o
+release/player.o
 release/startpage.o
+release/tile.o
 release/welcome.o
 release/qrc_Fonts.o
+release/qrc_agents.o
 release/qrc_images.o
 release/qrc_text.o
+release/moc_agent.o
 release/moc_gallery.o
 release/moc_mainpage.o
 release/moc_startpage.o

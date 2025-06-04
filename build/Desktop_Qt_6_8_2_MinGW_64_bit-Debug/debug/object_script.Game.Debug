@@ -1,11 +1,16 @@
+debug/agent.o
 debug/gallery.o
 debug/main.o
 debug/mainpage.o
+debug/player.o
 debug/startpage.o
+debug/tile.o
 debug/welcome.o
 debug/qrc_Fonts.o
+debug/qrc_agents.o
 debug/qrc_images.o
 debug/qrc_text.o
+debug/moc_agent.o
 debug/moc_gallery.o
 debug/moc_mainpage.o
 debug/moc_startpage.o

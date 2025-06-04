@@ -253,7 +253,7 @@ QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>-1321</y>
+       <y>-270</y>
        <width>197</width>
        <height>2350</height>
       </rect>
@@ -305,8 +305,8 @@ QPushButton:pressed{
      <widget class="QPushButton" name="pushButton_7">
       <property name="geometry">
        <rect>
-        <x>11</x>
-        <y>218</y>
+        <x>10</x>
+        <y>230</y>
         <width>171</width>
         <height>31</height>
        </rect>
@@ -682,36 +682,6 @@ border: 2px solid rgb(187, 128, 68);</string>
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_15">
-      <property name="geometry">
-       <rect>
-        <x>11</x>
-        <y>595</y>
-        <width>171</width>
-        <height>211</height>
-       </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>171</width>
-        <height>211</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix16/agents/Screenshot_2025-04-19-18-12-23-074_com.android.chrome-edit (6).png);
- background-color: rgba(255, 255, 255, 0.3);
-border: 2px solid rgb(187, 128, 68);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
      <widget class="QPushButton" name="pushButton_13">
       <property name="geometry">
        <rect>
@@ -750,11 +720,11 @@ QPushButton:pressed{
        <string>PushButton</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_14">
+     <widget class="QLabel" name="label_15">
       <property name="geometry">
        <rect>
-        <x>11</x>
-        <y>298</y>
+        <x>10</x>
+        <y>10</y>
         <width>171</width>
         <height>211</height>
        </rect>
@@ -772,7 +742,7 @@ QPushButton:pressed{
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix16/agents/Screenshot_2025-04-19-18-12-23-074_com.android.chrome-edit (5).png);
+       <string notr="true">image: url(:/new/prefix16/agents/Screenshot_2025-04-19-18-12-23-074_com.android.chrome-edit (11).png);
  background-color: rgba(255, 255, 255, 0.3);
 border: 2px solid rgb(187, 128, 68);</string>
       </property>
@@ -783,8 +753,8 @@ border: 2px solid rgb(187, 128, 68);</string>
      <widget class="QLabel" name="label_13">
       <property name="geometry">
        <rect>
-        <x>11</x>
-        <y>1</y>
+        <x>10</x>
+        <y>290</y>
         <width>171</width>
         <height>211</height>
        </rect>
@@ -803,6 +773,36 @@ border: 2px solid rgb(187, 128, 68);</string>
       </property>
       <property name="styleSheet">
        <string notr="true">image: url(:/new/prefix16/agents/Screenshot_2025-04-19-18-12-23-074_com.android.chrome-edit (4).png);
+ background-color: rgba(255, 255, 255, 0.3);
+border: 2px solid rgb(187, 128, 68);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_14">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>590</y>
+        <width>171</width>
+        <height>211</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>171</width>
+        <height>211</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/new/prefix16/agents/Screenshot_2025-04-19-18-12-23-074_com.android.chrome-edit (10).png);
  background-color: rgba(255, 255, 255, 0.3);
 border: 2px solid rgb(187, 128, 68);</string>
       </property>
@@ -830,7 +830,7 @@ border: 2px solid rgb(187, 128, 68);</string>
      <x>0</x>
      <y>0</y>
      <width>1388</width>
-     <height>22</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

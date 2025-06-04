@@ -41,5 +41,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     Fonts.qrc \
+    agents.qrc \
     images.qrc \
     text.qrc
