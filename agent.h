@@ -27,7 +27,9 @@ public:
     void setCell(tile &t){
         currentCell = &t;
     }
-    //~Agent();
+   // void attack()
+    virtual bool canMoveT0(int type) const = 0;
+    virtual bool canStandOn(int type) const = 0;
 
 private:
     int HP;

@@ -12,6 +12,7 @@ CONFIG += c++17
 SOURCES += \
     agent.cpp \
     gallery.cpp \
+    grounded.cpp \
     main.cpp \
     mainpage.cpp \
     player.cpp \
@@ -22,6 +23,7 @@ SOURCES += \
 HEADERS += \
     agent.h \
     gallery.h \
+    grounded.h \
     mainpage.h \
     player.h \
     startpage.h \
