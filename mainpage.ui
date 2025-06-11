@@ -20,196 +20,18 @@
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label_3">
+   <widget class="QScrollArea" name="scrollArea_2">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>530</y>
-      <width>151</width>
-      <height>141</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">image: url(:/new/prefix8/a3.png);
-background-color: transparent;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_8">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>290</y>
-      <width>101</width>
-      <height>171</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">
-  background-color: transparent;
-    border: 2px solid #D8B47D;
-    border-radius: 10px;
-    margin-top: 20px;
-    padding: 10px;
-    color: #3E3A39;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_7">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>30</y>
-      <width>101</width>
-      <height>171</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">
-  background-color: transparent;
-    border: 2px solid #D8B47D;
-    border-radius: 10px;
-    margin-top: 20px;
-    padding: 10px;
-    color: #3E3A39;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>170</y>
-      <width>75</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_2">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>430</y>
-      <width>75</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_9">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>520</y>
-      <width>101</width>
-      <height>171</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">
-  background-color: transparent;
-    border: 2px solid #D8B47D;
-    border-radius: 10px;
-    margin-top: 20px;
-    padding: 10px;
-    color: #3E3A39;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>60</y>
-      <width>141</width>
-      <height>121</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">image: url(:/new/prefix6/a1.png);
-background-color: transparent;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>310</y>
-      <width>181</width>
-      <height>121</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">image: url(:/new/prefix7/a2.png);
-background-color: transparent;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_3">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>660</y>
-      <width>75</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
-   </widget>
-   <widget class="QListWidget" name="listWidget_3">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>0</y>
+      <x>20</x>
+      <y>20</y>
       <width>231</width>
-      <height>741</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">
-  background-color: rgba(255, 239, 200, 0.5);
-    border: 2px solid #D8B47D;
-    border-radius: 10px;
-    margin-top: 20px;
-    padding: 10px;
-    color: #3E3A39;
-   
-
-</string>
-    </property>
-   </widget>
-   <widget class="QScrollArea" name="scrollArea">
-    <property name="geometry">
-     <rect>
-      <x>1130</x>
-      <y>60</y>
-      <width>231</width>
-      <height>621</height>
+      <height>711</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">QScrollArea {
-   background-color: rgba(170, 170, 127, 0.4);
+   background-color: rgba(170, 170, 127, 0.7);
     border: 4px solid rgb(187, 128, 68);
     border-radius: 12px;
     padding: 6px;
@@ -249,373 +71,42 @@ QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
     <property name="widgetResizable">
      <bool>true</bool>
     </property>
-    <widget class="QWidget" name="scrollAreaWidgetContents">
+    <widget class="QWidget" name="scrollAreaWidgetContents_2">
      <property name="geometry">
       <rect>
        <x>0</x>
        <y>0</y>
        <width>197</width>
-       <height>2350</height>
+       <height>6100</height>
       </rect>
      </property>
      <property name="minimumSize">
       <size>
        <width>0</width>
-       <height>2350</height>
+       <height>6100</height>
       </size>
      </property>
-     <widget class="QPushButton" name="pushButton_8">
+     <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>11</x>
-        <y>515</y>
-        <width>171</width>
-        <height>31</height>
+        <x>40</x>
+        <y>30</y>
+        <width>111</width>
+        <height>161</height>
        </rect>
-      </property>
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>31</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
- background-color: rgba(255, 255, 255, 0.3);
-border: 2px solid rgb(187, 128, 68);
-font: 9pt &quot;Black Ops One&quot;;
-}
-QPushButton:hover{
- background-color: rgba(255, 255, 255, 0.5);
-}
-QPushButton:pressed{
- background-color: rgba(255, 255, 255, 0.7);
-}</string>
-      </property>
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_7">
-      <property name="geometry">
-       <rect>
-        <x>11</x>
-        <y>218</y>
-        <width>171</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>31</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
- background-color: rgba(255, 255, 255, 0.3);
-border: 2px solid rgb(187, 128, 68);
-font: 9pt &quot;Black Ops One&quot;;
-}
-QPushButton:hover{
- background-color: rgba(255, 255, 255, 0.5);
-}
-QPushButton:pressed{
- background-color: rgba(255, 255, 255, 0.7);
-}</string>
-      </property>
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_14">
-      <property name="geometry">
-       <rect>
-        <x>11</x>
-        <y>2297</y>
-        <width>171</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>31</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
- background-color: rgba(255, 255, 255, 0.3);
-border: 2px solid rgb(187, 128, 68);
-font: 9pt &quot;Black Ops One&quot;;
-}
-QPushButton:hover{
- background-color: rgba(255, 255, 255, 0.5);
-}
-QPushButton:pressed{
- background-color: rgba(255, 255, 255, 0.7);
-}</string>
-      </property>
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_9">
-      <property name="geometry">
-       <rect>
-        <x>11</x>
-        <y>812</y>
-        <width>171</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>31</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
- background-color: rgba(255, 255, 255, 0.3);
-border: 2px solid rgb(187, 128, 68);
-font: 9pt &quot;Black Ops One&quot;;
-}
-QPushButton:hover{
- background-color: rgba(255, 255, 255, 0.5);
-}
-QPushButton:pressed{
- background-color: rgba(255, 255, 255, 0.7);
-}</string>
-      </property>
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_20">
-      <property name="geometry">
-       <rect>
-        <x>11</x>
-        <y>1486</y>
-        <width>171</width>
-        <height>211</height>
-       </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>171</width>
-        <height>211</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix16/agents/Screenshot_2025-04-19-18-12-23-074_com.android.chrome-edit (11).png);
- background-color: rgba(255, 255, 255, 0.3);
-border: 2px solid rgb(187, 128, 68);</string>
       </property>
       <property name="text">
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_16">
+     <widget class="QPushButton" name="pushButton_25">
       <property name="geometry">
        <rect>
-        <x>11</x>
-        <y>892</y>
-        <width>171</width>
-        <height>211</height>
+        <x>61</x>
+        <y>849</y>
+        <width>75</width>
+        <height>24</height>
        </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>171</width>
-        <height>211</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix16/agents/Screenshot_2025-04-19-18-12-23-074_com.android.chrome-edit (7).png);
- background-color: rgba(255, 255, 255, 0.3);
-border: 2px solid rgb(187, 128, 68);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_12">
-      <property name="geometry">
-       <rect>
-        <x>11</x>
-        <y>1703</y>
-        <width>171</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>31</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
- background-color: rgba(255, 255, 255, 0.3);
-border: 2px solid rgb(187, 128, 68);
-font: 9pt &quot;Black Ops One&quot;;
-}
-QPushButton:hover{
- background-color: rgba(255, 255, 255, 0.5);
-}
-QPushButton:pressed{
- background-color: rgba(255, 255, 255, 0.7);
-}</string>
-      </property>
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_17">
-      <property name="geometry">
-       <rect>
-        <x>11</x>
-        <y>1189</y>
-        <width>171</width>
-        <height>211</height>
-       </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>171</width>
-        <height>211</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix16/agents/Screenshot_2025-04-19-18-12-23-074_com.android.chrome-edit (8).png);
- background-color: rgba(255, 255, 255, 0.3);
-border: 2px solid rgb(187, 128, 68);
-</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_10">
-      <property name="geometry">
-       <rect>
-        <x>11</x>
-        <y>1109</y>
-        <width>171</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>31</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
- background-color: rgba(255, 255, 255, 0.3);
-border: 2px solid rgb(187, 128, 68);
-font: 9pt &quot;Black Ops One&quot;;
-}
-QPushButton:hover{
- background-color: rgba(255, 255, 255, 0.5);
-}
-QPushButton:pressed{
- background-color: rgba(255, 255, 255, 0.7);
-}</string>
-      </property>
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_11">
-      <property name="geometry">
-       <rect>
-        <x>11</x>
-        <y>1406</y>
-        <width>171</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>31</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
- background-color: rgba(255, 255, 255, 0.3);
-border: 2px solid rgb(187, 128, 68);
-font: 9pt &quot;Black Ops One&quot;;
-}
-QPushButton:hover{
- background-color: rgba(255, 255, 255, 0.5);
-}
-QPushButton:pressed{
- background-color: rgba(255, 255, 255, 0.7);
-}</string>
       </property>
       <property name="text">
        <string>PushButton</string>
@@ -624,29 +115,151 @@ QPushButton:pressed{
      <widget class="QLabel" name="label_19">
       <property name="geometry">
        <rect>
-        <x>11</x>
-        <y>2080</y>
-        <width>171</width>
-        <height>211</height>
+        <x>61</x>
+        <y>1964</y>
+        <width>101</width>
+        <height>181</height>
        </rect>
       </property>
       <property name="minimumSize">
        <size>
-        <width>171</width>
-        <height>211</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>171</width>
-        <height>211</height>
+        <width>101</width>
+        <height>181</height>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix16/agents/Screenshot_2025-04-19-18-12-23-074_com.android.chrome-edit (10).png);
- background-color: rgba(255, 255, 255, 0.3);
-border: 2px solid rgb(187, 128, 68);
-</string>
+       <string notr="true">image: url(:/new/prefix1/newagents/grounded8.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_3">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>5189</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_4">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>5406</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_14">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>3236</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_9">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>4351</y>
+        <width>101</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>101</width>
+        <height>181</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/new/prefix1/newagents/grounded13.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_24">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>1066</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_11">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>3887</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_17">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>2398</y>
+        <width>101</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>101</width>
+        <height>181</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/new/prefix1/newagents/grounded6.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_20">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>1747</y>
+        <width>101</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>101</width>
+        <height>181</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/new/prefix1/newagents/grounded9.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -655,28 +268,451 @@ border: 2px solid rgb(187, 128, 68);
      <widget class="QLabel" name="label_18">
       <property name="geometry">
        <rect>
-        <x>11</x>
-        <y>1783</y>
-        <width>171</width>
-        <height>211</height>
+        <x>61</x>
+        <y>2181</y>
+        <width>101</width>
+        <height>181</height>
        </rect>
       </property>
       <property name="minimumSize">
        <size>
-        <width>0</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>171</width>
-        <height>211</height>
+        <width>101</width>
+        <height>181</height>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix16/agents/Screenshot_2025-04-19-18-12-23-074_com.android.chrome-edit (9).png);
-background-color: rgba(255, 255, 255, 0.3);
-border: 2px solid rgb(187, 128, 68);</string>
+       <string notr="true">image: url(:/new/prefix1/newagents/grounded7.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_1">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>4134</y>
+        <width>101</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>101</width>
+        <height>181</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/new/prefix1/newagents/grounded14.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_9">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>4538</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_8">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>4568</y>
+        <width>101</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>101</width>
+        <height>181</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/new/prefix1/newagents/grounded12.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_26">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>632</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_7">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>6057</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_23">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>1283</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_6">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>5840</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_20">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>1934</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_16">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>2615</y>
+        <width>101</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>101</width>
+        <height>181</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/new/prefix1/newagents/grounded5.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_1">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>4321</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_13">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>3266</y>
+        <width>101</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>101</width>
+        <height>181</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/new/prefix1/newagents/grounded2.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_22">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>1500</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_23">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>1096</y>
+        <width>101</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>101</width>
+        <height>181</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/new/prefix1/newagents/waterwalking3.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_26">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>445</y>
+        <width>101</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>101</width>
+        <height>181</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/new/prefix1/newagents/waterwalking6.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_21">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>1530</y>
+        <width>101</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>101</width>
+        <height>181</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/new/prefix1/newagents/waterwalking1.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_12">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>3483</y>
+        <width>101</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>101</width>
+        <height>181</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/new/prefix1/newagents/grounded17.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_17">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>2585</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_27">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>415</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_10">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>4104</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_13">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>3453</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_12">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>3670</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_5">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>5436</y>
+        <width>101</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>101</width>
+        <height>181</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/new/prefix1/newagents/flying1.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_21">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>1717</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>4972</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_5">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>5623</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_24">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>879</y>
+        <width>101</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>101</width>
+        <height>181</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/new/prefix1/newagents/waterwalking4.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -685,126 +721,362 @@ border: 2px solid rgb(187, 128, 68);</string>
      <widget class="QLabel" name="label_15">
       <property name="geometry">
        <rect>
-        <x>11</x>
-        <y>595</y>
-        <width>171</width>
-        <height>211</height>
+        <x>61</x>
+        <y>2832</y>
+        <width>101</width>
+        <height>181</height>
        </rect>
       </property>
       <property name="minimumSize">
        <size>
-        <width>0</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>171</width>
-        <height>211</height>
+        <width>101</width>
+        <height>181</height>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix16/agents/Screenshot_2025-04-19-18-12-23-074_com.android.chrome-edit (6).png);
- background-color: rgba(255, 255, 255, 0.3);
-border: 2px solid rgb(187, 128, 68);</string>
+       <string notr="true">image: url(:/new/prefix1/newagents/grounded4.png);</string>
       </property>
       <property name="text">
        <string/>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_13">
-      <property name="geometry">
-       <rect>
-        <x>11</x>
-        <y>2000</y>
-        <width>171</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>31</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
- background-color: rgba(255, 255, 255, 0.3);
-border: 2px solid rgb(187, 128, 68);
-font: 9pt &quot;Black Ops One&quot;;
-}
-QPushButton:hover{
- background-color: rgba(255, 255, 255, 0.5);
-}
-QPushButton:pressed{
- background-color: rgba(255, 255, 255, 0.7);
-}</string>
-      </property>
-      <property name="text">
-       <string>PushButton</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_14">
       <property name="geometry">
        <rect>
-        <x>11</x>
-        <y>270</y>
-        <width>171</width>
-        <height>211</height>
+        <x>61</x>
+        <y>3049</y>
+        <width>101</width>
+        <height>181</height>
        </rect>
       </property>
       <property name="minimumSize">
        <size>
-        <width>0</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>171</width>
-        <height>211</height>
+        <width>101</width>
+        <height>181</height>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix16/agents/Screenshot_2025-04-19-18-12-23-074_com.android.chrome-edit (5).png);
- background-color: rgba(255, 255, 255, 0.3);
-border: 2px solid rgb(187, 128, 68);</string>
+       <string notr="true">image: url(:/new/prefix1/newagents/grounded3.png);</string>
       </property>
       <property name="text">
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_13">
+     <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>11</x>
-        <y>1</y>
-        <width>171</width>
-        <height>211</height>
+        <x>61</x>
+        <y>4785</y>
+        <width>101</width>
+        <height>181</height>
        </rect>
       </property>
       <property name="minimumSize">
        <size>
-        <width>0</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>171</width>
-        <height>211</height>
+        <width>101</width>
+        <height>181</height>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix16/agents/Screenshot_2025-04-19-18-12-23-074_com.android.chrome-edit (4).png);
- background-color: rgba(255, 255, 255, 0.3);
-border: 2px solid rgb(187, 128, 68);</string>
+       <string notr="true">image: url(:/new/prefix1/newagents/floating1.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_28">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>198</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_28">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>11</y>
+        <width>101</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>101</width>
+        <height>181</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/new/prefix1/newagents/waterwalking8.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_10">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>3917</y>
+        <width>101</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>101</width>
+        <height>181</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image : url(:/new/prefix1/newagents/grounded15.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_27">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>228</y>
+        <width>101</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>101</width>
+        <height>181</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/new/prefix1/newagents/waterwalking7.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_8">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>4755</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_18">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>2368</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_11">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>3700</y>
+        <width>101</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>101</width>
+        <height>181</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/new/prefix1/newagents/grounded16.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>5002</y>
+        <width>101</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>101</width>
+        <height>181</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/new/prefix1/newagents/floating2.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_15">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>3019</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>5653</y>
+        <width>101</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>101</width>
+        <height>181</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/new/prefix1/newagents/grounded1.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_25">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>662</y>
+        <width>101</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>101</width>
+        <height>181</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/new/prefix1/newagents/waterwalking5.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_19">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>2151</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_16">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>2802</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>5219</y>
+        <width>101</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>101</width>
+        <height>181</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/new/prefix1/newagents/floating3.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>5870</y>
+        <width>101</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>101</width>
+        <height>181</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/new/prefix1/newagents/grounded10.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_22">
+      <property name="geometry">
+       <rect>
+        <x>61</x>
+        <y>1313</y>
+        <width>101</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>101</width>
+        <height>181</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/new/prefix1/newagents/waterwalking2.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -812,17 +1084,6 @@ border: 2px solid rgb(187, 128, 68);</string>
      </widget>
     </widget>
    </widget>
-   <zorder>listWidget_3</zorder>
-   <zorder>pushButton_3</zorder>
-   <zorder>pushButton_2</zorder>
-   <zorder>pushButton</zorder>
-   <zorder>label</zorder>
-   <zorder>label_2</zorder>
-   <zorder>label_3</zorder>
-   <zorder>label_9</zorder>
-   <zorder>label_8</zorder>
-   <zorder>label_7</zorder>
-   <zorder>scrollArea</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

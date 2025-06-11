@@ -1,13 +1,12 @@
 #include "mainpage.h"
+#include "floating.h"
+#include "flying.h"
 #include "grounded.h"
 #include "ui_mainpage.h"
 #include <QApplication>
 #include <QLabel>
 #include <QObject>
 #include <QWidget>
-#include <QFile>
-#include <QTextStream>
-#include <QDebug>
 #include <QEvent>
 #include <vector>
 #include <QPushButton>
@@ -15,6 +14,7 @@
 #include "tile.h"
 #include "agent.h"
 #include "player.h"
+#include "waterwalking.h"
 
 QVector<QPushButton*> vec, v1, v2;
 std::vector<int> hexa;
@@ -31,6 +31,9 @@ void changeStyle(QPushButton *p, int c){
         p->setStyleSheet("image: url(:/new/prefix11/rockgray.png); "
                          "background-color: transparent");
 }
+#include <QFile>
+#include <QTextStream>
+#include <QDebug>
 
 void changeBack(){
 
@@ -56,20 +59,23 @@ class SelectButton : public QPushButton {
 public:
     SelectButton(QLabel *linkedCharacter,QVector<QPushButton*>& buttons,
         QVector<QPushButton*>& valid, int type,
-        QPushButton *s, QWidget *parent1 = nullptr,
+        QPushButton *s, QString style, QWidget *parent1 = nullptr,
                  MainPage *parent2 = nullptr)
-        : QPushButton(parent1),
+        : QPushButton(s),
         characterLabel(linkedCharacter),
         allButtons(buttons),
         validButtons(valid)   {
-        this->setGeometry(s->geometry());
-        this->setText(s->text());
-        this->setIcon(s->icon());
-        this->setStyleSheet(s->styleSheet());
-        this->setFont(s->font());
+        qDebug()<<":"<<characterLabel->styleSheet();
+
+       // this->setText(s->text());
+        //this->setIcon(s->icon());
+        //this->setStyleSheet(s->styleSheet());
+        //this->setFont(s->font());
         s->lower();
         s->hide();
         this->show();
+        this->setGeometry(s->geometry());
+
         connect(this, &QPushButton::clicked, this, [this,parent2]() {
             if(hasCharachter){
                 QMessageBox msgBox(QMessageBox::Warning,
@@ -114,27 +120,29 @@ public:
 
 
         for(QPushButton *p : allButtons){
-            connect(p, &QPushButton::clicked, p, [=, this](){
+            connect(p, &QPushButton::clicked, p, [=, this, &linkedCharacter](){
                 if(waitingForTarget){
 
                     if(validButtons.contains(p)){
-                        double x = p->x() - 80;
-                        double y = p->y() - 40;
-                        Agent *charachter = new Grounded; // از نوعش نیو کن
+                        double x = p->x()-10;
+                        double y = p->y();
+                        Agent *charachter; // از نوعش نیو کن
 
-                        switch (type) {
-                        case 0:
+                        if(type == 0)
                             charachter = new Grounded;
-                            break;
-                        default:
-                            break;
-                        }
-                        QString oldStyle = characterLabel->styleSheet();
-                        QString newRule = "border: none;\nbackground-color: transparent;";
-                        QString updatedStyle = oldStyle + "\n" + newRule;
+                        else if(type == 1)
+                            charachter = new flying(parent1);
+                        else if(type == 2)
+                            charachter = new floating;
+                        else
+                            charachter = new waterWalking;
+                        QString oldStyle = style;
+                        QString newRule = "QPushButton {border: none; background-color: transparent;";
+                        QString updatedStyle = newRule + ' ' + oldStyle +"}";
                         charachter->setStyleSheet(updatedStyle);
+                        qDebug() <<"LL"<< characterLabel->styleSheet();
                         charachter->setAttribute(Qt::WA_TranslucentBackground);
-                        charachter->setGeometry(x, y, 260, 160);
+                        charachter->setGeometry(x, y, 140, 90);
                         charachter->show();
                         currentPlayer.addAgent(charachter);
                         //m->centralWidget()->raise();
@@ -318,25 +326,64 @@ MainPage::MainPage(QWidget *parent)
     for(QPushButton *p : vec){
         p->raise();
     }
-    charbuttons = {new SelectButton(ui->label_13, vec, v2,ui->pushButton_7, ui->scrollAreaWidgetContents, this),
+    /*charbuttons = {new SelectButton(ui->label_13, vec, v2,ui->pushButton_7, ui->scrollAreaWidgetContents, this),
                    new SelectButton(ui->label_14, vec, v2,ui->pushButton_8, ui->scrollAreaWidgetContents, this),
                    new SelectButton(ui->label_15, vec, v2,ui->pushButton_9, ui->scrollAreaWidgetContents, this),
                    new SelectButton(ui->label_16, vec, v2,ui->pushButton_10, ui->scrollAreaWidgetContents, this),
                    new SelectButton(ui->label_17, vec, v2,ui->pushButton_11, ui->scrollAreaWidgetContents, this),
                    new SelectButton(ui->label_18, vec, v2,ui->pushButton_12, ui->scrollAreaWidgetContents, this),
                    new SelectButton(ui->label_19, vec, v2,ui->pushButton_13, ui->scrollAreaWidgetContents, this),
-                   new SelectButton(ui->label_20, vec, v2,ui->pushButton_14, ui->scrollAreaWidgetContents, this)};
+                   new SelectButton(ui->label_20, vec, v2,ui->pushButton_14, ui->scrollAreaWidgetContents, this)};}
 
+*/
 
-
+    chars.push_back(ui->label_1); chars.push_back(ui->label_2); chars.push_back(ui->label_3);
+    chars.push_back(ui->label_4); chars.push_back(ui->label_5); chars.push_back(ui->label_6);
+    chars.push_back(ui->label_7); chars.push_back(ui->label_8); chars.push_back(ui->label_9);
+    chars.push_back(ui->label_10); chars.push_back(ui->label_11); chars.push_back(ui->label_12);
     chars.push_back(ui->label_13); chars.push_back(ui->label_14); chars.push_back(ui->label_15);
     chars.push_back(ui->label_16); chars.push_back(ui->label_17); chars.push_back(ui->label_18);
-    chars.push_back(ui->label_19); chars.push_back(ui->label_20);
-    currentPlayer = player2;
+    chars.push_back(ui->label_19); chars.push_back(ui->label_20); chars.push_back(ui->label_21);
+    chars.push_back(ui->label_22); chars.push_back(ui->label_23); chars.push_back(ui->label_24);
+    chars.push_back(ui->label_25); chars.push_back(ui->label_26); chars.push_back(ui->label_27);
+    chars.push_back(ui->label_28);
+    qDebug()<<ui->label_28->styleSheet();
+    currentPlayer = player1;
    // charbuttons[0]->addvec(this, charbuttons);
-   /* charbuttons.push_back(new SelectButton(ui->label, vec, v1, this) );
-    charbuttons[0]->setGeometry(80, 170, 75, 24);
 
+    charbuttons.push_back(new SelectButton(ui->label_28, vec, v1, 1, ui->pushButton_28, ui->label_28->styleSheet(), this, this) );
+
+    charbuttons.push_back(new SelectButton(ui->label_27, vec, v1, 1, ui->pushButton_27, ui->label_27->styleSheet(), this, this) );
+    charbuttons.push_back(new SelectButton(ui->label_26, vec, v1, 1, ui->pushButton_26, ui->label_26->styleSheet(), this, this) );
+    charbuttons.push_back(new SelectButton(ui->label_25, vec, v1, 1, ui->pushButton_25, ui->label_25->styleSheet(), this, this) );
+    charbuttons.push_back(new SelectButton(ui->label_24, vec, v1, 1, ui->pushButton_24, ui->label_24->styleSheet(), this, this) );
+    charbuttons.push_back(new SelectButton(ui->label_23, vec, v1, 1, ui->pushButton_23, ui->label_23->styleSheet(), this, this) );
+    charbuttons.push_back(new SelectButton(ui->label_22, vec, v1, 1, ui->pushButton_22, ui->label_22->styleSheet(), this, this) );
+    charbuttons.push_back(new SelectButton(ui->label_21, vec, v1, 1, ui->pushButton_21, ui->label_21->styleSheet(), this, this) );
+    charbuttons.push_back(new SelectButton(ui->label_20, vec, v1, 1, ui->pushButton_20, ui->label_20->styleSheet(), this, this) );
+    charbuttons.push_back(new SelectButton(ui->label_19, vec, v1, 1, ui->pushButton_19, ui->label_19->styleSheet(), this, this) );
+    charbuttons.push_back(new SelectButton(ui->label_18, vec, v1, 1, ui->pushButton_18, ui->label_18->styleSheet(), this, this) );
+    charbuttons.push_back(new SelectButton(ui->label_17, vec, v1, 1, ui->pushButton_17, ui->label_17->styleSheet(), this, this) );
+    charbuttons.push_back(new SelectButton(ui->label_16, vec, v1, 1, ui->pushButton_16, ui->label_16->styleSheet(), this, this) );
+    charbuttons.push_back(new SelectButton(ui->label_15, vec, v1, 1, ui->pushButton_15, ui->label_15->styleSheet(), this, this) );
+    charbuttons.push_back(new SelectButton(ui->label_14, vec, v1, 1, ui->pushButton_14, ui->label_14->styleSheet(), this, this) );
+    charbuttons.push_back(new SelectButton(ui->label_13, vec, v1, 1, ui->pushButton_13, ui->label_13->styleSheet(), this, this) );
+    charbuttons.push_back(new SelectButton(ui->label_12, vec, v1, 1, ui->pushButton_12, ui->label_12->styleSheet(), this, this) );
+    charbuttons.push_back(new SelectButton(ui->label_11, vec, v1, 1, ui->pushButton_11, ui->label_11->styleSheet(), this, this) );
+    charbuttons.push_back(new SelectButton(ui->label_10, vec, v1, 1, ui->pushButton_10, ui->label_10->styleSheet(), this, this) );
+    charbuttons.push_back(new SelectButton(ui->label_9, vec, v1, 1, ui->pushButton_9, ui->label_9->styleSheet(), this, this) );
+    charbuttons.push_back(new SelectButton(ui->label_8, vec, v1, 1, ui->pushButton_8, ui->label_8->styleSheet(), this, this) );
+    charbuttons.push_back(new SelectButton(ui->label_7, vec, v1, 1, ui->pushButton_7, ui->label_7->styleSheet(), this, this) );
+    charbuttons.push_back(new SelectButton(ui->label_6, vec, v1, 1, ui->pushButton_6, ui->label_6->styleSheet(), this, this) );
+    charbuttons.push_back(new SelectButton(ui->label_5, vec, v1, 1, ui->pushButton_5, ui->label_5->styleSheet(), this, this) );
+    charbuttons.push_back(new SelectButton(ui->label_4, vec, v1, 1, ui->pushButton_4, ui->label_4->styleSheet(), this, this) );
+    charbuttons.push_back(new SelectButton(ui->label_3, vec, v1, 1, ui->pushButton_3, ui->label_3->styleSheet(), this, this) );
+    charbuttons.push_back(new SelectButton(ui->label_2, vec, v1, 1, ui->pushButton_2, ui->label_2->styleSheet(), this, this) );
+    charbuttons.push_back(new SelectButton(ui->label_1, vec, v1, 1, ui->pushButton_1, ui->label_1->styleSheet(), this, this) );
+/*    SelectButton(QLabel *linkedCharacter,QVector<QPushButton*>& buttons,
+        QVector<QPushButton*>& valid, int type,
+        QPushButton *s, QWidget *parent1 = nullptr,
+                 MainPage *parent2 = nullptr)
     charbuttons.push_back(new SelectButton(ui->label_2, vec, v1, this) );
     charbuttons[1]->setGeometry(90, 430, 75, 24);
 

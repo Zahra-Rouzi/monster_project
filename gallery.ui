@@ -6,9 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1143</width>
-    <height>825</height>
+    <width>1597</width>
+    <height>1005</height>
    </rect>
+  </property>
+  <property name="font">
+   <font>
+    <bold>true</bold>
+   </font>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -25,23 +30,13 @@
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="widget" native="true">
-    <property name="geometry">
-     <rect>
-      <x>410</x>
-      <y>480</y>
-      <width>120</width>
-      <height>80</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>80</y>
-      <width>751</width>
-      <height>571</height>
+      <x>110</x>
+      <y>90</y>
+      <width>1100</width>
+      <height>921</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -52,72 +47,1826 @@
 background-color: rgb(190, 98, 99);
 background-color: rgb(190, 142, 146);
 background-color: transparent;
-
-font:20px;
-color: rgb(206, 171, 120);
-color: rgb(216, 186, 125);</string>
+color: #FFD700   ;
+    font-family: &quot;Black Ops One&quot;;
+    font-size: 20px;
+    letter-spacing: 1px;</string>
     </property>
     <property name="title">
      <string>Gallary</string>
     </property>
-    <widget class="QLabel" name="label_2">
+    <widget class="QScrollArea" name="scrollArea">
      <property name="geometry">
       <rect>
-       <x>400</x>
+       <x>90</x>
        <y>40</y>
-       <width>211</width>
-       <height>221</height>
+       <width>941</width>
+       <height>811</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">image: url(:/new/prefix7/a2.png);
-background-color: rgb(214, 194, 178);</string>
+      <string notr="true">QScrollArea {
+   background-color: rgba(170, 170, 127, 0.4);
+    border: 4px solid rgb(187, 128, 68);
+    border-radius: 12px;
+    padding: 6px;
+}
+
+QScrollBar:vertical {
+    background: rgb(163, 213, 252);
+    width: 14px;
+    margin: 2px;
+    border-radius: 5px;
+}
+
+    color: #3E3A39; /* رنگ متن گرم و تیره */
+    font-family: &quot;Black Ops One&quot;;
+    font-size: 20px;
+    letter-spacing: 1px;
+/*QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    background: none;
+}
+
+QScrollBar:horizontal {
+    background: #f9c5d1;
+    height: 10px;
+    margin: 2px;
+    border-radius: 5px;
+}
+QScrollBar::handle:horizontal {
+    background: #f48fb1;
+    border-radius: 5px;
+}
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
+    background: none;
+}*/</string>
      </property>
-     <property name="text">
-      <string/>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
      </property>
+     <property name="widgetResizable">
+      <bool>false</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>-44</y>
+        <width>907</width>
+        <height>2000</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>1000</height>
+       </size>
+      </property>
+      <widget class="QWidget" name="layoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>20</y>
+         <width>873</width>
+         <height>1858</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QGroupBox" name="groupBox_2">
+          <property name="minimumSize">
+           <size>
+            <width>871</width>
+            <height>301</height>
+           </size>
+          </property>
+          <property name="title">
+           <string/>
+          </property>
+          <widget class="QGroupBox" name="groupBox_3">
+           <property name="geometry">
+            <rect>
+             <x>430</x>
+             <y>10</y>
+             <width>191</width>
+             <height>281</height>
+            </rect>
+           </property>
+           <property name="title">
+            <string/>
+           </property>
+           <widget class="QLabel" name="label_13">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>174</width>
+              <height>194</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/new/prefix1/newagents/grounded15.png);
+ background-color: rgba(255, 255, 255, 0.3);
+border: 2px solid rgb(187, 128, 68);
+min-width: 150px; max-width: 150px; min-height: 150px; max-height: 150px;
+</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_12">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>190</y>
+              <width>171</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">    color:#F0EAD6; 
+ font-size: 14px;
+font-weight: bold;
+qproperty-alignment: 'AlignCenter';
+letter-spacing:3px;
+   </string>
+            </property>
+            <property name="text">
+             <string>👣 Kabu
+400 2 120  1</string>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::TextFormat::AutoText</enum>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QGroupBox" name="groupBox_5">
+           <property name="geometry">
+            <rect>
+             <x>230</x>
+             <y>10</y>
+             <width>191</width>
+             <height>281</height>
+            </rect>
+           </property>
+           <property name="title">
+            <string/>
+           </property>
+           <widget class="QLabel" name="label_21">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>174</width>
+              <height>194</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/new/prefix1/newagents/waterwalking5.png);
+ background-color: rgba(255, 255, 255, 0.3);
+border: 2px solid rgb(187, 128, 68);
+min-width: 150px; max-width: 150px; min-height: 150px; max-height: 150px;
+</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_10">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>190</y>
+              <width>171</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">    color:#F0EAD6; 
+ font-size: 14px;
+font-weight: bold;
+qproperty-alignment: 'AlignCenter';
+letter-spacing:3px;
+   </string>
+            </property>
+            <property name="text">
+             <string>🌊 Billy
+320 3 90  1</string>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::TextFormat::AutoText</enum>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QGroupBox" name="groupBox_4">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>10</y>
+             <width>191</width>
+             <height>281</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"> font-size: 30px;
+</string>
+           </property>
+           <property name="title">
+            <string/>
+           </property>
+           <widget class="QLabel" name="label_22">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>174</width>
+              <height>194</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/new/prefix1/newagents/grounded1.png);
+ background-color: rgba(255, 255, 255, 0.3);
+border: 2px solid rgb(187, 128, 68);
+min-width: 150px; max-width: 150px; min-height: 150px; max-height: 150px;
+</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_9">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>190</y>
+              <width>171</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">    color:#F0EAD6; 
+ font-size: 14px;
+font-weight: bold;
+qproperty-alignment: 'AlignCenter';
+letter-spacing:3px;
+   </string>
+            </property>
+            <property name="text">
+             <string>👣 Elsa
+320 2 100  2</string>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::TextFormat::AutoText</enum>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QGroupBox" name="groupBox_27">
+           <property name="geometry">
+            <rect>
+             <x>650</x>
+             <y>10</y>
+             <width>191</width>
+             <height>281</height>
+            </rect>
+           </property>
+           <property name="title">
+            <string/>
+           </property>
+           <widget class="QLabel" name="label_14">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>174</width>
+              <height>194</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/new/prefix1/newagents/flying1.png);
+ background-color: rgba(255, 255, 255, 0.3);
+border: 2px solid rgb(187, 128, 68);
+min-width: 150px; max-width: 150px; min-height: 150px; max-height: 150px;
+</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_15">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>190</y>
+              <width>171</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">    color:#F0EAD6; 
+ font-size: 14px;
+font-weight: bold;
+qproperty-alignment: 'AlignCenter';
+letter-spacing:3px;
+   </string>
+            </property>
+            <property name="text">
+             <string>🕊️ Rambo
+320 3 120  1</string>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::TextFormat::AutoText</enum>
+            </property>
+           </widget>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_6">
+          <property name="minimumSize">
+           <size>
+            <width>871</width>
+            <height>301</height>
+           </size>
+          </property>
+          <property name="title">
+           <string/>
+          </property>
+          <widget class="QGroupBox" name="groupBox_7">
+           <property name="geometry">
+            <rect>
+             <x>430</x>
+             <y>10</y>
+             <width>191</width>
+             <height>281</height>
+            </rect>
+           </property>
+           <property name="title">
+            <string/>
+           </property>
+           <widget class="QLabel" name="label_23">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>174</width>
+              <height>194</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/new/prefix1/newagents/grounded10.png);
+ background-color: rgba(255, 255, 255, 0.3);
+border: 2px solid rgb(187, 128, 68);
+min-width: 150px; max-width: 150px; min-height: 150px; max-height: 150px;
+</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_20">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>190</y>
+              <width>171</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">    color:#F0EAD6; 
+ font-size: 14px;
+font-weight: bold;
+qproperty-alignment: 'AlignCenter';
+letter-spacing:3px;
+   </string>
+            </property>
+            <property name="text">
+             <string>👣 Salih
+400 2 80  1</string>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::TextFormat::AutoText</enum>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QGroupBox" name="groupBox_8">
+           <property name="geometry">
+            <rect>
+             <x>230</x>
+             <y>10</y>
+             <width>191</width>
+             <height>281</height>
+            </rect>
+           </property>
+           <property name="title">
+            <string/>
+           </property>
+           <widget class="QLabel" name="label_24">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>174</width>
+              <height>194</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/new/prefix1/newagents/grounded2.png);
+ background-color: rgba(255, 255, 255, 0.3);
+border: 2px solid rgb(187, 128, 68);
+min-width: 150px; max-width: 150px; min-height: 150px; max-height: 150px;
+</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_19">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>190</y>
+              <width>171</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">    color:#F0EAD6; 
+ font-size: 14px;
+font-weight: bold;
+qproperty-alignment: 'AlignCenter';
+letter-spacing:3px;
+   </string>
+            </property>
+            <property name="text">
+             <string>👣 Karissa
+280 2 140  2</string>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::TextFormat::AutoText</enum>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QGroupBox" name="groupBox_9">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>10</y>
+             <width>191</width>
+             <height>281</height>
+            </rect>
+           </property>
+           <property name="title">
+            <string/>
+           </property>
+           <widget class="QLabel" name="label_25">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>174</width>
+              <height>194</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/new/prefix1/newagents/waterwalking6.png);
+ background-color: rgba(255, 255, 255, 0.3);
+border: 2px solid rgb(187, 128, 68);
+min-width: 150px; max-width: 150px; min-height: 150px; max-height: 150px;
+</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_26">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>190</y>
+              <width>171</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">    color:#F0EAD6; 
+ font-size: 14px;
+font-weight: bold;
+qproperty-alignment: 'AlignCenter';
+letter-spacing:3px;
+   </string>
+            </property>
+            <property name="text">
+             <string>🌊 Angus
+400 2 100  1</string>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::TextFormat::AutoText</enum>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QGroupBox" name="groupBox_28">
+           <property name="geometry">
+            <rect>
+             <x>640</x>
+             <y>10</y>
+             <width>191</width>
+             <height>281</height>
+            </rect>
+           </property>
+           <property name="title">
+            <string/>
+           </property>
+           <widget class="QLabel" name="label_16">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>174</width>
+              <height>194</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/new/prefix1/newagents/waterwalking3.png);
+ background-color: rgba(255, 255, 255, 0.3);
+border: 2px solid rgb(187, 128, 68);
+min-width: 150px; max-width: 150px; min-height: 150px; max-height: 150px;
+</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_17">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>190</y>
+              <width>171</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">    color:#F0EAD6; 
+ font-size: 14px;
+font-weight: bold;
+qproperty-alignment: 'AlignCenter';
+letter-spacing:3px;
+   </string>
+            </property>
+            <property name="text">
+             <string>🌊 Medusa
+320 2 90  2</string>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::TextFormat::AutoText</enum>
+            </property>
+           </widget>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_10">
+          <property name="minimumSize">
+           <size>
+            <width>871</width>
+            <height>301</height>
+           </size>
+          </property>
+          <property name="title">
+           <string/>
+          </property>
+          <widget class="QGroupBox" name="groupBox_11">
+           <property name="geometry">
+            <rect>
+             <x>430</x>
+             <y>10</y>
+             <width>191</width>
+             <height>281</height>
+            </rect>
+           </property>
+           <property name="title">
+            <string/>
+           </property>
+           <widget class="QLabel" name="label_27">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>174</width>
+              <height>194</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/new/prefix1/newagents/grounded7.png);
+ background-color: rgba(255, 255, 255, 0.3);
+border: 2px solid rgb(187, 128, 68);
+min-width: 150px; max-width: 150px; min-height: 150px; max-height: 150px;
+</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_28">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>190</y>
+              <width>171</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">    color:#F0EAD6; 
+ font-size: 14px;
+font-weight: bold;
+qproperty-alignment: 'AlignCenter';
+letter-spacing:3px;
+   </string>
+            </property>
+            <property name="text">
+             <string>👣 Sir Lumark
+320 3 110  1</string>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::TextFormat::AutoText</enum>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QGroupBox" name="groupBox_12">
+           <property name="geometry">
+            <rect>
+             <x>230</x>
+             <y>10</y>
+             <width>191</width>
+             <height>281</height>
+            </rect>
+           </property>
+           <property name="title">
+            <string/>
+           </property>
+           <widget class="QLabel" name="label_29">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>174</width>
+              <height>194</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/new/prefix1/newagents/grounded5.png);
+ background-color: rgba(255, 255, 255, 0.3);
+border: 2px solid rgb(187, 128, 68);
+min-width: 150px; max-width: 150px; min-height: 150px; max-height: 150px;
+</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_30">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>190</y>
+              <width>171</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">    color:#F0EAD6; 
+ font-size: 14px;
+font-weight: bold;
+qproperty-alignment: 'AlignCenter';
+letter-spacing:3px;
+   </string>
+            </property>
+            <property name="text">
+             <string>👣 Kanar
+160 2 100  2</string>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::TextFormat::AutoText</enum>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QGroupBox" name="groupBox_13">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>10</y>
+             <width>191</width>
+             <height>281</height>
+            </rect>
+           </property>
+           <property name="title">
+            <string/>
+           </property>
+           <widget class="QLabel" name="label_31">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>174</width>
+              <height>194</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/new/prefix1/newagents/grounded9.png);
+ background-color: rgba(255, 255, 255, 0.3);
+border: 2px solid rgb(187, 128, 68);
+min-width: 150px; max-width: 150px; min-height: 150px; max-height: 150px;
+</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_32">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>190</y>
+              <width>171</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">    color:#F0EAD6; 
+ font-size: 14px;
+font-weight: bold;
+qproperty-alignment: 'AlignCenter';
+letter-spacing:3px;
+   </string>
+            </property>
+            <property name="text">
+             <string>👣 Eloi
+240 2 100  2</string>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::TextFormat::AutoText</enum>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QGroupBox" name="groupBox_29">
+           <property name="geometry">
+            <rect>
+             <x>650</x>
+             <y>10</y>
+             <width>191</width>
+             <height>281</height>
+            </rect>
+           </property>
+           <property name="title">
+            <string/>
+           </property>
+           <widget class="QLabel" name="label_53">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>174</width>
+              <height>194</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/new/prefix1/newagents/waterwalking1.png);
+ background-color: rgba(255, 255, 255, 0.3);
+border: 2px solid rgb(187, 128, 68);
+min-width: 150px; max-width: 150px; min-height: 150px; max-height: 150px;
+</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_51">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>190</y>
+              <width>171</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">    color:#F0EAD6; 
+ font-size: 14px;
+font-weight: bold;
+qproperty-alignment: 'AlignCenter';
+letter-spacing:3px;
+   </string>
+            </property>
+            <property name="text">
+             <string>🌊 Raketon
+320 2 80  2</string>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::TextFormat::AutoText</enum>
+            </property>
+           </widget>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_14">
+          <property name="minimumSize">
+           <size>
+            <width>871</width>
+            <height>301</height>
+           </size>
+          </property>
+          <property name="title">
+           <string>GroupBox</string>
+          </property>
+          <widget class="QGroupBox" name="groupBox_15">
+           <property name="geometry">
+            <rect>
+             <x>430</x>
+             <y>10</y>
+             <width>191</width>
+             <height>281</height>
+            </rect>
+           </property>
+           <property name="title">
+            <string/>
+           </property>
+           <widget class="QLabel" name="label_33">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>174</width>
+              <height>194</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/new/prefix1/newagents/waterwalking7.png);
+ background-color: rgba(255, 255, 255, 0.3);
+border: 2px solid rgb(187, 128, 68);
+min-width: 150px; max-width: 150px; min-height: 150px; max-height: 150px;
+</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_34">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>190</y>
+              <width>171</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">    color:#F0EAD6; 
+ font-size: 14px;
+font-weight: bold;
+qproperty-alignment: 'AlignCenter';
+letter-spacing:3px;
+   </string>
+            </property>
+            <property name="text">
+             <string>🌊 Duraham
+320 2 100  2</string>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::TextFormat::AutoText</enum>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QGroupBox" name="groupBox_16">
+           <property name="geometry">
+            <rect>
+             <x>230</x>
+             <y>10</y>
+             <width>191</width>
+             <height>281</height>
+            </rect>
+           </property>
+           <property name="title">
+            <string/>
+           </property>
+           <widget class="QLabel" name="label_35">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>174</width>
+              <height>194</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/new/prefix1/newagents/grounded14.png);
+ background-color: rgba(255, 255, 255, 0.3);
+border: 2px solid rgb(187, 128, 68);
+min-width: 150px; max-width: 150px; min-height: 150px; max-height: 150px;
+</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_36">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>190</y>
+              <width>171</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">    color:#F0EAD6; 
+ font-size: 14px;
+font-weight: bold;
+qproperty-alignment: 'AlignCenter';
+letter-spacing:3px;
+   </string>
+            </property>
+            <property name="text">
+             <string>👣 Khan
+320 2 90  1</string>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::TextFormat::AutoText</enum>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QGroupBox" name="groupBox_17">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>10</y>
+             <width>191</width>
+             <height>281</height>
+            </rect>
+           </property>
+           <property name="title">
+            <string/>
+           </property>
+           <widget class="QLabel" name="label_37">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>174</width>
+              <height>194</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/new/prefix1/newagents/grounded3.png);
+ background-color: rgba(255, 255, 255, 0.3);
+border: 2px solid rgb(187, 128, 68);
+min-width: 150px; max-width: 150px; min-height: 150px; max-height: 150px;
+</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_38">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>190</y>
+              <width>171</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">    color:#F0EAD6; 
+ font-size: 14px;
+font-weight: bold;
+qproperty-alignment: 'AlignCenter';
+letter-spacing:3px;
+   </string>
+            </property>
+            <property name="text">
+             <string>👣 Boi
+400 2 100  1</string>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::TextFormat::AutoText</enum>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QGroupBox" name="groupBox_21">
+           <property name="geometry">
+            <rect>
+             <x>640</x>
+             <y>10</y>
+             <width>191</width>
+             <height>281</height>
+            </rect>
+           </property>
+           <property name="title">
+            <string/>
+           </property>
+           <widget class="QLabel" name="label_43">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>174</width>
+              <height>194</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/new/prefix1/newagents/grounded6.png);
+ background-color: rgba(255, 255, 255, 0.3);
+border: 2px solid rgb(187, 128, 68);
+min-width: 150px; max-width: 150px; min-height: 150px; max-height: 150px;
+</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_44">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>190</y>
+              <width>171</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">    color:#F0EAD6; 
+ font-size: 14px;
+font-weight: bold;
+qproperty-alignment: 'AlignCenter';
+letter-spacing:3px;
+   </string>
+            </property>
+            <property name="text">
+             <string>👣 Tusk
+400 2 100  1</string>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::TextFormat::AutoText</enum>
+            </property>
+           </widget>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_18">
+          <property name="minimumSize">
+           <size>
+            <width>871</width>
+            <height>301</height>
+           </size>
+          </property>
+          <property name="title">
+           <string/>
+          </property>
+          <widget class="QGroupBox" name="groupBox_19">
+           <property name="geometry">
+            <rect>
+             <x>430</x>
+             <y>10</y>
+             <width>191</width>
+             <height>281</height>
+            </rect>
+           </property>
+           <property name="title">
+            <string/>
+           </property>
+           <widget class="QLabel" name="label_39">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>174</width>
+              <height>194</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/new/prefix1/newagents/grounded13.png);
+ background-color: rgba(255, 255, 255, 0.3);
+border: 2px solid rgb(187, 128, 68);
+min-width: 150px; max-width: 150px; min-height: 150px; max-height: 150px;
+</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_40">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>190</y>
+              <width>171</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">    color:#F0EAD6; 
+ font-size: 14px;
+font-weight: bold;
+qproperty-alignment: 'AlignCenter';
+letter-spacing:3px;
+   </string>
+            </property>
+            <property name="text">
+             <string>👣 SirFilip
+400 2 100  1</string>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::TextFormat::AutoText</enum>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QGroupBox" name="groupBox_20">
+           <property name="geometry">
+            <rect>
+             <x>230</x>
+             <y>10</y>
+             <width>191</width>
+             <height>281</height>
+            </rect>
+           </property>
+           <property name="title">
+            <string/>
+           </property>
+           <widget class="QLabel" name="label_41">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>174</width>
+              <height>194</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/new/prefix1/newagents/grounded12.png);
+ background-color: rgba(255, 255, 255, 0.3);
+border: 2px solid rgb(187, 128, 68);
+min-width: 150px; max-width: 150px; min-height: 150px; max-height: 150px;
+</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_42">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>190</y>
+              <width>171</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">    color:#F0EAD6; 
+ font-size: 14px;
+font-weight: bold;
+qproperty-alignment: 'AlignCenter';
+letter-spacing:3px;
+   </string>
+            </property>
+            <property name="text">
+             <string>👣 Frost
+260 2 80  2</string>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::TextFormat::AutoText</enum>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QGroupBox" name="groupBox_25">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>191</width>
+             <height>281</height>
+            </rect>
+           </property>
+           <property name="title">
+            <string/>
+           </property>
+           <widget class="QLabel" name="label_49">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>174</width>
+              <height>194</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/new/prefix1/newagents/waterwalking2.png);
+ background-color: rgba(255, 255, 255, 0.3);
+border: 2px solid rgb(187, 128, 68);
+min-width: 150px; max-width: 150px; min-height: 150px; max-height: 150px;
+</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_50">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>190</y>
+              <width>171</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">    color:#F0EAD6; 
+ font-size: 14px;
+font-weight: bold;
+qproperty-alignment: 'AlignCenter';
+letter-spacing:3px;
+   </string>
+            </property>
+            <property name="text">
+             <string>🌊 ClonelBaba
+400 2 100  1</string>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::TextFormat::AutoText</enum>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QGroupBox" name="groupBox_24">
+           <property name="geometry">
+            <rect>
+             <x>650</x>
+             <y>10</y>
+             <width>191</width>
+             <height>281</height>
+            </rect>
+           </property>
+           <property name="title">
+            <string/>
+           </property>
+           <widget class="QLabel" name="label_47">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>174</width>
+              <height>194</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/new/prefix1/newagents/floating2.png);
+ background-color: rgba(255, 255, 255, 0.3);
+border: 2px solid rgb(187, 128, 68);
+min-width: 150px; max-width: 150px; min-height: 150px; max-height: 150px;
+</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_56">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>190</y>
+              <width>171</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">    color:#F0EAD6; 
+ font-size: 14px;
+font-weight: bold;
+qproperty-alignment: 'AlignCenter';
+letter-spacing:3px;
+   </string>
+            </property>
+            <property name="text">
+             <string>☁️ Sabrina
+320 3 100  1</string>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::TextFormat::AutoText</enum>
+            </property>
+           </widget>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_22">
+          <property name="minimumSize">
+           <size>
+            <width>851</width>
+            <height>321</height>
+           </size>
+          </property>
+          <property name="title">
+           <string/>
+          </property>
+          <widget class="QGroupBox" name="groupBox_23">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>20</y>
+             <width>191</width>
+             <height>281</height>
+            </rect>
+           </property>
+           <property name="title">
+            <string/>
+           </property>
+           <widget class="QLabel" name="label_45">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>174</width>
+              <height>194</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/new/prefix1/newagents/floating1.png);
+ background-color: rgba(255, 255, 255, 0.3);
+border: 2px solid rgb(187, 128, 68);
+min-width: 150px; max-width: 150px; min-height: 150px; max-height: 150px;
+</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_55">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>190</y>
+              <width>171</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">    color:#F0EAD6; 
+ font-size: 14px;
+font-weight: bold;
+qproperty-alignment: 'AlignCenter';
+letter-spacing:3px;
+   </string>
+            </property>
+            <property name="text">
+             <string>☁️ Death
+240 3 120  2</string>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::TextFormat::AutoText</enum>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QGroupBox" name="groupBox_34">
+           <property name="geometry">
+            <rect>
+             <x>230</x>
+             <y>20</y>
+             <width>191</width>
+             <height>281</height>
+            </rect>
+           </property>
+           <property name="title">
+            <string/>
+           </property>
+           <widget class="QLabel" name="label_63">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>174</width>
+              <height>194</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/new/prefix1/newagents/waterwalking8.png);
+ background-color: rgba(255, 255, 255, 0.3);
+border: 2px solid rgb(187, 128, 68);
+min-width: 150px; max-width: 150px; min-height: 150px; max-height: 150px;
+</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_52">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>190</y>
+              <width>171</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">    color:#F0EAD6; 
+ font-size: 14px;
+font-weight: bold;
+qproperty-alignment: 'AlignCenter';
+letter-spacing:3px;
+   </string>
+            </property>
+            <property name="text">
+             <string>🌊 Bunka
+320 3 100  1</string>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::TextFormat::AutoText</enum>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QGroupBox" name="groupBox_35">
+           <property name="geometry">
+            <rect>
+             <x>450</x>
+             <y>20</y>
+             <width>191</width>
+             <height>281</height>
+            </rect>
+           </property>
+           <property name="title">
+            <string/>
+           </property>
+           <widget class="QLabel" name="label_66">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>174</width>
+              <height>194</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>174</width>
+              <height>194</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/new/prefix1/newagents/waterwalking4.png);
+ background-color: rgba(255, 255, 255, 0.3);
+border: 2px solid rgb(187, 128, 68);
+min-width: 150px; max-width: 150px; min-height: 150px; max-height: 150px;
+</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_54">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>190</y>
+              <width>171</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">    color:#F0EAD6; 
+ font-size: 14px;
+font-weight: bold;
+qproperty-alignment: 'AlignCenter';
+letter-spacing:3px;
+   </string>
+            </property>
+            <property name="text">
+             <string>🌊 Sunka
+320 3 100  1</string>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::TextFormat::AutoText</enum>
+            </property>
+           </widget>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
     </widget>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>40</y>
-       <width>221</width>
-       <height>221</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">image: url(:/new/prefix6/a1.png);
-background-color: rgb(214, 194, 178);
-width:50%;</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_3">
-     <property name="geometry">
-      <rect>
-       <x>250</x>
-       <y>280</y>
-       <width>221</width>
-       <height>211</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">image: url(:/new/prefix8/a3.png);
-background-color: rgb(214, 194, 178);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>1240</x>
+      <y>110</y>
+      <width>261</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+    color: #FFD700; /* طلایی براق */
+   /* background-color: rgba(0, 0, 0, 80);  نیمه‌شفاف تیره */
+    border: 1px solid #FFD700;
+	
+    border-radius: 8px;
+	background-color: transparent;
+    padding: 6px 12px;
+    font-family: &quot;Vazirmatn&quot;, &quot;Tahoma&quot;;
+    font-size: 12px;
+    font-weight: bold;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Stats Guide:
+ 
+HP | Mobility | Damage | AttackRange  
+ 
+Example: 320 | 2 | 100 | 2
+</string>
+    </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>680</y>
+      <x>1320</x>
+      <y>310</y>
       <width>121</width>
       <height>41</height>
      </rect>
@@ -157,7 +1906,7 @@ QPushButton:pressed {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1143</width>
+     <width>1597</width>
      <height>22</height>
     </rect>
    </property>
