@@ -111,7 +111,7 @@ QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>-44</y>
+        <y>0</y>
         <width>907</width>
         <height>2000</height>
        </rect>
@@ -128,7 +128,7 @@ QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
          <x>20</x>
          <y>20</y>
          <width>873</width>
-         <height>1858</height>
+         <height>1863</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout">
@@ -1024,7 +1024,7 @@ letter-spacing:3px;
            </size>
           </property>
           <property name="title">
-           <string>GroupBox</string>
+           <string/>
           </property>
           <widget class="QGroupBox" name="groupBox_15">
            <property name="geometry">
@@ -1907,7 +1907,7 @@ QPushButton:pressed {
      <x>0</x>
      <y>0</y>
      <width>1597</width>
-     <height>22</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

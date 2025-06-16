@@ -18,6 +18,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -29,6 +30,8 @@ public:
     QGroupBox *groupBox;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
+    QWidget *layoutWidget;
+    QVBoxLayout *verticalLayout;
     QGroupBox *groupBox_2;
     QGroupBox *groupBox_3;
     QLabel *label_13;
@@ -113,7 +116,7 @@ public:
     {
         if (Gallery->objectName().isEmpty())
             Gallery->setObjectName("Gallery");
-        Gallery->resize(1597, 1105);
+        Gallery->resize(1597, 1005);
         QFont font;
         font.setBold(true);
         Gallery->setFont(font);
@@ -130,7 +133,7 @@ public:
         centralwidget->setObjectName("centralwidget");
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName("groupBox");
-        groupBox->setGeometry(QRect(110, 90, 1100, 900));
+        groupBox->setGeometry(QRect(110, 90, 1100, 921));
         groupBox->setStyleSheet(QString::fromUtf8("    border: 2px solid #D8B47D; \n"
 "    border-radius: 10px;\n"
 "    margin-top: 20px;\n"
@@ -144,7 +147,7 @@ public:
 "    letter-spacing: 1px;"));
         scrollArea = new QScrollArea(groupBox);
         scrollArea->setObjectName("scrollArea");
-        scrollArea->setGeometry(QRect(90, 50, 941, 1000));
+        scrollArea->setGeometry(QRect(90, 40, 941, 811));
         scrollArea->setStyleSheet(QString::fromUtf8("QScrollArea {\n"
 "   background-color: rgba(170, 170, 127, 0.4);\n"
 "    border: 4px solid rgb(187, 128, 68);\n"
@@ -158,10 +161,7 @@ public:
 "    margin: 2px;\n"
 "    border-radius: 5px;\n"
 "}\n"
-"QScrollBar::handle:vertical {\n"
-"    background: rgb(163, 213, 252);\n"
-"    border-radius: 5px;\n"
-"}\n"
+"\n"
 "    color: #3E3A39; /* \330\261\331\206\332\257 \331\205\330\252\331\206 \332\257\330\261\331\205 \331\210 \330\252\333\214\330\261\331\207 */\n"
 "    font-family: \"Black Ops One\";\n"
 "    font-size: 20px;\n"
@@ -180,19 +180,24 @@ public:
 "    background: #f48fb1;\n"
 "    border-radius: 5px;\n"
 "}\n"
-"QScrollBar::add-lin"
-                        "e:horizontal, QScrollBar::sub-line:horizontal {\n"
+"QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {\n"
 "    background: none;\n"
 "}*/"));
         scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarPolicy::ScrollBarAsNeeded);
-        scrollArea->setWidgetResizable(true);
+        scrollArea->setWidgetResizable(false);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName("scrollAreaWidgetContents");
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 907, 2350));
-        scrollAreaWidgetContents->setMinimumSize(QSize(0, 2350));
-        groupBox_2 = new QGroupBox(scrollAreaWidgetContents);
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 907, 2000));
+        scrollAreaWidgetContents->setMinimumSize(QSize(0, 1000));
+        layoutWidget = new QWidget(scrollAreaWidgetContents);
+        layoutWidget->setObjectName("layoutWidget");
+        layoutWidget->setGeometry(QRect(20, 20, 873, 1863));
+        verticalLayout = new QVBoxLayout(layoutWidget);
+        verticalLayout->setObjectName("verticalLayout");
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        groupBox_2 = new QGroupBox(layoutWidget);
         groupBox_2->setObjectName("groupBox_2");
-        groupBox_2->setGeometry(QRect(20, 20, 871, 301));
+        groupBox_2->setMinimumSize(QSize(871, 301));
         groupBox_3 = new QGroupBox(groupBox_2);
         groupBox_3->setObjectName("groupBox_3");
         groupBox_3->setGeometry(QRect(430, 10, 191, 281));
@@ -287,9 +292,12 @@ public:
 "letter-spacing:3px;\n"
 "   "));
         label_15->setTextFormat(Qt::TextFormat::AutoText);
-        groupBox_6 = new QGroupBox(scrollAreaWidgetContents);
+
+        verticalLayout->addWidget(groupBox_2);
+
+        groupBox_6 = new QGroupBox(layoutWidget);
         groupBox_6->setObjectName("groupBox_6");
-        groupBox_6->setGeometry(QRect(20, 320, 871, 301));
+        groupBox_6->setMinimumSize(QSize(871, 301));
         groupBox_7 = new QGroupBox(groupBox_6);
         groupBox_7->setObjectName("groupBox_7");
         groupBox_7->setGeometry(QRect(430, 10, 191, 281));
@@ -382,9 +390,12 @@ public:
 "letter-spacing:3px;\n"
 "   "));
         label_17->setTextFormat(Qt::TextFormat::AutoText);
-        groupBox_10 = new QGroupBox(scrollAreaWidgetContents);
+
+        verticalLayout->addWidget(groupBox_6);
+
+        groupBox_10 = new QGroupBox(layoutWidget);
         groupBox_10->setObjectName("groupBox_10");
-        groupBox_10->setGeometry(QRect(20, 620, 871, 301));
+        groupBox_10->setMinimumSize(QSize(871, 301));
         groupBox_11 = new QGroupBox(groupBox_10);
         groupBox_11->setObjectName("groupBox_11");
         groupBox_11->setGeometry(QRect(430, 10, 191, 281));
@@ -477,9 +488,12 @@ public:
 "letter-spacing:3px;\n"
 "   "));
         label_51->setTextFormat(Qt::TextFormat::AutoText);
-        groupBox_14 = new QGroupBox(scrollAreaWidgetContents);
+
+        verticalLayout->addWidget(groupBox_10);
+
+        groupBox_14 = new QGroupBox(layoutWidget);
         groupBox_14->setObjectName("groupBox_14");
-        groupBox_14->setGeometry(QRect(20, 940, 871, 301));
+        groupBox_14->setMinimumSize(QSize(871, 301));
         groupBox_15 = new QGroupBox(groupBox_14);
         groupBox_15->setObjectName("groupBox_15");
         groupBox_15->setGeometry(QRect(430, 10, 191, 281));
@@ -572,9 +586,12 @@ public:
 "letter-spacing:3px;\n"
 "   "));
         label_44->setTextFormat(Qt::TextFormat::AutoText);
-        groupBox_18 = new QGroupBox(scrollAreaWidgetContents);
+
+        verticalLayout->addWidget(groupBox_14);
+
+        groupBox_18 = new QGroupBox(layoutWidget);
         groupBox_18->setObjectName("groupBox_18");
-        groupBox_18->setGeometry(QRect(20, 1260, 871, 301));
+        groupBox_18->setMinimumSize(QSize(871, 301));
         groupBox_19 = new QGroupBox(groupBox_18);
         groupBox_19->setObjectName("groupBox_19");
         groupBox_19->setGeometry(QRect(430, 10, 191, 281));
@@ -667,9 +684,12 @@ public:
 "letter-spacing:3px;\n"
 "   "));
         label_56->setTextFormat(Qt::TextFormat::AutoText);
-        groupBox_22 = new QGroupBox(scrollAreaWidgetContents);
+
+        verticalLayout->addWidget(groupBox_18);
+
+        groupBox_22 = new QGroupBox(layoutWidget);
         groupBox_22->setObjectName("groupBox_22");
-        groupBox_22->setGeometry(QRect(20, 1570, 851, 321));
+        groupBox_22->setMinimumSize(QSize(851, 321));
         groupBox_23 = new QGroupBox(groupBox_22);
         groupBox_23->setObjectName("groupBox_23");
         groupBox_23->setGeometry(QRect(10, 20, 191, 281));
@@ -718,7 +738,7 @@ public:
         label_52->setTextFormat(Qt::TextFormat::AutoText);
         groupBox_35 = new QGroupBox(groupBox_22);
         groupBox_35->setObjectName("groupBox_35");
-        groupBox_35->setGeometry(QRect(440, 20, 191, 281));
+        groupBox_35->setGeometry(QRect(450, 20, 191, 281));
         label_66 = new QLabel(groupBox_35);
         label_66->setObjectName("label_66");
         label_66->setGeometry(QRect(10, 10, 174, 194));
@@ -739,6 +759,9 @@ public:
 "letter-spacing:3px;\n"
 "   "));
         label_54->setTextFormat(Qt::TextFormat::AutoText);
+
+        verticalLayout->addWidget(groupBox_22);
+
         scrollArea->setWidget(scrollAreaWidgetContents);
         label = new QLabel(centralwidget);
         label->setObjectName("label");
@@ -851,7 +874,7 @@ public:
         label_53->setText(QString());
         label_51->setText(QCoreApplication::translate("Gallery", "\360\237\214\212 Raketon\n"
 "320 2 80  2", nullptr));
-        groupBox_14->setTitle(QCoreApplication::translate("Gallery", "GroupBox", nullptr));
+        groupBox_14->setTitle(QString());
         groupBox_15->setTitle(QString());
         label_33->setText(QString());
         label_34->setText(QCoreApplication::translate("Gallery", "\360\237\214\212 Duraham\n"

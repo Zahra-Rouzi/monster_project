@@ -129,16 +129,17 @@ public:
                         Agent *charachter; // از نوعش نیو کن
 
                         if(type == 0)
-                            charachter = new Grounded;
+                            charachter = new Grounded(parent2);
                         else if(type == 1)
-                            charachter = new flying(parent2);
+                        charachter = new flying(parent2);
                         else if(type == 2)
                             charachter = new floating;
                         else
-                            charachter = new waterWalking;
+                            charachter = new waterWalking(parent2);
                         QString oldStyle = style;
                         QString newRule = "QPushButton {border: none; background-color: transparent;";
                         QString updatedStyle = newRule + ' ' + oldStyle +"}";
+
                         charachter->setStyleSheet(updatedStyle);
                         qDebug() <<"LL"<< characterLabel->styleSheet();
                         charachter->setAttribute(Qt::WA_TranslucentBackground);
@@ -347,8 +348,12 @@ MainPage::MainPage(QWidget *parent)
     chars.push_back(ui->label_22); chars.push_back(ui->label_23); chars.push_back(ui->label_24);
     chars.push_back(ui->label_25); chars.push_back(ui->label_26); chars.push_back(ui->label_27);
     chars.push_back(ui->label_28);
+
+
     qDebug()<<ui->label_28->styleSheet();
     currentPlayer = player1;
+
+
    // charbuttons[0]->addvec(this, charbuttons);
 
     charbuttons.push_back(new SelectButton(ui->label_1, vec, v1, 1, ui->pushButton_1, ui->label_1->styleSheet(), ui->scrollArea_2->widget(), this));
@@ -379,6 +384,42 @@ MainPage::MainPage(QWidget *parent)
     charbuttons.push_back(new SelectButton(ui->label_26, vec, v1, 1, ui->pushButton_26, ui->label_26->styleSheet(), ui->scrollArea_2->widget(), this));
     charbuttons.push_back(new SelectButton(ui->label_27, vec, v1, 1, ui->pushButton_27, ui->label_27->styleSheet(), ui->scrollArea_2->widget(), this));
     charbuttons.push_back(new SelectButton(ui->label_28, vec, v1, 1, ui->pushButton_28, ui->label_28->styleSheet(), ui->scrollArea_2->widget(), this));
+
+    chars.push_back(ui->label2_1); chars.push_back(ui->label2_2); chars.push_back(ui->label2_3);
+    chars.push_back(ui->label2_4); chars.push_back(ui->label2_5); chars.push_back(ui->label2_6);
+    chars.push_back(ui->label2_7); chars.push_back(ui->label2_8); chars.push_back(ui->label2_9);
+    chars.push_back(ui->label2_10); chars.push_back(ui->label2_11); chars.push_back(ui->label2_12);
+    chars.push_back(ui->label2_13); chars.push_back(ui->label2_14); chars.push_back(ui->label2_15);
+    chars.push_back(ui->label2_16); chars.push_back(ui->label2_17); chars.push_back(ui->label2_18);
+    chars.push_back(ui->label2_19); chars.push_back(ui->label2_20); chars.push_back(ui->label2_21);
+    chars.push_back(ui->label2_22); chars.push_back(ui->label2_23);
+
+    charbuttons.push_back(new SelectButton(ui->label2_1, vec, v2, 1, ui->pushButton2_1, ui->label2_1->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_2, vec, v2, 1, ui->pushButton2_2, ui->label2_2->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_3, vec, v2, 1, ui->pushButton2_3, ui->label2_3->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_4, vec, v2, 1, ui->pushButton2_4, ui->label2_4->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_5, vec, v2, 1, ui->pushButton2_5, ui->label2_5->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_6, vec, v2, 1, ui->pushButton2_6, ui->label2_6->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_7, vec, v2, 1, ui->pushButton2_7, ui->label2_7->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_8, vec, v2, 1, ui->pushButton2_8, ui->label2_8->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_9, vec, v2, 1, ui->pushButton2_9, ui->label2_9->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_10, vec, v2, 1, ui->pushButton2_10, ui->label2_10->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_11, vec, v2, 1, ui->pushButton2_11, ui->label2_11->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_12, vec, v2, 1, ui->pushButton2_12, ui->label2_12->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_13, vec, v2, 1, ui->pushButton2_13, ui->label2_13->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_14, vec, v2, 1, ui->pushButton2_14, ui->label2_14->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_15, vec, v2, 1, ui->pushButton2_15, ui->label2_15->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_16, vec, v2, 1, ui->pushButton2_16, ui->label2_16->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_17, vec, v2, 1, ui->pushButton2_17, ui->label2_17->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_18, vec, v2, 1, ui->pushButton2_18, ui->label2_18->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_19, vec, v2, 1, ui->pushButton2_19, ui->label2_19->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_20, vec, v2, 1, ui->pushButton2_20, ui->label2_20->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_21, vec, v2, 1, ui->pushButton2_21, ui->label2_21->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_22, vec, v2, 1, ui->pushButton2_22, ui->label2_22->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_23, vec, v2, 1, ui->pushButton2_23, ui->label2_23->styleSheet(), ui->scrollArea_4->widget(), this));
+
+
+
 
 /*    SelectButton(QLabel *linkedCharacter,QVector<QPushButton*>& buttons,
         QVector<QPushButton*>& valid, int type,

@@ -15,6 +15,7 @@ class Grounded : public Agent
     Q_OBJECT
     QML_ELEMENT
 public:
+    Grounded(QWidget * parent): Agent(parent){}
     bool canMoveT0(int type) const override{
         if(type == 0 || type == 1 || type == 2)
             return 1;
