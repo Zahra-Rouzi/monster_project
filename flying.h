@@ -23,7 +23,7 @@ public:
         if(type == 0 || type == 1 || type == 2)
             return 1;
         return 0;
-    };
+    }
 
 
 };

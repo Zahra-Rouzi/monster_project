@@ -15,10 +15,13 @@
 #include "agent.h"
 #include "player.h"
 #include "waterwalking.h"
+#include <QFile>
+#include <QTextStream>
+#include <QDebug>
 
 QVector<QPushButton*> vec, v1, v2;
 std::vector<int> hexa;
-
+//tile *cell[8][8] = {};
 void changeStyle(QPushButton *p, int c){
 
     if(c == 0 || c == 1 || c == 2)
@@ -31,9 +34,7 @@ void changeStyle(QPushButton *p, int c){
         p->setStyleSheet("image: url(:/new/prefix11/rockgray.png); "
                          "background-color: transparent");
 }
-#include <QFile>
-#include <QTextStream>
-#include <QDebug>
+
 
 void changeBack(){
 
@@ -127,7 +128,7 @@ public:
                         double x = p->x()-10;
                         double y = p->y();
                         Agent *charachter; // از نوعش نیو کن
-
+                        charachter->setOwner(&currentPlayer);///??
                         if(type == 0)
                             charachter = new Grounded(parent2);
                         else if(type == 1)
@@ -221,8 +222,8 @@ QVector <SelectButton*> charbuttons;
 
 
 
-
-tile *cell[8][8] = {};
+//extern????
+ tile *cell[8][8] = {};
 
 MainPage::MainPage(QWidget *parent)
     : QMainWindow(parent)
@@ -312,7 +313,7 @@ MainPage::MainPage(QWidget *parent)
             double x = (size * 3.0/2 + 55.0) * col;
             double y = (height + 55.0) * (row + 0.5 * (col % 2));
             if(col % 2 && row == 4) continue;
-            cell[row][col] = new tile(x + 280, y + 150, this, hexa[cnt]);
+            cell[row][col] = new tile(x + 280, y + 150, this, hexa[cnt],row,col);
             if(hexa[cnt] == 1) v1.push_back(vec[cnt]);
             else if(hexa[cnt] == 2) v2.push_back(vec[cnt]);
             cell[row][col]->pic( hexa[cnt++] );
@@ -320,7 +321,139 @@ MainPage::MainPage(QWidget *parent)
 
         }
     }
+    for (int row = 0; row < 5; ++row) {
+        for (int col = 0; col < 9; col++) {
+            //qDebug()<<row<<" "<<col<<" "<<0;
+            if(!cell[row][col]){
+                qDebug()<<"null"<<row<<" "<<col<<" ";
+                continue;
+            }
+            if(row>0){
+                if(!cell[row-1][col]){
+                    qDebug()<<"null_neighbor"<<row<<" "<<col<<" ";
+                    continue;
+                }
+                qDebug()<<row<<" "<<col<<" "<<0;
 
+                cell[row][col]->neighbors.push_back(cell[row-1][col]);//0
+
+            }
+            if(row>0&&col<8){
+                if(!cell[row-1][col+1]){
+                    qDebug()<<"null_neighbor"<<row<<" "<<col<<" ";
+                    continue;
+                }
+                qDebug()<<row<<" "<<col<<" "<<1;
+               cell[row][col]->neighbors.push_back(cell[row-1][col+1]);//1
+            }
+            if(col<8){
+                if(!cell[row][col+1]){
+                    qDebug()<<"null_neighbor"<<row<<" "<<col<<" ";
+                    continue;
+                }
+                qDebug()<<row<<" "<<col<<" "<<2;
+             cell[row][col]->neighbors.push_back(cell[row][col+1]);
+            }
+            if(row<4){
+                if(!cell[row+1][col]){
+                    qDebug()<<"null_neighbor"<<row<<" "<<col<<" ";
+                    continue;
+                }
+                qDebug()<<row<<" "<<col<<" "<<3;
+             cell[row][col]->neighbors.push_back(cell[row+1][col]);
+            }
+            if(col>0){
+                if(!cell[row][col-1]){
+                    qDebug()<<"null_neighbor"<<row<<" "<<col<<" ";
+                    continue;
+                }
+                qDebug()<<row<<" "<<col<<" "<<4;
+             cell[row][col]->neighbors.push_back(cell[row][col-1]);
+            }
+            if(row>0&&col>0){
+                if(!cell[row-1][col-1]){
+                    qDebug()<<"null_neighbor"<<row<<" "<<col<<" ";
+                    continue;
+                }
+                qDebug()<<row<<" "<<col<<" "<<5;
+                cell[row][col]->neighbors.push_back(cell[row-1][col-1]);
+            }
+
+    }
+    }
+
+     /*for (int row = 0; row < 4; ++row) {
+        for (int col = 0; col < 8; col += 2) {
+            // Check bounds for neighbors
+            if (row > 0) {
+                cell[row][col]->neighbors[0] = cell[row - 1][col]; // Up
+                if(col > 0) {
+                    cell[row][col]->neighbors[5] = cell[row-1][col-1]; // Up-Left
+                }
+                if (col < 7) {
+                    cell[row][col]->neighbors[1] = cell[row-1][col+1]; // Up-Right
+                }
+
+            }
+            if (row < 3) {
+                cell[row][col]->neighbors[3] = cell[row + 1][col]; // Down
+
+            }
+            if (col > 0) {
+                cell[row][col]->neighbors[4] = cell[row][col-1]; // Left
+            }
+            if (col < 6) {
+                cell[row][col]->neighbors[2] = cell[row][col+1]; // Right
+
+            }
+
+            if (row < 3 && col > 0) {
+                cell[row][col]->neighbors[5] = cell[row+1][col-1]; // Down-Left
+            }
+            if (row < 3 && col < 6) {
+                cell[row][col]->neighbors[2] = cell[row + 1][col+1]; // Down-Right
+            }
+        }
+    }
+
+     * for (int row = 0; row < 4; ++row) {
+        for (int col = 0; col < 8; col += 2) {
+            // Check bounds for neighbors
+            if (row > 0) {
+                cell[row][col]->neighbors[0] = cell[row - 1][col];
+                if(col > 0) {
+                    cell[row][col]->neighbors[5] = cell[row-1][col-1];
+                }
+                if (col < 8)
+                    cell[row][col]->neighbors[1] = cell[row-1][col+1];
+            }
+
+            if (row < 4) {
+                cell[row][col]->neighbors[3] = cell[row + 1][col];
+            }
+            if (col > 0)
+                cell[row][col]->neighbors[4] = cell[row][col-1];
+
+            if (col < 8)
+                cell[row][col]->neighbors[2] = cell[row][col+1];
+
+        }
+    }
+    */
+    /*
+     //setting neighbors
+    for (int row = 0; row < 5; ++row) {
+        for (int col = 0; col < 9; col+=2) {
+            cell[row][col]->neighbors[0]=cell[row-1][col];
+            cell[row][col]->neighbors[1]=cell[row-1][col+1];
+            cell[row][col-1]->neighbors[2]=cell[row][col+1];
+            cell[row-1][col]->neighbors[3]=cell[row][col];
+            cell[row][col]->neighbors[4]=cell[row][col-1];
+            cell[row][col]->neighbors[5]=cell[row-1][col-1];
+        }
+
+    }
+    */
     qDebug() << vec.size() << "******************\n";
     ui->centralwidget->raise();
     ui->centralwidget->setStyleSheet("background-color: transparent");
@@ -403,53 +536,29 @@ MainPage::MainPage(QWidget *parent)
     charbuttons.push_back(new SelectButton(ui->label2_7, vec, v2, 1, ui->pushButton2_7, ui->label2_7->styleSheet(), ui->scrollArea_4->widget(), this));
     charbuttons.push_back(new SelectButton(ui->label2_8, vec, v2, 1, ui->pushButton2_8, ui->label2_8->styleSheet(), ui->scrollArea_4->widget(), this));
     charbuttons.push_back(new SelectButton(ui->label2_9, vec, v2, 1, ui->pushButton2_9, ui->label2_9->styleSheet(), ui->scrollArea_4->widget(), this));
-    charbuttons.push_back(new SelectButton(ui->label2_10, vec, v2, 1, ui->pushButton2_10, ui->label2_10->styleSheet(), ui->scrollArea_4->widget(), this));
-    charbuttons.push_back(new SelectButton(ui->label2_11, vec, v2, 1, ui->pushButton2_11, ui->label2_11->styleSheet(), ui->scrollArea_4->widget(), this));
-    charbuttons.push_back(new SelectButton(ui->label2_12, vec, v2, 1, ui->pushButton2_12, ui->label2_12->styleSheet(), ui->scrollArea_4->widget(), this));
-    charbuttons.push_back(new SelectButton(ui->label2_13, vec, v2, 1, ui->pushButton2_13, ui->label2_13->styleSheet(), ui->scrollArea_4->widget(), this));
-    charbuttons.push_back(new SelectButton(ui->label2_14, vec, v2, 1, ui->pushButton2_14, ui->label2_14->styleSheet(), ui->scrollArea_4->widget(), this));
-    charbuttons.push_back(new SelectButton(ui->label2_15, vec, v2, 1, ui->pushButton2_15, ui->label2_15->styleSheet(), ui->scrollArea_4->widget(), this));
-    charbuttons.push_back(new SelectButton(ui->label2_16, vec, v2, 1, ui->pushButton2_16, ui->label2_16->styleSheet(), ui->scrollArea_4->widget(), this));
-    charbuttons.push_back(new SelectButton(ui->label2_17, vec, v2, 1, ui->pushButton2_17, ui->label2_17->styleSheet(), ui->scrollArea_4->widget(), this));
-    charbuttons.push_back(new SelectButton(ui->label2_18, vec, v2, 1, ui->pushButton2_18, ui->label2_18->styleSheet(), ui->scrollArea_4->widget(), this));
-    charbuttons.push_back(new SelectButton(ui->label2_19, vec, v2, 1, ui->pushButton2_19, ui->label2_19->styleSheet(), ui->scrollArea_4->widget(), this));
-    charbuttons.push_back(new SelectButton(ui->label2_20, vec, v2, 1, ui->pushButton2_20, ui->label2_20->styleSheet(), ui->scrollArea_4->widget(), this));
-    charbuttons.push_back(new SelectButton(ui->label2_21, vec, v2, 1, ui->pushButton2_21, ui->label2_21->styleSheet(), ui->scrollArea_4->widget(), this));
-    charbuttons.push_back(new SelectButton(ui->label2_22, vec, v2, 1, ui->pushButton2_22, ui->label2_22->styleSheet(), ui->scrollArea_4->widget(), this));
-    charbuttons.push_back(new SelectButton(ui->label2_23, vec, v2, 1, ui->pushButton2_23, ui->label2_23->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_10,vec, v2, 1, ui->pushButton2_10, ui->label2_10->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_11,vec, v2, 1, ui->pushButton2_11, ui->label2_11->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_12,vec, v2, 1, ui->pushButton2_12, ui->label2_12->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_13,vec, v2, 1, ui->pushButton2_13, ui->label2_13->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_14,vec, v2, 1, ui->pushButton2_14, ui->label2_14->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_15,vec, v2, 1, ui->pushButton2_15, ui->label2_15->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_16,vec, v2, 1, ui->pushButton2_16, ui->label2_16->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_17,vec, v2, 1, ui->pushButton2_17, ui->label2_17->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_18,vec, v2, 1, ui->pushButton2_18, ui->label2_18->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_19,vec, v2, 1, ui->pushButton2_19, ui->label2_19->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_20,vec, v2, 1, ui->pushButton2_20, ui->label2_20->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_21,vec, v2, 1, ui->pushButton2_21, ui->label2_21->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_22,vec, v2, 1, ui->pushButton2_22, ui->label2_22->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_23,vec, v2, 1, ui->pushButton2_23, ui->label2_23->styleSheet(), ui->scrollArea_4->widget(), this));
 
 
 
 
-/*    SelectButton(QLabel *linkedCharacter,QVector<QPushButton*>& buttons,
-        QVector<QPushButton*>& valid, int type,
-        QPushButton *s, QWidget *parent1 = nullptr,
-                 MainPage *parent2 = nullptr)
-    charbuttons.push_back(new SelectButton(ui->label_2, vec, v1, this) );
-    charbuttons[1]->setGeometry(90, 430, 75, 24);
 
-    charbuttons.push_back(new SelectButton(ui->label_3, vec, v1, this) );
-    charbuttons[2]->setGeometry(90, 660, 75, 24);
 
-    charbuttons.push_back(new SelectButton(ui->label_4, vec, v2, this) );
-    charbuttons[3]->setGeometry(1190, 170, 75, 24);
+    }
 
-    charbuttons.push_back(new SelectButton(ui->label_5, vec, v2, this) );
-    charbuttons[4]->setGeometry(1200, 430, 75, 24);
-
-    charbuttons.push_back(new SelectButton(ui->label_6, vec, v2, this) );
-    charbuttons[5]->setGeometry(1200, 660, 75, 24);
-
-    charbuttons[0]->addvec(this, charbuttons);
-    charbuttons[1]->addvec(this, charbuttons);
-    charbuttons[2]->addvec(this, charbuttons);
-    charbuttons[3]->addvec(this, charbuttons);
-    charbuttons[4]->addvec(this, charbuttons);
-    charbuttons[5]->addvec(this, charbuttons);*/
-
-}
-
-MainPage::~MainPage()
+    MainPage::~MainPage()
 {
     delete ui;
 }

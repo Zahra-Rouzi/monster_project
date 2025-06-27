@@ -9,6 +9,7 @@ Agent::Agent(QWidget *p, int h, int m, int d, int a)
     Mobility(m),
     Damage(d),
     attackRange(a)
+
 {}
 
 

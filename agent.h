@@ -9,7 +9,8 @@
 #include <QWidget>
 #include "tile.h"
 
-
+class Player;
+class tile;
 class Agent : public QPushButton
 {
     Q_OBJECT
@@ -21,11 +22,15 @@ public:
     int getHP(){return HP;}
     int getMobility(){return Mobility;}
     int getAttackRange(){return attackRange;}
+    Player* getOwner(){return owner;}
     void setHP(int h){
         HP = (h < 0) ? 0 : h;
     }
     void setCell(tile &t){
         currentCell = &t;
+    }
+    void setOwner(Player* pl){
+        owner=pl;
     }
    // void attack()
     virtual bool canMoveT0(int type) const = 0;
@@ -37,6 +42,8 @@ private:
     int Damage;
     int attackRange;
     tile *currentCell;
+    Player* owner;///
+
 };
 
 #endif // AGENT_H
