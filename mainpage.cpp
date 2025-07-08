@@ -19,6 +19,13 @@
 #include <QTextStream>
 #include <QDebug>
 
+void MainPage::hid1(){
+    ui->scrollArea_2->hide();
+}
+void MainPage::hid2(){
+    ui->scrollArea_4->hide();
+}
+
 QVector<QPushButton*> vec, v1, v2;
 std::vector<int> hexa;
 //tile *cell[8][8] = {};
@@ -128,7 +135,7 @@ public:
                         double x = p->x()-10;
                         double y = p->y();
                         Agent *charachter; // از نوعش نیو کن
-                        charachter->setOwner(&currentPlayer);///??
+                        ///??
                         if(type == 0)
                             charachter = new Grounded(parent2);
                         else if(type == 1)
@@ -137,6 +144,7 @@ public:
                             charachter = new floating;
                         else
                             charachter = new waterWalking(parent2);
+                        charachter->setOwner(currentPlayer);
                         QString oldStyle = style;
                         QString newRule = "QPushButton {border: none; background-color: transparent;";
                         QString updatedStyle = newRule + ' ' + oldStyle +"}";
@@ -146,13 +154,24 @@ public:
                         charachter->setAttribute(Qt::WA_TranslucentBackground);
                         charachter->setGeometry(x, y, 140, 90);
                         charachter->show();
-                        currentPlayer.addAgent(charachter);
+                        currentPlayer->addAgent(charachter);
+                        if(player1.countAgent == 5){
+                            parent2->hid1();
+                            currentPlayer = &player2;
+                        }
+                        if(player2.countAgent == 5){
+                            parent2->hid2();
+                            currentPlayer = &player1;
+                        }
                         //m->centralWidget()->raise();
 
                         validButtons.removeAll(p);
 
                         changeBack();
-                        for(Agent * a : currentPlayer.playerAgents){
+                        for(Agent * a : player1.playerAgents){
+                            a->raise();
+                        }
+                        for(Agent * a : player2.playerAgents){
                             a->raise();
                         }
                         /*m->centralWidget()->raise();
@@ -223,8 +242,39 @@ QVector <SelectButton*> charbuttons;
 
 
 //extern????
- tile *cell[8][8] = {};
+ tile *cell[9][9] = {};
 
+void highlightTiles(tile* grid[9][9]) {
+
+
+    int size = 20;  // شعاع
+    float height = sqrt(3) * size;
+
+    for (int row = 0; row < 5; ++row) {
+        for (int col = 0; col < 9; col+=2) {
+            double x1 = (size * 3.0/2 + 55.0) * col;
+            double y1 = (height + 55.0) * (row + 0.5 * (col % 2));
+            if(col % 2 && row == 4) continue;
+            QPolygonF polygon;
+            const double PI = 3.14159265358979323846;
+
+            for (int i = 0; i < 6; ++i) {
+                double angle_deg = 60 * i - 30; // برای قرارگیری صحیح شش ضلعی
+                double angle_rad = PI / 180 * angle_deg;
+                double x = (grid[row][col]->x()) + size * cos(angle_rad);
+                double y = (grid[row][col]->y()) + size * sin(angle_rad);
+                polygon << QPointF(x, y);
+            }
+            QPolygon hexPolygon = polygon.toPolygon();
+            tile *button = grid[row][col];
+            button->setMask(QRegion(hexPolygon));
+            if(col == 8) col = -1;
+
+        }
+    }
+
+
+}
 MainPage::MainPage(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainPage)
@@ -484,7 +534,7 @@ MainPage::MainPage(QWidget *parent)
 
 
     qDebug()<<ui->label_28->styleSheet();
-    currentPlayer = player1;
+    currentPlayer = &player1;
 
 
    // charbuttons[0]->addvec(this, charbuttons);

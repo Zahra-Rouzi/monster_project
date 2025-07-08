@@ -20,5 +20,5 @@ private:
     vector<Agent *> playerAgents;
 };
 
-extern Player player1, player2, currentPlayer;
+extern Player player1, player2, *currentPlayer;
 #endif // PLAYER_H

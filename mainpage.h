@@ -18,6 +18,8 @@ class MainPage : public QMainWindow
     friend class tile;
 public:
     explicit MainPage(QWidget *parent = nullptr);
+    void hid1();
+    void hid2();
     ~MainPage();
 
 private:

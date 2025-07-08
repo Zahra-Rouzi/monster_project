@@ -41,11 +41,11 @@ void tile::bfsMove(int d,Agent* a,bool canGo[5][9]){
         int curDepth = depth[cur_tile->s][cur_tile->r];
         q.pop_front();
 
-        if (curDepth >= d) continue;
+        if (curDepth >= d) continue; //?
         for(tile*neighbor:cur_tile->neighbors){
-            if(!visited[neighbor->s][neighbor->r]&& a->canMoveT0(neighbor->type)&&a->canStandOn(neighbor->type)&& !neighbor->isOccupiedByAlly(a)&& neighbor->agent == nullptr){
+            if(!visited[neighbor->s][neighbor->r]&& a->canMoveT0(neighbor->type)){
                 visited[neighbor->s][neighbor->r]=true;
-                canGo[neighbor->s][neighbor->r]=true;
+                canGo[neighbor->s][neighbor->r]=true;//?
                 depth[neighbor->s][neighbor->r] = curDepth + 1;
                 q.push_back(neighbor);
 
@@ -113,20 +113,33 @@ bool tile::isOccupiedByAlly(Agent* a) {
 
 /*
 void highlightTiles(bool canGo[5][9], bool canAttack[5][9], tile* grid[5][9]) {
-    for (int i = 0; i < 5; i++) {
-        for (int j = 0; j < 9; j++) {
-            if (canGo[i][j] && canAttack[i][j]) {
-                grid[i][j]->w->setStyleSheet("border: 3px solid purple;");
-            } else if (canGo[i][j]) {
-                grid[i][j]->w->setStyleSheet("border: 3px solid green;");
-            } else if (canAttack[i][j]) {
-                grid[i][j]->w->setStyleSheet("border: 3px solid red;");
-            }
-            else {
-                grid[i][j]->resetHighlight(); // بازنشانی به حالت عادی
-            }
+
+    QPolygon hexagon;
+    int size = 20;  // شعاع
+    float height = sqrt(3) * size;
+
+    int cnt = 0;
+    for (int row = 0; row < 5; ++row) {
+        for (int col = 0; col < 9; col+=2) {
+            double x = (size * 3.0/2 + 55.0) * col;
+            double y = (height + 55.0) * (row + 0.5 * (col % 2));
+            if(col % 2 && row == 4) continue;
+            hexagon << QPoint(x + 280, y + 150);
+            if(col == 8) col = -1;
+
         }
     }
+
+    QRegion hexRegion(hexagon);
+    for (int row = 0; row < 5; ++row) {
+        for (int col = 0; col < 9; col+=2) {
+            tile *button = grid[row][col];
+            button->setMask(hexRegion);
+            if(col == 8) col = -1;
+
+        }
+    }
+
 }
 */
 /*/
