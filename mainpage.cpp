@@ -18,6 +18,8 @@
 #include <QFile>
 #include <QTextStream>
 #include <QDebug>
+#include <QPainter>
+
 
 void MainPage::hid1(){
     ui->scrollArea_2->hide();
@@ -119,6 +121,96 @@ public:
             int cnt = 0;
             for(QPushButton *p : allButtons){
                 p->raise();
+                int size = 50;
+                int width = 2 * size;
+                int height = static_cast<int>(round(size * sqrt(3)));
+
+                QLabel* overlay = new QLabel(p->parentWidget());
+
+                int x = p->x() + (p->width() - width) / 2;
+                int y = p->y() + (p->height() - height) / 2;
+
+                overlay->setGeometry(x, y, width, height);
+
+                QPixmap pixmap(width, height);
+                pixmap.fill(Qt::transparent);
+
+                QPainter painter(&pixmap);
+                painter.setRenderHint(QPainter::Antialiasing);
+                painter.setBrush(QColor(255, 0, 0, 70));
+                painter.setPen(Qt::NoPen);
+
+                QPolygon hexagon;
+                for (int i = 0; i < 6; ++i) {
+                    double angle_deg = 60 * i - 60;
+                    double angle_rad = M_PI / 180 * angle_deg;
+                    int px = width / 2 + static_cast<int>(round(size * cos(angle_rad)));
+                    int py = height / 2 + static_cast<int>(round(size * sin(angle_rad)));
+                    hexagon << QPoint(px, py);
+                }
+
+                painter.drawPolygon(hexagon);
+                painter.end();
+
+                overlay->setPixmap(pixmap);
+                overlay->setAttribute(Qt::WA_TransparentForMouseEvents);
+                overlay->show();
+                overlay->raise();
+
+
+                /*
+                int size = 40; // اندازه شش‌ضلعی (فاصله مرکز تا هر رأس)
+                QLabel* overlay = new QLabel( p->parentWidget());
+
+                int x = p->x() + (p->width() - 2*size)/2;
+                int y = p->y() + (p->height() - 2*size)/2;
+
+                overlay->setGeometry(x, y, 2*size, 2*size);
+
+                QPixmap pixmap(2*size, 2*size);
+                pixmap.fill(Qt::transparent);
+
+                QPainter painter(&pixmap);
+                painter.setRenderHint(QPainter::Antialiasing);
+                painter.setBrush(QColor(255, 0, 0, 40));  // رنگ قرمز نیمه شفاف
+                painter.setPen(Qt::NoPen);
+
+                QPolygon hexagon;
+                for (int i = 0; i < 6; ++i) {
+                    double angle_deg = 60 * i - 60;  // -30 برای چرخش شش‌ضلعی تا راس‌ها عمودی باشند
+                    double angle_rad = M_PI / 180 * angle_deg;
+                    int px = size + size * cos(angle_rad);
+                    int py = size + size * sin(angle_rad);
+                    hexagon << QPoint(px, py);
+                }
+
+                painter.drawPolygon(hexagon);
+                painter.end();
+
+                overlay->setPixmap(pixmap);
+                overlay->setAttribute(Qt::WA_TransparentForMouseEvents);
+                overlay->show();
+                overlay->raise();
+
+
+                // فرض می‌کنیم w دکمه ما هست
+
+
+                // لایه رو بالاتر بیار
+
+                /*
+                 * QLabel* overlay = new QLabel(p->parentWidget());
+                overlay->setGeometry(p->geometry());
+                overlay->setStyleSheet("background-color: rgba(255, 0, 0, 100);"); // رنگ قرمز نیمه شفاف
+                overlay->setAttribute(Qt::WA_TransparentForMouseEvents);  // کلیک‌ها رو رد کنه
+                overlay->show();
+                overlay->raise();
+
+                QWidget* overlay = new QWidget(p);  // w همون QPushButton هست
+                overlay->setStyleSheet("background-color: rgba(255, 0, 0, 20);");
+                overlay->setGeometry(0, 0, p->width(), p->height());
+                overlay->show();
+                */
                 if(!validButtons.contains(p))
                     changeStyle(p, hexa[cnt]);
                 cnt++;
@@ -364,6 +456,9 @@ MainPage::MainPage(QWidget *parent)
             double y = (height + 55.0) * (row + 0.5 * (col % 2));
             if(col % 2 && row == 4) continue;
             cell[row][col] = new tile(x + 280, y + 150, this, hexa[cnt],row,col);
+            //cell[row][col]->setStyleSheet( "background-color: rgba(255, 0, 0, 200)");  // قرمز کم‌رنگ
+
+
             if(hexa[cnt] == 1) v1.push_back(vec[cnt]);
             else if(hexa[cnt] == 2) v2.push_back(vec[cnt]);
             cell[row][col]->pic( hexa[cnt++] );
