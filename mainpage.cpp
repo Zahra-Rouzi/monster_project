@@ -19,7 +19,42 @@
 #include <QTextStream>
 #include <QDebug>
 #include <QPainter>
+tile *cell[5][9] = {};
+bool canGo[5][9] = {};
+bool canAttack[5][9] = {};
+QList<QLabel*> previousHighlights;
+QVector<tile*> MainPage:: getNeighbors(int row, int col) {
+    QVector<tile*> neighbors;
 
+    // جهت‌ها برای ستون زوج
+    static const int even_directions[6][2] = {
+        {-1, 0}, {-1, 1}, {0, 1},
+        {1, 0}, {0, -1}, {-1, -1}
+    };
+
+    // جهت‌ها برای ستون فرد
+    static const int odd_directions[6][2] = {
+        {-1, 0}, {0, 1}, {1, 1},
+        {1, 0}, {1, -1}, {0, -1}
+    };
+
+    const int (*directions)[2] = (col % 2 == 0) ? even_directions : odd_directions;
+
+    for (int i = 0; i < 6; ++i) {
+        int nr = row + directions[i][0];
+        int nc = col + directions[i][1];
+
+        if (nr >= 0 && nr < 5 && nc >= 0 && nc < 9 ) {
+            if(cell[nr][nc] != nullptr) {
+                neighbors.push_back(cell[nr][nc]);
+                qDebug()<<"cell null in neighbor";
+
+            }
+        }
+    }
+
+    return neighbors;
+}
 
 void MainPage::hid1(){
     ui->scrollArea_2->hide();
@@ -27,6 +62,262 @@ void MainPage::hid1(){
 void MainPage::hid2(){
     ui->scrollArea_4->hide();
 }
+void MainPage::switchTurn() {
+    if (currentPlayer == &player1) {
+        currentPlayer = &player2;
+        qDebug() << "Turn: Player 2";
+    } else {
+        currentPlayer = &player1;
+        qDebug() << "Turn: Player 1";
+    }
+}
+void MainPage::highlightingMove(QPushButton *p) {
+    int size = 50;
+    int width = 2 * size;
+    int height = static_cast<int>(round(size * sqrt(3)));
+
+    QLabel* overlay = new QLabel(p->parentWidget());
+    overlay->setAttribute(Qt::WA_TransparentForMouseEvents);
+
+    // موقعیت دقیق دکمه روی فرم اصلی
+    QPoint pos = p->mapTo(this, QPoint(0, 0));
+    int x = pos.x() + (p->width() - width) / 2;
+    int y = pos.y() + (p->height() - height) / 2;
+    overlay->setGeometry(x, y, width, height);
+
+    QPixmap pixmap(width, height);
+    pixmap.fill(Qt::transparent);
+
+    QPainter painter(&pixmap);
+    painter.setRenderHint(QPainter::Antialiasing);
+    painter.setBrush(QColor(255, 0, 0, 70));
+    painter.setPen(Qt::NoPen);
+
+    QPolygon hexagon;
+    for (int i = 0; i < 6; ++i) {
+        double angle_deg = 60 * i - 60;
+        double angle_rad = M_PI / 180 * angle_deg;
+        int px = width / 2 + static_cast<int>(round(size * cos(angle_rad)));
+        int py = height / 2 + static_cast<int>(round(size * sin(angle_rad)));
+        hexagon << QPoint(px, py);
+    }
+
+    painter.drawPolygon(hexagon);
+    painter.end();
+
+    overlay->setPixmap(pixmap);
+    overlay->show();
+    overlay->raise();
+}
+void MainPage::highlightingAttack(QPushButton *p) {
+    int size = 50;
+    int width = 2 * size;
+    int height = static_cast<int>(round(size * sqrt(3)));
+
+    QLabel* overlay = new QLabel(p->parentWidget());
+    overlay->setAttribute(Qt::WA_TransparentForMouseEvents);
+
+    QPoint pos = p->mapTo(this, QPoint(0, 0));
+    int x = pos.x() + (p->width() - width) / 2;
+    int y = pos.y() + (p->height() - height) / 2;
+    overlay->setGeometry(x, y, width, height);
+
+    QPixmap pixmap(width, height);
+    pixmap.fill(Qt::transparent);
+
+    QPainter painter(&pixmap);
+    painter.setRenderHint(QPainter::Antialiasing);
+
+    painter.setBrush(Qt::NoBrush);
+    painter.setPen(QPen(QColor(0, 255, 0), 3));  // رنگ خط قرمز با ضخامت ۳
+
+    QPolygon hexagon;
+    for (int i = 0; i < 6; ++i) {
+        double angle_deg = 60 * i - 60;
+        double angle_rad = M_PI / 180 * angle_deg;
+        int px = width / 2 + static_cast<int>(round(size * cos(angle_rad)));
+        int py = height / 2 + static_cast<int>(round(size * sin(angle_rad)));
+        hexagon << QPoint(px, py);
+    }
+
+    painter.drawPolygon(hexagon);  // فقط خط دور شش‌ضلعی کشیده میشه
+    painter.end();
+
+    overlay->setPixmap(pixmap);
+    overlay->show();
+    overlay->raise();
+
+}
+/*
+void MainPage::handleTileClick(tile* clicked) {
+    if (selectedTile == nullptr) {
+        if (clicked->agent != nullptr && clicked->agent->getOwner() == currentPlayer) {
+            selectedTile = clicked;
+
+            // Highlight خانه‌های قابل حرکت
+            Agent* ag = clicked->agent;
+            clicked->bfsMove(ag->getMobility(), ag, canGo);
+
+            for (int i = 0; i < 5; ++i)
+                for (int j = 0; j < 9; ++j)
+                    if (canGo[i][j] && cell[i][j])
+                        cell[i][j]->w->setStyleSheet("background-color: rgba(0,255,0,80);");
+        }
+    } else {
+        if (clicked == selectedTile) {
+            selectedTile->w->setStyleSheet("");
+            selectedTile = nullptr;
+            clearHighlights();
+            return;
+        }
+
+        if (clicked->agent == nullptr && canGo[clicked->s][clicked->r]) {
+            // انتقال ایجنت
+            Agent* ag = selectedTile->agent;
+            clicked->agent = ag;
+            ag->setCell(*clicked);
+            selectedTile->agent = nullptr;
+
+            clicked->w->setIcon(selectedTile->w->icon());
+            selectedTile->w->setIcon(QIcon());
+
+            selectedTile->w->setStyleSheet("");
+            clearHighlights();
+            selectedTile = nullptr;
+
+            // 👇 بعد از حرکت، نوبت عوض می‌شه
+            switchTurn();
+        }
+    }
+}
+*/
+
+
+
+
+
+
+void MainPage::highlight(QWidget *m) {
+    qDebug() << "[highlight] started";
+
+    // پاک کردن هایلایت‌های قبلی
+    for (QLabel* label : previousHighlights) {
+        if (label) {
+            label->hide();
+            label->deleteLater();
+        }
+    }
+    previousHighlights.clear();
+
+    const int overlayWidth = 100;
+    const int overlayHeight = 100;
+    const int size = 20;
+    const float height = sqrt(3) * size;
+
+    for (int row = 0; row < 5; ++row) {
+        for (int col = 0; col < 9; ++col) {
+            qDebug() << "[highlight] checking cell[" << row << "][" << col << "]";
+
+            if (!cell[row][col]) {
+                qDebug() << "[highlight] cell is null";
+                continue;
+            }
+
+            if (!canGo[row][col]) {
+                continue;
+            }
+
+            tile *p = cell[row][col];
+            if (!p) {
+                qDebug() << "[highlight] tile pointer is null after cell check!";
+                continue;
+            }
+
+            int pw = p->width();
+            int ph = p->height();
+
+            if (pw <= 0 || ph <= 0 || pw > 1000 || ph > 1000) {
+                qDebug() << "[highlight] invalid tile size: width=" << pw << ", height=" << ph;
+                continue;
+            }
+
+            double x = (size * 3.0 / 2 + 55.0) * col;
+            double y = (height + 55.0) * (row + 0.5 * (col % 2));
+
+            QLabel* overlay = new QLabel(m);
+            overlay->setGeometry(x + 280, y + 146, overlayWidth, overlayHeight);
+
+            QPixmap pixmap(overlayWidth, overlayHeight);
+            pixmap.fill(Qt::transparent);
+
+            QPainter painter(&pixmap);
+            painter.setRenderHint(QPainter::Antialiasing);
+            painter.setBrush(QColor(255, 0, 0, 128));
+            painter.setPen(Qt::NoPen);
+
+            QPolygon hexagon;
+            for (int i = 0; i < 6; ++i) {
+                double angle_deg = 60 * i - 60;
+                double angle_rad = M_PI / 180 * angle_deg;
+                int px = overlayWidth / 2 + (overlayWidth / 2) * cos(angle_rad);
+                int py = overlayHeight / 2 + (overlayHeight / 2) * sin(angle_rad);
+                hexagon << QPoint(px, py);
+            }
+
+            painter.drawPolygon(hexagon);
+            painter.end();
+
+            overlay->setPixmap(pixmap);
+            overlay->setAttribute(Qt::WA_TransparentForMouseEvents);
+            overlay->show();
+            overlay->raise();
+
+            previousHighlights.append(overlay);
+
+            qDebug() << "[highlight] overlay added at" << row << col;
+        }
+    }
+
+    qDebug() << "[highlight] finished";
+}
+
+
+void MainPage::loop(QWidget *m) {
+    qDebug() << "[loop] Running loop for" << (currentPlayer == &player1 ? "Player 1" : "Player 2");
+
+    for (int i = 0; i < currentPlayer->playerAgents.size(); ++i) {
+        Agent* a = currentPlayer->playerAgents[i];
+        if (!a) {
+            qDebug() << "[loop] agent[" << i << "] is nullptr!";
+            continue;
+        }
+
+        if (a->parent() == nullptr) {
+            qDebug() << "[loop] agent[" << i << "] has no parent!";
+            continue;
+        }
+
+        tile* ti = a->getCell();
+        if (!ti) {
+            qDebug() << "[loop] agent[" << i << "] has no tile!";
+            continue;
+        }
+
+        disconnect(a, &QPushButton::clicked, nullptr, nullptr);
+
+        connect(a, &QPushButton::clicked, a, [=]() {
+            qDebug() << "[Agent Clicked] ID:" << i;
+
+            for (int i = 0; i < 5; ++i)
+                for (int j = 0; j < 9; ++j)
+                    canGo[i][j] = false;
+
+            ti->bfsMove(a->getMobility(), a, canGo);
+            highlight(m);
+        });
+    }
+}
+
 
 QVector<QPushButton*> vec, v1, v2;
 std::vector<int> hexa;
@@ -68,13 +359,16 @@ class SelectButton : public QPushButton {
 
 public:
     SelectButton(QLabel *linkedCharacter,QVector<QPushButton*>& buttons,
-        QVector<QPushButton*>& valid, int type,
-        QPushButton *s, QString style, QWidget *parent1 = nullptr,
+                 QVector<QPushButton*>& valid, int type,
+                 QPushButton *s, QString style, QWidget *parent1 = nullptr,
                  MainPage *parent2 = nullptr)
         : QPushButton(parent1),
         characterLabel(linkedCharacter),
         allButtons(buttons),
-        validButtons(valid)   {
+        validButtons(valid),
+        hasCharachter(false),           // مقداردهی اولیه اضافه شد
+        waitingForTarget(false)         // مقداردهی اولیه اضافه شد
+    {
         qDebug()<<":"<<characterLabel->styleSheet();
 
         this->setText(s->text());
@@ -116,12 +410,12 @@ public:
 
             }
             else{
-            this->waitingForTarget = true;
-            qDebug() <<waitingForTarget;
-            int cnt = 0;
-            for(QPushButton *p : allButtons){
-                p->raise();
-                int size = 50;
+                this->waitingForTarget = true;
+                qDebug() <<waitingForTarget;
+                int cnt = 0;
+                for(QPushButton *p : allButtons){
+                    p->raise();
+                    /*int size = 50;
                 int width = 2 * size;
                 int height = static_cast<int>(round(size * sqrt(3)));
 
@@ -211,74 +505,68 @@ public:
                 overlay->setGeometry(0, 0, p->width(), p->height());
                 overlay->show();
                 */
-                if(!validButtons.contains(p))
-                    changeStyle(p, hexa[cnt]);
-                cnt++;
-            }
+                    if(!validButtons.contains(p))
+                        changeStyle(p, hexa[cnt]);
+                    cnt++;
+                }
             }
         });
 
+        int cnt = 0;
 
-        for(QPushButton *p : allButtons){
-            connect(p, &QPushButton::clicked, p, [=, this, &linkedCharacter](){
-                if(waitingForTarget){
 
-                    if(validButtons.contains(p)){
-                        double x = p->x()-10;
-                        double y = p->y();
-                        Agent *charachter; // از نوعش نیو کن
-                        ///??
-                        if(type == 0)
-                            charachter = new Grounded(parent2);
-                        else if(type == 1)
-                        charachter = new flying(parent2);
-                        else if(type == 2)
-                            charachter = new floating;
-                        else
-                            charachter = new waterWalking(parent2);
-                        charachter->setOwner(currentPlayer);
-                        QString oldStyle = style;
-                        QString newRule = "QPushButton {border: none; background-color: transparent;";
-                        QString updatedStyle = newRule + ' ' + oldStyle +"}";
+        for (int row = 0; row < 5; ++row) {
+            for (int col = 0; col < 9; col += 2) {
+                if (col % 2 == 1 && row == 4) continue;
 
-                        charachter->setStyleSheet(updatedStyle);
-                        qDebug() <<"LL"<< characterLabel->styleSheet();
-                        charachter->setAttribute(Qt::WA_TranslucentBackground);
-                        charachter->setGeometry(x, y, 140, 90);
-                        charachter->show();
-                        currentPlayer->addAgent(charachter);
-                        if(player1.countAgent == 5){
-                            parent2->hid1();
-                            currentPlayer = &player2;
-                        }
-                        if(player2.countAgent == 5){
-                            parent2->hid2();
-                            currentPlayer = &player1;
-                        }
-                        //m->centralWidget()->raise();
+                QPushButton* p = allButtons[cnt];
 
-                        validButtons.removeAll(p);
-
-                        changeBack();
-                        for(Agent * a : player1.playerAgents){
-                            a->raise();
-                        }
-                        for(Agent * a : player2.playerAgents){
-                            a->raise();
-                        }
-                        /*m->centralWidget()->raise();
-                        for(SelectButton *s : sb)
-                            s->raise();*/
-
-                        hasCharachter = true;
+                // اتصال کلیک برای قرار دادن ایجنت
+                connect(p, &QPushButton::clicked, p, [=, this, &linkedCharacter]() {
+                    if (!waitingForTarget) {
+                        return; // اگر در حالت انتخاب نیستیم، هیچ کاری نکن
                     }
-                    else{
-                        QMessageBox msgBox1(QMessageBox::Warning,
-                                            "Warning",
-                                            "Choose a valid tile to continue",
-                                            QMessageBox::Ok,
-                                            parent2);
-                        msgBox1.setStyleSheet(
+
+                    if (hasCharachter) {
+                        return; // اگر کاراکتر قبلاً انتخاب شده، کاری نکن
+                    }
+
+                    if(validButtons.contains (p)){
+                        // اگر تا اینجا رسید، یعنی همه شرایط OK است
+                        double x = p->x() - 10;
+                        double y = p->y();
+                        Agent *character = nullptr;
+
+                        // ساخت ایجنت بر اساس نوع انتخابی
+                        if (type == 0)
+                            character = new Grounded(parent2);
+                        else if (type == 1)
+                            character = new flying(parent2);
+                        else if (type == 2)
+                            character = new floating;
+                        else
+                            character = new waterWalking(parent2);
+
+                        currentPlayer->addAgent(character);
+                        character->setOwner(currentPlayer);
+
+                        // ست کردن مکان و tile مربوط
+                        tile* targetTile = cell[row][col];
+                        character->setCell(*targetTile);
+                        //targetTile->agent = character;
+
+                        QString updatedStyle = "QPushButton {border: none; background-color: transparent; " + style + "}";
+                        character->setStyleSheet(updatedStyle);
+                        character->setAttribute(Qt::WA_TranslucentBackground);
+                        character->setGeometry(x, y, 140, 90);
+                        character->show();
+                    }else if (!validButtons.contains (p)){
+                        QMessageBox msgBox(QMessageBox::Warning,
+                                           "Warning",
+                                           "choos a valid tile!",
+                                           QMessageBox::Ok,
+                                           parent2);
+                        msgBox.setStyleSheet(
                             "QMessageBox {"
                             "background-color: #FFC07C;"
                             "color: #000000;"
@@ -297,27 +585,46 @@ public:
                             "padding: 5px;"
                             "}"
                             );
-                        msgBox1.exec();
-
-                        //QMessageBox::warning(parent, "Warning", "Choose a valid tile to continue", "OK");
-
-                        changeBack();
-                        parent2->centralWidget()->raise();
-                        for(QPushButton *s : allButtons)
-                            s->lower();
+                        msgBox.exec();
 
                     }
-                    waitingForTarget = false;
 
-                }
-            });
+
+
+
+
+                    if (player1.countAgent == 5) {
+                        parent2->hid1();
+                        currentPlayer = &player2;
+                    }
+                    if (player2.countAgent == 1) {
+                        parent2->hid2();
+                        currentPlayer = &player1;
+                        parent2->loop(parent2);
+                    }
+
+                    validButtons.removeAll(p);
+                    hasCharachter=true;
+                    changeBack();
+
+                    for (Agent* a : player1.playerAgents) a->raise();
+                    for (Agent* a : player2.playerAgents) a->raise();
+                });
+
+                cnt++;
+
+                // جابه‌جا شدن از ستون زوج به فرد
+                if (col == 8) col = -1;
+            }
         }
     }
+
+
     void addvec(MainPage *parent, QVector<SelectButton*>sb){
-            MainPage *m = parent;
+        MainPage *m = parent;
         qDebug() << waitingForTarget << "<<<";
 
-        }
+    }
 
 
 private:
@@ -334,7 +641,7 @@ QVector <SelectButton*> charbuttons;
 
 
 //extern????
- tile *cell[9][9] = {};
+
 
 void highlightTiles(tile* grid[9][9]) {
 
@@ -439,7 +746,7 @@ MainPage::MainPage(QWidget *parent)
             if(content[0]=='2')
                 hexa.push_back(2);
             startIndex = endIndex + 1;
-       }
+        }
     }
     file.close();
 
@@ -447,15 +754,55 @@ MainPage::MainPage(QWidget *parent)
         qDebug() << i;
 
     float size = 20; // اندازه هر شش‌ضلعی
-    float height = sqrt(3) * size;
 
     int cnt = 0;
+
+    float height = sqrt(3) * size;
+
     for (int row = 0; row < 5; ++row) {
+        // اول ستون‌های زوج
+        for (int col = 0; col < 9; col += 2) {
+            if (col % 2 == 1 && row == 4) continue; // همچنان این شرط رو نگه می‌داریم اگر برای ردیف آخر بخوای ستون فرد حذف بشه
+
+            double x = (size * 3.0/2 + 55.0) * col;
+            double y = (height + 55.0) * (row + 0.5 * (col % 2));
+
+            cell[row][col] = new tile(x + 280, y + 150, this, hexa[cnt], row, col);
+
+            if (hexa[cnt] == 1) v1.push_back(vec[cnt]);
+            else if (hexa[cnt] == 2) v2.push_back(vec[cnt]);
+            cell[row][col]->pic(hexa[cnt++]);
+        }
+
+        // بعد ستون‌های فرد
+        for (int col = 1; col < 9; col += 2) {
+            if (col % 2 == 1 && row == 4) continue;
+
+            double x = (size * 3.0/2 + 55.0) * col;
+            double y = (height + 55.0) * (row + 0.5 * (col % 2));
+
+            cell[row][col] = new tile(x + 280, y + 150, this, hexa[cnt], row, col);
+
+            if (hexa[cnt] == 1) v1.push_back(vec[cnt]);
+            else if (hexa[cnt] == 2) v2.push_back(vec[cnt]);
+            cell[row][col]->pic(hexa[cnt++]);
+        }
+    }
+    for (int row = 0; row < 5; ++row) {
+        for (int col = 0; col < 9; ++col) {
+            if (cell[row][col]) {
+                cell[row][col]->neighbors = getNeighbors(row, col);
+            }
+        }
+    }
+
+    /*for (int row = 0; row < 5; ++row) {
         for (int col = 0; col < 9; col+=2) {
             double x = (size * 3.0/2 + 55.0) * col;
             double y = (height + 55.0) * (row + 0.5 * (col % 2));
             if(col % 2 && row == 4) continue;
             cell[row][col] = new tile(x + 280, y + 150, this, hexa[cnt],row,col);
+             qDebug() <<cell[row][col]<<"row"<<row<<"col"<<col<<cnt;
             //cell[row][col]->setStyleSheet( "background-color: rgba(255, 0, 0, 200)");  // قرمز کم‌رنگ
 
 
@@ -465,7 +812,100 @@ MainPage::MainPage(QWidget *parent)
             if(col == 8) col = -1;
 
         }
-    }
+    }    for (int row = 0; row < 5; ++row) {
+        for (int col = 0; col < 9; ++col) {
+            if (cell[row][col]) {
+                cell[row][col]->neighbors = getNeighbors(row, col);
+            }
+        }
+    }*/
+    /*
+    //code for odd and even
+    for (int row = 0; row < 5; ++row) {
+        for (int col = 0; col < 9; col++) {
+            //qDebug()<<row<<" "<<col<<" "<<0;
+            if(!cell[row][col]){
+                qDebug()<<"null"<<row<<" "<<col<<" ";
+                continue;
+            }
+
+            if(row > 0){
+                if(!cell[row-1][col]){
+                    qDebug()<<"null_neighbor"<<row<<" "<<col<<" ";
+                    //continue;
+                }
+                else cell[row][col]->neighbors.push_back(cell[row-1][col]);//0
+            }
+
+            if(!col%2){
+
+                if(row > 0 && col < 8){
+                    if(!cell[row-1][col+1]){
+                        qDebug()<<"null_neighbor"<<row<<" "<<col<<" ";
+                        //continue;
+                    }
+                    else cell[row][col]->neighbors.push_back(cell[row-1][col+1]);//1
+                }
+            }
+            else{
+                if(row < 4 && col < 8){
+                    if(cell[row+1][col+1]){
+                        qDebug()<<"null_neighbor"<<row<<" "<<col<<" ";
+                        //continue;
+                    }
+                    else cell[row][col]->neighbors.push_back(cell[row+1][col+1]);//1
+                }
+
+            }
+
+            if(col < 8){
+                if(!cell[row][col+1]){
+                    qDebug()<<"null_neighbor"<<row<<" "<<col<<" ";
+                    //continue;
+                }
+                else cell[row][col]->neighbors.push_back(cell[row][col+1]);
+            }
+
+            if(row < 4){
+                if(!cell[row+1][col]){
+                    qDebug()<<"null_neighbor"<<row<<" "<<col<<" ";
+                    //continue;
+                }
+                else cell[row][col]->neighbors.push_back(cell[row+1][col]);
+            }
+
+            if(col > 0){
+                if(!cell[row][col-1]){
+                    qDebug()<<"null_neighbor"<<row<<" "<<col<<" ";
+                    //continue;
+                }
+                else cell[row][col]->neighbors.push_back(cell[row][col-1]);
+            }
+
+            if(!col%2){
+
+                if(row > 0 && col > 0){
+                    if(!cell[row-1][col-1]){
+                        qDebug()<<"null_neighbor"<<row<<" "<<col<<" ";
+                        //continue;
+                    }
+                    else cell[row][col]->neighbors.push_back(cell[row-1][col-1]);
+                }
+            }
+            else{
+                if(row < 4 && col > 0){
+                    if(!cell[row+1][col-1]){
+                        qDebug()<<"null_neighbor"<<row<<" "<<col<<" ";
+                        //continue;
+                    }
+                    else cell[row][col]->neighbors.push_back(cell[row+1][col-1]);
+                }
+            }
+
+        }
+    }*/
+
+    /*
     for (int row = 0; row < 5; ++row) {
         for (int col = 0; col < 9; col++) {
             //qDebug()<<row<<" "<<col<<" "<<0;
@@ -489,7 +929,7 @@ MainPage::MainPage(QWidget *parent)
                     continue;
                 }
                 qDebug()<<row<<" "<<col<<" "<<1;
-               cell[row][col]->neighbors.push_back(cell[row-1][col+1]);//1
+                cell[row][col]->neighbors.push_back(cell[row-1][col+1]);//1
             }
             if(col<8){
                 if(!cell[row][col+1]){
@@ -497,7 +937,7 @@ MainPage::MainPage(QWidget *parent)
                     continue;
                 }
                 qDebug()<<row<<" "<<col<<" "<<2;
-             cell[row][col]->neighbors.push_back(cell[row][col+1]);
+                cell[row][col]->neighbors.push_back(cell[row][col+1]);
             }
             if(row<4){
                 if(!cell[row+1][col]){
@@ -505,7 +945,7 @@ MainPage::MainPage(QWidget *parent)
                     continue;
                 }
                 qDebug()<<row<<" "<<col<<" "<<3;
-             cell[row][col]->neighbors.push_back(cell[row+1][col]);
+                cell[row][col]->neighbors.push_back(cell[row+1][col]);
             }
             if(col>0){
                 if(!cell[row][col-1]){
@@ -513,7 +953,7 @@ MainPage::MainPage(QWidget *parent)
                     continue;
                 }
                 qDebug()<<row<<" "<<col<<" "<<4;
-             cell[row][col]->neighbors.push_back(cell[row][col-1]);
+                cell[row][col]->neighbors.push_back(cell[row][col-1]);
             }
             if(row>0&&col>0){
                 if(!cell[row-1][col-1]){
@@ -524,10 +964,72 @@ MainPage::MainPage(QWidget *parent)
                 cell[row][col]->neighbors.push_back(cell[row-1][col-1]);
             }
 
+        }
     }
-    }
+    */
+    /*دثهلاذخثس1
+    for (int row = 0; row < 5; ++row) {
+        for (int col = 0; col < 9; col++) {
+            //qDebug()<<row<<" "<<col<<" "<<0;
+            if(!cell[row][col]){
+                qDebug()<<"null"<<row<<" "<<col<<" ";
+                continue;
+            }
+            if(row>0){
+                if(!cell[row-1][col]){
+                    qDebug()<<"null_neighbor"<<row<<" "<<col<<" ";
+                    continue;
+                }
+                qDebug()<<row<<" "<<col<<" "<<0;
 
-     /*for (int row = 0; row < 4; ++row) {
+                cell[row][col]->neighbors.push_back(cell[row-1][col]);//0
+
+            }
+            if(row>0&&col<8){
+                if(!cell[row-1][col+1]){
+                    qDebug()<<"null_neighbor"<<row<<" "<<col<<" ";
+                    continue;
+                }
+                qDebug()<<row<<" "<<col<<" "<<1;
+                cell[row][col]->neighbors.push_back(cell[row-1][col+1]);//1
+            }
+            if(col<8){
+                if(!cell[row][col+1]){
+                    qDebug()<<"null_neighbor"<<row<<" "<<col<<" ";
+                    continue;
+                }
+                qDebug()<<row<<" "<<col<<" "<<2;
+                cell[row][col]->neighbors.push_back(cell[row][col+1]);
+            }
+            if(row<4){
+                if(!cell[row+1][col]){
+                    qDebug()<<"null_neighbor"<<row<<" "<<col<<" ";
+                    continue;
+                }
+                qDebug()<<row<<" "<<col<<" "<<3;
+                cell[row][col]->neighbors.push_back(cell[row+1][col]);
+            }
+            if(col>0){
+                if(!cell[row][col-1]){
+                    qDebug()<<"null_neighbor"<<row<<" "<<col<<" ";
+                    continue;
+                }
+                qDebug()<<row<<" "<<col<<" "<<4;
+                cell[row][col]->neighbors.push_back(cell[row][col-1]);
+            }
+            if(row>0&&col>0){
+                if(!cell[row-1][col-1]){
+                    qDebug()<<"null_neighbor"<<row<<" "<<col<<" ";
+                    continue;
+                }
+                qDebug()<<row<<" "<<col<<" "<<5;
+                cell[row][col]->neighbors.push_back(cell[row-1][col-1]);
+            }
+
+        }
+    }
+        */
+    /*for (int row = 0; row < 4; ++row) {
         for (int col = 0; col < 8; col += 2) {
             // Check bounds for neighbors
             if (row > 0) {
@@ -605,6 +1107,7 @@ MainPage::MainPage(QWidget *parent)
     for(QPushButton *p : vec){
         p->raise();
     }
+
     /*charbuttons = {new SelectButton(ui->label_13, vec, v2,ui->pushButton_7, ui->scrollAreaWidgetContents, this),
                    new SelectButton(ui->label_14, vec, v2,ui->pushButton_8, ui->scrollAreaWidgetContents, this),
                    new SelectButton(ui->label_15, vec, v2,ui->pushButton_9, ui->scrollAreaWidgetContents, this),
@@ -632,7 +1135,7 @@ MainPage::MainPage(QWidget *parent)
     currentPlayer = &player1;
 
 
-   // charbuttons[0]->addvec(this, charbuttons);
+    // charbuttons[0]->addvec(this, charbuttons);
 
     charbuttons.push_back(new SelectButton(ui->label_1, vec, v1, 1, ui->pushButton_1, ui->label_1->styleSheet(), ui->scrollArea_2->widget(), this));
     charbuttons.push_back(new SelectButton(ui->label_2, vec, v1, 1, ui->pushButton_2, ui->label_2->styleSheet(), ui->scrollArea_2->widget(), this));
@@ -701,9 +1204,10 @@ MainPage::MainPage(QWidget *parent)
 
 
 
-    }
+}
 
-    MainPage::~MainPage()
+MainPage::~MainPage()
 {
     delete ui;
 }
+

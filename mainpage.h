@@ -5,7 +5,8 @@
 #include <QMainWindow>
 #include <QObject>
 #include "tile.h"
-
+#include <QVector>
+class tile;
 extern QVector<QPushButton*> vec, v1, v2;
 //extern tile *cell[8][8] = {};
 namespace Ui {
@@ -21,6 +22,14 @@ public:
     void hid1();
     void hid2();
     ~MainPage();
+    void switchTurn();
+    void highlightingMove(QPushButton *p);
+    void highlightingAttack(QPushButton *p);
+    void highlight(QWidget *m);
+    void loop(QWidget *m);
+    QVector <tile*>  getNeighbors(int row, int col);
+
+
 
 private:
     Ui::MainPage *ui;

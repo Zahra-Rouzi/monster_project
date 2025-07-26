@@ -7,7 +7,7 @@
 #include <QQuickItem>
 #include <QSharedDataPointer>
 #include <QWidget>
-#include "tile.h"
+//#include "tile.h"
 
 class Player;
 class tile;
@@ -26,9 +26,9 @@ public:
     void setHP(int h){
         HP = (h < 0) ? 0 : h;
     }
-    void setCell(tile &t){
-        currentCell = &t;
-    }
+    void setCell(tile &t);  // فقط اعلان
+
+
     void setOwner(Player* pl){
         owner=pl;
     }

@@ -1,5 +1,5 @@
 #include "agent.h"
-
+#include "tile.h"
 #include <utility>
 
 
@@ -13,4 +13,8 @@ Agent::Agent(QWidget *p, int h, int m, int d, int a)
 {}
 
 
-
+void Agent::setCell(tile &t) {
+    currentCell = &t;
+    t.agent = this;
+    qDebug() << "[Agent::setCell] Agent now at tile(" << t.getS() << "," << t.getR() << ")";
+}

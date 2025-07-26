@@ -14,7 +14,7 @@
 class Agent;
 class tile : public QPushButton {
     friend class MainPage;
-
+    friend class Agent;
     // Q_OBJECT
 
 public:
@@ -23,7 +23,9 @@ public:
     void pic(int c);
     void bfsMove(int d,Agent * a,bool canGo[5][9]);
     void bfsAttack(int d,Agent* a,bool canAttack[5][9]);
-
+    int  getS(){return s;}
+    int  getR(){return r;}
+    Agent* getAgent(){return agent;}
     int getType(){return type;}
     void get_hex_neighbors(int r, int c, int rows, int cols) ;
     bool isOccupiedByAlly(Agent* a);
