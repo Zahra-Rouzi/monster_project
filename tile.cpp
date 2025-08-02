@@ -172,9 +172,126 @@ void tile::bfsMove(int d, Agent* a, bool canGo[5][9]) {
 
     for (int i = 0; i < 5; i++)
         for (int j = 0; j < 9; j++)
-            if (visited[i][j] && depth[i][j] <= d && cell[i][j] != nullptr)
+            if (visited[i][j] && depth[i][j] <= d && cell[i][j] != nullptr){
+
                 canGo[i][j] = true;
+                if(cell[i][j]&&cell[i][j]->agent)
+                    canGo[i][j]=false;
+            }
+
 }
+}
+void tile::bfsAttack(int d, Agent* a, bool canAttack[5][9]) {
+    qDebug() << "in bfsAttack";
+    if (!a) return;
+
+    std::queue<tile*> q;
+    bool visited[5][9] = {};
+    int depth[5][9] = {};
+
+    for (int i = 0; i < 5; i++)
+        for (int j = 0; j < 9; j++)
+            canAttack[i][j] = false;
+
+    // چک موقعیت شروع
+    if (s < 0 || s >= 5 || r < 0 || r >= 9)    {
+
+        qDebug() << "out index";
+        return;
+    }
+    if (cell[s][r] == nullptr) {
+        qDebug() << "[bfsAttack] Starting cell is null!";
+        return;
+    }
+
+    visited[s][r] = true;
+    depth[s][r] = 0;
+    q.push(this);
+
+    int loopCounter = 0;
+    qDebug() << "while";
+    while (!q.empty()) {
+        tile* cur_tile = q.front();
+        q.pop();
+        if (!cur_tile) {
+            qDebug() << " !cur_tile";
+            continue;
+        }
+
+
+        int cs = cur_tile->s;
+        int cr = cur_tile->r;
+        int curDepth = depth[cs][cr];
+
+        if (++loopCounter > 500) {
+            qDebug() << "[bfsAttack] Aborting: loop too long!";
+            break;
+        }
+
+        //if (curDepth >= d) continue;
+
+        if (cur_tile->neighbors.isEmpty()) {
+            qDebug() << "[bfsAttack] Empty neighbors at tile:" << cs << cr;
+            continue;
+        }
+        for (tile* neighbor : cur_tile->neighbors) {
+            qDebug() << "[bfsAttack]  neighbor :" << cs << cr;
+
+            if (!neighbor) {
+                qDebug() << "[bfsAttack] Null neighbor at:" << cs << cr;
+                continue;
+            }
+
+            if (neighbor == cur_tile) {
+                qDebug() << "[bfsAttack] Neighbor same as self at:" << cs << cr;
+                continue;
+            }
+
+            int ns = neighbor->s;
+            int nr = neighbor->r;
+
+            if (ns < 0 || ns >= 9 || nr < 0 || nr >= 5) {
+                qDebug() << "[bfsAttack] Neighbor out of bounds:" << ns << nr;
+                continue;
+            }
+
+            if (visited[ns][nr]) continue;
+            qDebug() << "1";
+            if (!a->canMoveT0(neighbor->type)) {
+                qDebug() << "[bfsAttack] Cannot move to type" << neighbor->type << "at" << ns << nr;
+                continue;
+            }
+            /*
+            if (neighbor->agent) {
+                auto owner = neighbor->agent->getOwner();
+                if (!owner) {
+                    qDebug() << "[bfsMove] Agent with null owner at" << ns << nr;
+                    continue;
+                }
+                if (owner == a->getOwner()) {
+                    qDebug() << "[bfsMove] Ally at" << ns << nr << ", skipping.";
+                    continue;
+                }
+            }
+            */
+            visited[ns][nr] = true;
+            depth[ns][nr] = curDepth + 1;
+            q.push(neighbor);
+        }
+
+
+        for (int i = 0; i < 5; i++)
+            for (int j = 0; j < 9; j++)
+                if (visited[i][j] && depth[i][j] <= d && cell[i][j] != nullptr) {
+                    canAttack[i][j] = true;
+                    Agent* enemy = cell[i][j]->agent;
+                    if (enemy && enemy->getOwner() && a->getOwner() &&
+                        enemy->getOwner() == a->getOwner()) {
+                        canAttack[i][j] = false;
+                    }
+                }
+
+    }
 }
 
 

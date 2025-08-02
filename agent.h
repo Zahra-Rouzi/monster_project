@@ -13,10 +13,11 @@ class Player;
 class tile;
 class Agent : public QPushButton
 {
+    friend class MainPage;
     Q_OBJECT
     QML_ELEMENT
 public:
-    Agent(QWidget *parent = nullptr, int h = 100, int m = 1, int d = 100, int a = 1);
+    Agent(QWidget *parent = nullptr, int h = 100, int m = 2, int d = 100, int a = 1);
     tile* getCell(){return currentCell;}
     int getDamage(){return Damage;}
     int getHP(){return HP;}
@@ -43,6 +44,7 @@ private:
     int attackRange;
     tile *currentCell;
     Player* owner;///
+    bool WaitingForTarget=false;
 
 };
 

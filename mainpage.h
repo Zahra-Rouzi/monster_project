@@ -24,7 +24,8 @@ public:
     ~MainPage();
     void switchTurn();
     void highlightingMove(QPushButton *p);
-    void highlightingAttack(QPushButton *p);
+    void highlightingAttack(QWidget *p);
+    void highlightAtacking(QWidget *m) ;
     void highlight(QWidget *m);
     void loop(QWidget *m);
     QVector <tile*>  getNeighbors(int row, int col);
@@ -33,6 +34,7 @@ public:
 
 private:
     Ui::MainPage *ui;
+   //bool WaitingForTarget=0;
 };
 
 #endif // MAINPAGE_H
