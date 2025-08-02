@@ -476,6 +476,7 @@ void MainPage::loop(QWidget *m) {
 
                         connect(cell[row][col], &QPushButton::clicked, this, [=]() {
                             qDebug() << "💥 Click received on cell:" << row << col;
+                            ////testing
                         });
                         /*
                         connect(cell[r][c], &QPushButton::clicked, this, [=]() {
