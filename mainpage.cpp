@@ -471,7 +471,15 @@ void MainPage::loop(QWidget *m) {
                     if (cell[row][col] && canGo[row][col]) {
                         int r = row; // ذخیره مقدار ثابت برای لامبدا
                         int c = col;
+                         cell[row][col]->disconnect();
+                        qDebug() << "⚙️ Setting up connect for cell[" << row << "][" << col << "]";
+
+                        connect(cell[row][col], &QPushButton::clicked, this, [=]() {
+                            qDebug() << "💥 Click received on cell:" << row << col;
+                        });
+                        /*
                         connect(cell[r][c], &QPushButton::clicked, this, [=]() {
+
                             qDebug() << "[Tile Clicked] trying to move to:" << r << c;
 
                             if (a && a->getCell() && cell[r][c]) {
@@ -486,7 +494,7 @@ void MainPage::loop(QWidget *m) {
                                 qDebug() << "Moved agent to:" << r << c;
                                 a->WaitingForTarget=false;
                             }
-                        });
+                        });*/
                     }
                 }
             }
