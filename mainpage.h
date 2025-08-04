@@ -8,7 +8,10 @@
 #include <QVector>
 class tile;
 extern QVector<QPushButton*> vec, v1, v2;
-//extern tile *cell[8][8] = {};
+extern bool canGo[5][9];
+extern bool canAttack[5][9];
+
+extern tile *cell[5][9];
 namespace Ui {
 class MainPage;
 }

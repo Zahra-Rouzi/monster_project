@@ -437,69 +437,6 @@ void MainPage::loop(QWidget *m) {
 
         //disconnect(a, &QPushButton::clicked, nullptr, nullptr);
 
-        connect(a, &QPushButton::clicked, a, [=]() {
-            a->WaitingForTarget=true;
-            qDebug() << "[Agent Clicked] ID:" << i;
-
-            for (int i = 0; i < 5; ++i)
-                for (int j = 0; j < 9; ++j) {
-                    canGo[i][j] = false;
-                    canAttack[i][j] = false;
-                }
-
-            ti->bfsAttack(a->getAttackRange(), a, canAttack);
-            ti->bfsMove(a->getMobility(), a, canGo);
-            //highlight(m);
-
-
-            // قطع اتصال قبلی خانه‌ها
-            /*
-            for (int row = 0; row < 5; ++row) {
-                for (int col = 0; col < 9; ++col) {
-                    if (cell[row][col]) {
-                        disconnect(cell[row][col], &QPushButton::clicked, this, nullptr);
-                    }
-                }
-            }
-            */
-            // اتصال مجدد به خانه‌ها
-            for (int row = 0; row < 5; ++row) {
-                for (int col = 0; col < 9; ++col) {
-                    // شرط‌های مورد نیاز خودت رو اینجا بگذار
-                    qDebug() << "[Tile Clicked] wating:" <<a->WaitingForTarget<<canGo[row][col];
-
-                    if (cell[row][col] && canGo[row][col]) {
-                        int r = row; // ذخیره مقدار ثابت برای لامبدا
-                        int c = col;
-                         cell[row][col]->disconnect();
-                        qDebug() << "⚙️ Setting up connect for cell[" << row << "][" << col << "]";
-
-                        connect(cell[row][col], &QPushButton::clicked, this, [=]() {
-                            qDebug() << "💥 Click received on cell:" << row << col;
-                            ////testing
-                        });
-                        /*
-                        connect(cell[r][c], &QPushButton::clicked, this, [=]() {
-
-                            qDebug() << "[Tile Clicked] trying to move to:" << r << c;
-
-                            if (a && a->getCell() && cell[r][c]) {
-                                a->setGeometry(cell[r][c]->geometry());
-                                a->show();
-                                a->raise();
-
-                                a->getCell()->agent = nullptr;
-                                cell[r][c]->agent = a;
-                                a->setCell(*cell[r][c]);
-
-                                qDebug() << "Moved agent to:" << r << c;
-                                a->WaitingForTarget=false;
-                            }
-                        });*/
-                    }
-                }
-            }
-        });
     }
 }
 
@@ -692,6 +629,12 @@ public:
                         parent2->hid2();
                         currentPlayer = &player1;
                         parent2->loop(parent2);
+                        for(Agent * A : player1.playerAgents){
+                            A->setConnection();
+                        }
+                        for(Agent * A : player2.playerAgents){
+                            A->setConnection();
+                        }
                     }
 
                     validButtons.removeAll(p);

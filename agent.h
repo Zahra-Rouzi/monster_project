@@ -18,6 +18,7 @@ class Agent : public QPushButton
     QML_ELEMENT
 public:
     Agent(QWidget *parent = nullptr, int h = 100, int m = 2, int d = 100, int a = 1);
+    void setConnection();
     tile* getCell(){return currentCell;}
     int getDamage(){return Damage;}
     int getHP(){return HP;}

@@ -4,7 +4,7 @@
 #include <queue>
 
 #include <vector>
-extern tile* cell[9][9];
+
 
 tile::tile(double x, double y, QWidget *parent, int t,int s ,int r): type(t),s(s),r(r){
     w = new QPushButton(parent);
@@ -13,6 +13,17 @@ tile::tile(double x, double y, QWidget *parent, int t,int s ,int r): type(t),s(s
     //neighbors={};
 }
 
+tile::tile(tile & o){
+    setParent(o.parentWidget());
+    styleSheet() = o.styleSheet();
+    text() = "HI";
+    setGeometry(o.geometry());
+    type = o.type;
+    s = o.s;
+    r = o.r;
+    neighbors = o.neighbors;
+
+}
 void tile::pic(int c) {
     if (c == 0 || c == 1 || c == 2)
         w->setStyleSheet("image: url(:/new/prefix3/d.png); background-color: transparent");

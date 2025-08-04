@@ -19,7 +19,7 @@ class tile : public QPushButton {
 
 public:
     tile(double , double , QWidget *, int,int,int);//tile**?
-
+    tile(tile &o);
     void pic(int c);
     void bfsMove(int d,Agent * a,bool canGo[5][9]);
     void bfsAttack(int d,Agent* a,bool canAttack[5][9]);
