@@ -1,9 +1,11 @@
 #include "agent.h"
+#include "player.h"
 #include "tile.h"
 #include "mainpage.h"
 #include <QObject>
 #include <QMetaObject>
 #include <utility>
+#include <QEvent>
 
 
 Agent::Agent(QWidget *p, int h, int m, int d, int a)
@@ -22,14 +24,15 @@ void Agent::setConnection(){
     for (int row = 0; row < 5; ++row) {
         for (int col = 0; col < 9; ++col) {
             if(!cell[row][col]) continue;
-            disconnect(cell[row][col], &QPushButton::clicked, this, nullptr);
+           // disconnect(cell[row][col], &QPushButton::clicked, this, nullptr);
 
         }
     }
-    connect(this, &QPushButton::clicked, this, [=]() {
+    connect(this, &QPushButton::clicked, this, [=, this]() {
         this->WaitingForTarget=true;
 
 
+        qDebug() << "agent "<< this <<"clicked"<< this->WaitingForTarget;
         for (int i = 0; i < 5; ++i)
             for (int j = 0; j < 9; ++j) {
                 canGo[i][j] = false;
@@ -47,6 +50,9 @@ void Agent::setConnection(){
                 cell[row][col]->raise();
             }
         }
+        for(QPushButton *p : vec){
+            p->raise();
+        }
     });
 
     QVector<bool> cCanGo;
@@ -61,20 +67,34 @@ void Agent::setConnection(){
         }
     }
     int cnt = 0;
-    for(QPushButton *p : vec){
+    /*for(QPushButton *p : vec){
 
            // qDebug() << "⚙️ Setting up connect for cell[" << row << "][" << col << "]";
 
 
             bool ok = connect(p, &QPushButton::clicked, this, [ =, this, &cnt ](){
-                qDebug()<< "a"<<cCanGo[cnt] << this->WaitingForTarget;
+               qDebug()<<"before for" << this->WaitingForTarget;
+               for(Agent *a : player1.playerAgents){
+                   if(a != this) a ->WaitingForTarget = false;
+
+               }
+               qDebug()<<"after for" << this->WaitingForTarget;
+               if(!(this->WaitingForTarget)) return;
+               else{
+                qDebug()<< "a"<< this->WaitingForTarget;
+               for(Agent *a : player1.playerAgents){
+                    qDebug()<< "waiting for target"<< a->WaitingForTarget ;
+                   if(a == this) qDebug() <<"*";
+               }
                 qDebug() << "Sender:" << sender();
-                if(!cCanGo[cnt++] || !this->WaitingForTarget) return;
+
                 this->setGeometry(p->geometry());
-                this->WaitingForTarget = false;
+             //   this->WaitingForTarget = false;
+               }
             });
+           //this->WaitingForTarget = false;
             qDebug() << "ok" << ok;
-    }
+    }*/
 
 
 }

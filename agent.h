@@ -7,12 +7,13 @@
 #include <QQuickItem>
 #include <QSharedDataPointer>
 #include <QWidget>
-//#include "tile.h"
+#include "tile.h"
 
 class Player;
 class tile;
 class Agent : public QPushButton
 {
+    friend class tile;
     friend class MainPage;
     Q_OBJECT
     QML_ELEMENT

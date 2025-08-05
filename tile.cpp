@@ -1,6 +1,7 @@
 #include "tile.h"
 #include "mainpage.h"
 #include "agent.h"
+#include "player.h"
 #include <queue>
 
 #include <vector>
@@ -11,6 +12,24 @@ tile::tile(double x, double y, QWidget *parent, int t,int s ,int r): type(t),s(s
     w->setGeometry(x, y, 100, 86);
     vec.push_back(w);
     //neighbors={};
+    connect(w, &QPushButton::clicked, w, [=](){
+        for(Agent * a : player1.playerAgents){
+            a->raise();
+        }
+        Agent * selectedAgent = nullptr;
+        qDebug()<<"conectttile";
+        for(Agent *a : currentPlayer->playerAgents){
+            if(a->WaitingForTarget){
+                if(!a) return;
+                a->setGeometry(w->geometry());
+                a->WaitingForTarget = false;
+                a->getCell()->agent= nullptr;
+                a->setCell(*this);
+                this->agent = a;
+            }
+        }
+
+    });
 }
 
 tile::tile(tile & o){
@@ -83,7 +102,7 @@ void tile::bfsMove(int d, Agent* a, bool canGo[][9]) {
 }
 */
 void tile::bfsMove(int d, Agent* a, bool canGo[5][9]) {
-    qDebug() << "in bfs";
+   // qDebug() << "in bfs";
     if (!a) return;
 
     std::queue<tile*> q;
@@ -97,11 +116,11 @@ void tile::bfsMove(int d, Agent* a, bool canGo[5][9]) {
     // چک موقعیت شروع
     if (s < 0 || s >= 5 || r < 0 || r >= 9)    {
 
-        qDebug() << "out index";
+     //   qDebug() << "out index";
         return;
     }
     if (cell[s][r] == nullptr) {
-        qDebug() << "[bfsMove] Starting cell is null!";
+      //  qDebug() << "[bfsMove] Starting cell is null!";
         return;
     }
 
@@ -110,12 +129,12 @@ void tile::bfsMove(int d, Agent* a, bool canGo[5][9]) {
     q.push(this);
 
     int loopCounter = 0;
-    qDebug() << "while";
+    //qDebug() << "while";
     while (!q.empty()) {
         tile* cur_tile = q.front();
         q.pop();
         if (!cur_tile) {
-            qDebug() << " !cur_tile";
+      //      qDebug() << " !cur_tile";
             continue;
         }
 
@@ -125,26 +144,26 @@ void tile::bfsMove(int d, Agent* a, bool canGo[5][9]) {
         int curDepth = depth[cs][cr];
 
         if (++loopCounter > 500) {
-            qDebug() << "[bfsMove] Aborting: loop too long!";
+        //    qDebug() << "[bfsMove] Aborting: loop too long!";
             break;
         }
 
         //if (curDepth >= d) continue;
 
         if (cur_tile->neighbors.isEmpty()) {
-            qDebug() << "[bfsMove] Empty neighbors at tile:" << cs << cr;
+          //  qDebug() << "[bfsMove] Empty neighbors at tile:" << cs << cr;
             continue;
         }
         for (tile* neighbor : cur_tile->neighbors) {
-            qDebug() << "[bfsMove]  neighbor :" << cs << cr;
+            //qDebug() << "[bfsMove]  neighbor :" << cs << cr;
 
             if (!neighbor) {
-                qDebug() << "[bfsMove] Null neighbor at:" << cs << cr;
+              //  qDebug() << "[bfsMove] Null neighbor at:" << cs << cr;
                 continue;
             }
 
             if (neighbor == cur_tile) {
-                qDebug() << "[bfsMove] Neighbor same as self at:" << cs << cr;
+                //qDebug() << "[bfsMove] Neighbor same as self at:" << cs << cr;
                 continue;
             }
 
@@ -152,14 +171,14 @@ void tile::bfsMove(int d, Agent* a, bool canGo[5][9]) {
             int nr = neighbor->r;
 
             if (ns < 0 || ns >= 9 || nr < 0 || nr >= 5) {
-                qDebug() << "[bfsMove] Neighbor out of bounds:" << ns << nr;
+                //qDebug() << "[bfsMove] Neighbor out of bounds:" << ns << nr;
                 continue;
             }
 
             if (visited[ns][nr]) continue;
-            qDebug() << "1";
+           // qDebug() << "1";
             if (!a->canMoveT0(neighbor->type)) {
-                qDebug() << "[bfsMove] Cannot move to type" << neighbor->type << "at" << ns << nr;
+             //   qDebug() << "[bfsMove] Cannot move to type" << neighbor->type << "at" << ns << nr;
                 continue;
             }
             /*
