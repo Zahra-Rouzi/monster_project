@@ -575,7 +575,7 @@ public:
                         else if (type == 1)
                             character = new flying(parent2);
                         else if (type == 2)
-                            character = new floating;
+                            character = new floating(parent2);
                         else
                             character = new waterWalking(parent2);
 
@@ -584,7 +584,7 @@ public:
 
                         // ست کردن مکان و tile مربوط
                         tile* targetTile = cell[row][col];
-                        character->setCell(*targetTile);
+                        character->setCell(targetTile);
                         //targetTile->agent = character;
 
                         QString updatedStyle = "QPushButton {border: none; background-color: transparent; " + style + "}";
@@ -898,7 +898,7 @@ MainPage::MainPage(QWidget *parent)
     chars.push_back(ui->label2_19); chars.push_back(ui->label2_20); chars.push_back(ui->label2_21);
     chars.push_back(ui->label2_22); chars.push_back(ui->label2_23);
 
-    charbuttons.push_back(new SelectButton(ui->label2_1, vec, v2, 1, ui->pushButton2_1, ui->label2_1->styleSheet(), ui->scrollArea_4->widget(), this));
+    charbuttons.push_back(new SelectButton(ui->label2_1, vec, v2, 0, ui->pushButton2_1, ui->label2_1->styleSheet(), ui->scrollArea_4->widget(), this));
     charbuttons.push_back(new SelectButton(ui->label2_2, vec, v2, 1, ui->pushButton2_2, ui->label2_2->styleSheet(), ui->scrollArea_4->widget(), this));
     charbuttons.push_back(new SelectButton(ui->label2_3, vec, v2, 1, ui->pushButton2_3, ui->label2_3->styleSheet(), ui->scrollArea_4->widget(), this));
     charbuttons.push_back(new SelectButton(ui->label2_4, vec, v2, 1, ui->pushButton2_4, ui->label2_4->styleSheet(), ui->scrollArea_4->widget(), this));

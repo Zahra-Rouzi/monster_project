@@ -29,13 +29,13 @@ public:
     void setHP(int h){
         HP = (h < 0) ? 0 : h;
     }
-    void setCell(tile &t);  // فقط اعلان
+    void setCell(tile *t);  // فقط اعلان
 
 
     void setOwner(Player* pl){
         owner=pl;
     }
-   // void attack()
+    virtual void attack(Agent* target)=0;
     virtual bool canMoveT0(int type) const = 0;
     virtual bool canStandOn(int type) const = 0;
 
@@ -49,5 +49,6 @@ private:
     bool WaitingForTarget=false;
 
 };
+extern Agent* selectedAgent;
 
 #endif // AGENT_H

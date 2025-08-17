@@ -24,6 +24,7 @@ public:
             return 1;
         return 0;
     }
+    void attack(Agent* target) override;
 
 
 };

@@ -26,9 +26,13 @@ public:
     int  getS(){return s;}
     int  getR(){return r;}
     Agent* getAgent(){return agent;}
+    void setAgent(Agent *a){agent=a;}
+
     int getType(){return type;}
     void get_hex_neighbors(int r, int c, int rows, int cols) ;
     bool isOccupiedByAlly(Agent* a);
+    QVector<tile*> getNeighbors() const { return neighbors; }
+
 
 private:
     QPushButton *w;

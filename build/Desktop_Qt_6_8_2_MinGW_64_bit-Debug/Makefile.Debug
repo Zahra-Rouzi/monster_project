@@ -478,6 +478,11 @@ debug/moc_agent.cpp: ../../agent.h \
 		C:/Qt/6.8.2/mingw_64/include/QtGui/qaccessible_base.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/QSharedDataPointer \
 		C:/Qt/6.8.2/mingw_64/include/QtWidgets/QWidget \
+		../../tile.h \
+		../../mainpage.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/qvector.h \
+		../../agent.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.8.2/mingw_64/bin/moc.exe
 	C:\Qt\6.8.2\mingw_64\bin\moc.exe $(DEFINES) --include "C:/Users/Zahra/Desktop/New folder/monster_project/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/debug/moc_predefs.h" -IC:/Qt/6.8.2/mingw_64/mkspecs/win32-g++ -I"C:/Users/Zahra/Desktop/New folder/monster_project" -IC:/Qt/6.8.2/mingw_64/include -IC:/Qt/6.8.2/mingw_64/include/QtQuick -IC:/Qt/6.8.2/mingw_64/include/QtOpenGL -IC:/Qt/6.8.2/mingw_64/include/QtWidgets -IC:/Qt/6.8.2/mingw_64/include/QtGui -IC:/Qt/6.8.2/mingw_64/include/QtQmlMeta -IC:/Qt/6.8.2/mingw_64/include/QtQmlModels -IC:/Qt/6.8.2/mingw_64/include/QtQmlWorkerScript -IC:/Qt/6.8.2/mingw_64/include/QtQml -IC:/Qt/6.8.2/mingw_64/include/QtQmlIntegration -IC:/Qt/6.8.2/mingw_64/include/QtNetwork -IC:/Qt/6.8.2/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include ..\..\agent.h -o debug\moc_agent.cpp
@@ -712,6 +717,10 @@ debug/moc_floating.cpp: ../../floating.h \
 		C:/Qt/6.8.2/mingw_64/include/QtGui/qaccessible_base.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/QSharedDataPointer \
 		C:/Qt/6.8.2/mingw_64/include/QtWidgets/QWidget \
+		../../tile.h \
+		../../mainpage.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/qvector.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.8.2/mingw_64/bin/moc.exe
 	C:\Qt\6.8.2\mingw_64\bin\moc.exe $(DEFINES) --include "C:/Users/Zahra/Desktop/New folder/monster_project/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/debug/moc_predefs.h" -IC:/Qt/6.8.2/mingw_64/mkspecs/win32-g++ -I"C:/Users/Zahra/Desktop/New folder/monster_project" -IC:/Qt/6.8.2/mingw_64/include -IC:/Qt/6.8.2/mingw_64/include/QtQuick -IC:/Qt/6.8.2/mingw_64/include/QtOpenGL -IC:/Qt/6.8.2/mingw_64/include/QtWidgets -IC:/Qt/6.8.2/mingw_64/include/QtGui -IC:/Qt/6.8.2/mingw_64/include/QtQmlMeta -IC:/Qt/6.8.2/mingw_64/include/QtQmlModels -IC:/Qt/6.8.2/mingw_64/include/QtQmlWorkerScript -IC:/Qt/6.8.2/mingw_64/include/QtQml -IC:/Qt/6.8.2/mingw_64/include/QtQmlIntegration -IC:/Qt/6.8.2/mingw_64/include/QtNetwork -IC:/Qt/6.8.2/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include ..\..\floating.h -o debug\moc_floating.cpp
@@ -946,6 +955,10 @@ debug/moc_flying.cpp: ../../flying.h \
 		C:/Qt/6.8.2/mingw_64/include/QtGui/qaccessible_base.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/QSharedDataPointer \
 		C:/Qt/6.8.2/mingw_64/include/QtWidgets/QWidget \
+		../../tile.h \
+		../../mainpage.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/qvector.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.8.2/mingw_64/bin/moc.exe
 	C:\Qt\6.8.2\mingw_64\bin\moc.exe $(DEFINES) --include "C:/Users/Zahra/Desktop/New folder/monster_project/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/debug/moc_predefs.h" -IC:/Qt/6.8.2/mingw_64/mkspecs/win32-g++ -I"C:/Users/Zahra/Desktop/New folder/monster_project" -IC:/Qt/6.8.2/mingw_64/include -IC:/Qt/6.8.2/mingw_64/include/QtQuick -IC:/Qt/6.8.2/mingw_64/include/QtOpenGL -IC:/Qt/6.8.2/mingw_64/include/QtWidgets -IC:/Qt/6.8.2/mingw_64/include/QtGui -IC:/Qt/6.8.2/mingw_64/include/QtQmlMeta -IC:/Qt/6.8.2/mingw_64/include/QtQmlModels -IC:/Qt/6.8.2/mingw_64/include/QtQmlWorkerScript -IC:/Qt/6.8.2/mingw_64/include/QtQml -IC:/Qt/6.8.2/mingw_64/include/QtQmlIntegration -IC:/Qt/6.8.2/mingw_64/include/QtNetwork -IC:/Qt/6.8.2/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include ..\..\flying.h -o debug\moc_flying.cpp
@@ -1376,6 +1389,10 @@ debug/moc_grounded.cpp: ../../grounded.h \
 		../../agent.h \
 		C:/Qt/6.8.2/mingw_64/include/QtWidgets/qpushbutton.h \
 		C:/Qt/6.8.2/mingw_64/include/QtWidgets/qabstractbutton.h \
+		../../tile.h \
+		../../mainpage.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/qvector.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.8.2/mingw_64/bin/moc.exe
 	C:\Qt\6.8.2\mingw_64\bin\moc.exe $(DEFINES) --include "C:/Users/Zahra/Desktop/New folder/monster_project/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/debug/moc_predefs.h" -IC:/Qt/6.8.2/mingw_64/mkspecs/win32-g++ -I"C:/Users/Zahra/Desktop/New folder/monster_project" -IC:/Qt/6.8.2/mingw_64/include -IC:/Qt/6.8.2/mingw_64/include/QtQuick -IC:/Qt/6.8.2/mingw_64/include/QtOpenGL -IC:/Qt/6.8.2/mingw_64/include/QtWidgets -IC:/Qt/6.8.2/mingw_64/include/QtGui -IC:/Qt/6.8.2/mingw_64/include/QtQmlMeta -IC:/Qt/6.8.2/mingw_64/include/QtQmlModels -IC:/Qt/6.8.2/mingw_64/include/QtQmlWorkerScript -IC:/Qt/6.8.2/mingw_64/include/QtQml -IC:/Qt/6.8.2/mingw_64/include/QtQmlIntegration -IC:/Qt/6.8.2/mingw_64/include/QtNetwork -IC:/Qt/6.8.2/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include ..\..\grounded.h -o debug\moc_grounded.cpp
@@ -1576,6 +1593,8 @@ debug/moc_mainpage.cpp: ../../mainpage.h \
 		C:/Qt/6.8.2/mingw_64/include/QtWidgets/qtabwidget.h \
 		../../tile.h \
 		../../mainpage.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/qvector.h \
 		C:/Qt/6.8.2/mingw_64/include/QtQuick/QQuickItem \
 		C:/Qt/6.8.2/mingw_64/include/QtQuick/qquickitem.h \
 		C:/Qt/6.8.2/mingw_64/include/QtQuick/qtquickglobal.h \
@@ -2042,6 +2061,10 @@ debug/moc_waterwalking.cpp: ../../waterwalking.h \
 		C:/Qt/6.8.2/mingw_64/include/QtGui/qaccessible_base.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/QSharedDataPointer \
 		C:/Qt/6.8.2/mingw_64/include/QtWidgets/QWidget \
+		../../tile.h \
+		../../mainpage.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/qvector.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.8.2/mingw_64/bin/moc.exe
 	C:\Qt\6.8.2\mingw_64\bin\moc.exe $(DEFINES) --include "C:/Users/Zahra/Desktop/New folder/monster_project/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/debug/moc_predefs.h" -IC:/Qt/6.8.2/mingw_64/mkspecs/win32-g++ -I"C:/Users/Zahra/Desktop/New folder/monster_project" -IC:/Qt/6.8.2/mingw_64/include -IC:/Qt/6.8.2/mingw_64/include/QtQuick -IC:/Qt/6.8.2/mingw_64/include/QtOpenGL -IC:/Qt/6.8.2/mingw_64/include/QtWidgets -IC:/Qt/6.8.2/mingw_64/include/QtGui -IC:/Qt/6.8.2/mingw_64/include/QtQmlMeta -IC:/Qt/6.8.2/mingw_64/include/QtQmlModels -IC:/Qt/6.8.2/mingw_64/include/QtQmlWorkerScript -IC:/Qt/6.8.2/mingw_64/include/QtQml -IC:/Qt/6.8.2/mingw_64/include/QtQmlIntegration -IC:/Qt/6.8.2/mingw_64/include/QtNetwork -IC:/Qt/6.8.2/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include ..\..\waterwalking.h -o debug\moc_waterwalking.cpp
@@ -2507,7 +2530,14 @@ debug/agent.o: ../../agent.cpp ../../agent.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/QSharedDataPointer \
 		C:/Qt/6.8.2/mingw_64/include/QtWidgets/QWidget \
 		../../tile.h \
-		../../mainpage.h
+		../../mainpage.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/qvector.h \
+		../../player.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/Qstring \
+		../../startpage.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QMetaObject \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QEvent
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\agent.o ..\..\agent.cpp
 
 debug/floating.o: ../../floating.cpp ../../floating.h \
@@ -2739,7 +2769,16 @@ debug/floating.o: ../../floating.cpp ../../floating.h \
 		C:/Qt/6.8.2/mingw_64/include/QtGui/qaccessible.h \
 		C:/Qt/6.8.2/mingw_64/include/QtGui/qaccessible_base.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/QSharedDataPointer \
-		C:/Qt/6.8.2/mingw_64/include/QtWidgets/QWidget
+		C:/Qt/6.8.2/mingw_64/include/QtWidgets/QWidget \
+		../../tile.h \
+		../../mainpage.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/qvector.h \
+		../../player.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/Qstring \
+		../../startpage.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QMetaObject \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QEvent
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\floating.o ..\..\floating.cpp
 
 debug/flying.o: ../../flying.cpp ../../flying.h \
@@ -2971,7 +3010,16 @@ debug/flying.o: ../../flying.cpp ../../flying.h \
 		C:/Qt/6.8.2/mingw_64/include/QtGui/qaccessible.h \
 		C:/Qt/6.8.2/mingw_64/include/QtGui/qaccessible_base.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/QSharedDataPointer \
-		C:/Qt/6.8.2/mingw_64/include/QtWidgets/QWidget
+		C:/Qt/6.8.2/mingw_64/include/QtWidgets/QWidget \
+		../../tile.h \
+		../../mainpage.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/qvector.h \
+		../../player.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/Qstring \
+		../../startpage.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QMetaObject \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QEvent
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\flying.o ..\..\flying.cpp
 
 debug/gallery.o: ../../gallery.cpp ../../gallery.h \
@@ -3399,7 +3447,16 @@ debug/grounded.o: ../../grounded.cpp ../../grounded.h \
 		C:/Qt/6.8.2/mingw_64/include/QtWidgets/QWidget \
 		../../agent.h \
 		C:/Qt/6.8.2/mingw_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/6.8.2/mingw_64/include/QtWidgets/qabstractbutton.h
+		C:/Qt/6.8.2/mingw_64/include/QtWidgets/qabstractbutton.h \
+		../../tile.h \
+		../../mainpage.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/qvector.h \
+		../../player.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/Qstring \
+		../../startpage.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QMetaObject \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QEvent
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\grounded.o ..\..\grounded.cpp
 
 debug/main.o: ../../main.cpp ../../welcome.h \
@@ -3634,6 +3691,8 @@ debug/main.o: ../../main.cpp ../../welcome.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/QSharedDataPointer \
 		C:/Qt/6.8.2/mingw_64/include/QtWidgets/QWidget \
 		../../agent.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/qvector.h \
 		C:/Qt/6.8.2/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.8.2/mingw_64/include/QtWidgets/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\..\main.cpp
@@ -3869,6 +3928,8 @@ debug/mainpage.o: ../../mainpage.cpp ../../mainpage.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/QSharedDataPointer \
 		C:/Qt/6.8.2/mingw_64/include/QtWidgets/QWidget \
 		../../agent.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/qvector.h \
 		../../floating.h \
 		../../flying.h \
 		../../grounded.h \
@@ -4132,8 +4193,10 @@ debug/player.o: ../../player.cpp ../../player.h \
 		C:/Qt/6.8.2/mingw_64/include/QtGui/qaccessible_base.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/QSharedDataPointer \
 		C:/Qt/6.8.2/mingw_64/include/QtWidgets/QWidget \
-		../../mainpage.h \
 		../../tile.h \
+		../../mainpage.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/qvector.h \
 		../../startpage.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/QString
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\player.o ..\..\player.cpp
@@ -4375,6 +4438,8 @@ debug/startpage.o: ../../startpage.cpp ../../startpage.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/QSharedDataPointer \
 		C:/Qt/6.8.2/mingw_64/include/QtWidgets/QWidget \
 		../../agent.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/qvector.h \
 		../../gallery.h \
 		../../player.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/Qstring
@@ -4575,6 +4640,8 @@ debug/tile.o: ../../tile.cpp ../../tile.h \
 		C:/Qt/6.8.2/mingw_64/include/QtWidgets/QMainWindow \
 		C:/Qt/6.8.2/mingw_64/include/QtWidgets/qmainwindow.h \
 		C:/Qt/6.8.2/mingw_64/include/QtWidgets/qtabwidget.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/qvector.h \
 		C:/Qt/6.8.2/mingw_64/include/QtQuick/QQuickItem \
 		C:/Qt/6.8.2/mingw_64/include/QtQuick/qquickitem.h \
 		C:/Qt/6.8.2/mingw_64/include/QtQuick/qtquickglobal.h \
@@ -4611,11 +4678,12 @@ debug/tile.o: ../../tile.cpp ../../tile.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/QSharedDataPointer \
 		C:/Qt/6.8.2/mingw_64/include/QtWidgets/QWidget \
 		../../agent.h \
-		C:/Qt/6.8.2/mingw_64/include/QtCore/QQueue \
-		C:/Qt/6.8.2/mingw_64/include/QtCore/qqueue.h
+		../../player.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/Qstring \
+		../../startpage.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\tile.o ..\..\tile.cpp
 
-debug/waterwalking.o: ../../waterwalking.cpp ../../waterwalking.h \
+debug/waterwalking.o: ../../waterwalking.cpp ../../waterWalking.h \
 		../../agent.h \
 		C:/Qt/6.8.2/mingw_64/include/QtWidgets/qpushbutton.h \
 		C:/Qt/6.8.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -4844,7 +4912,16 @@ debug/waterwalking.o: ../../waterwalking.cpp ../../waterwalking.h \
 		C:/Qt/6.8.2/mingw_64/include/QtGui/qaccessible.h \
 		C:/Qt/6.8.2/mingw_64/include/QtGui/qaccessible_base.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/QSharedDataPointer \
-		C:/Qt/6.8.2/mingw_64/include/QtWidgets/QWidget
+		C:/Qt/6.8.2/mingw_64/include/QtWidgets/QWidget \
+		../../tile.h \
+		../../mainpage.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/qvector.h \
+		../../player.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/Qstring \
+		../../startpage.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QMetaObject \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QEvent
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\waterwalking.o ..\..\waterwalking.cpp
 
 debug/welcome.o: ../../welcome.cpp ../../welcome.h \

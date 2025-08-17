@@ -16,6 +16,7 @@ public:
     waterWalking(QWidget * parent): Agent(parent){}
     bool canMoveT0(int type) const override;
     bool canStandOn(int type) const override;
+    void attack(Agent* target) override;
 
 };
 

@@ -16,16 +16,37 @@ tile::tile(double x, double y, QWidget *parent, int t,int s ,int r): type(t),s(s
         for(Agent * a : player1.playerAgents){
             a->raise();
         }
-        Agent * selectedAgent = nullptr;
+        //Agent * selectedAgent = nullptr;
         qDebug()<<"conectttile";
         for(Agent *a : currentPlayer->playerAgents){
+            if(!a) return;
             if(a->WaitingForTarget){
                 if(!a) return;
-                a->setGeometry(w->geometry());
+                if(!this->agent){
+                    qDebug()<<"CANGO:FINAL TILE!"<<canGo[this->s][this->r];
+
+                    a->setGeometry(w->geometry());
+                    //a->WaitingForTarget = false;
+                    a->getCell()->agent= nullptr;
+                    a->setCell(this);
+                    this->agent = a;
+                    qDebug()<<"moved";
+
+                }
+
+                if(this->agent && this->getAgent()->getOwner()!=a->getOwner()){
+                    //a->attack(this->agent);
+                    qDebug()<<"atack";
+                    //a->WaitingForTarget = false;
+                }
                 a->WaitingForTarget = false;
-                a->getCell()->agent= nullptr;
-                a->setCell(*this);
-                this->agent = a;
+                if (currentPlayer == &player1) {
+                    currentPlayer = &player2;
+                    qDebug() << "Turn: Player 2";
+                } else {
+                    currentPlayer = &player1;
+                    qDebug() << "Turn: Player 1";
+                }
             }
         }
 
@@ -53,6 +74,133 @@ void tile::pic(int c) {
 
     w->show();
 }
+
+void tile::bfsMove(int d, Agent* a, bool canGo[5][9]) {
+    if (!a) return;
+
+    std::queue<tile*> q;
+    bool visited[5][9] = {};
+    int depth[5][9] = {};
+
+    for (int i = 0; i < 5; i++)
+        for (int j = 0; j < 9; j++)
+            canGo[i][j] = false;
+
+    // چک موقعیت شروع
+    if (s < 0 || s >= 5 || r < 0 || r >= 9) return;
+    if (cell[s][r] == nullptr) return;
+
+    visited[s][r] = true;
+    depth[s][r] = 0;
+    q.push(this);
+
+    int loopCounter = 0;
+
+    while (!q.empty()) {
+        tile* cur_tile = q.front();
+        q.pop();
+        if (!cur_tile) continue;
+
+        int cs = cur_tile->s;
+        int cr = cur_tile->r;
+        int curDepth = depth[cs][cr];
+
+        if (++loopCounter > 500) break;
+
+        if (cur_tile->neighbors.isEmpty()) continue;
+
+        for (tile* neighbor : cur_tile->neighbors) {
+            if (!neighbor) continue;
+            if (neighbor == cur_tile) continue;
+
+            int ns = neighbor->s;
+            int nr = neighbor->r;
+
+            // ✅ اصلاح محدوده‌ها
+            if (ns < 0 || ns >= 5 || nr < 0 || nr >= 9) continue;
+
+            if (visited[ns][nr]) continue;
+            if (!a->canMoveT0(neighbor->type)) continue;
+
+            visited[ns][nr] = true;
+            depth[ns][nr] = curDepth + 1;
+            q.push(neighbor);
+        }
+    }
+
+    // ✅ حلقه‌ی پرکردن canGo رو آوردیم بیرون
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 9; j++) {
+            if (visited[i][j] && depth[i][j] <= d && cell[i][j] != nullptr) {
+                canGo[i][j] = (cell[i][j]->agent == nullptr);
+            }
+        }
+    }
+}
+/*void tile::bfsAttack(int d, Agent* a, bool canAttack[5][9]) {
+    if (!a) return;
+
+    std::queue<tile*> q;
+    bool visited[5][9] = {};
+    int depth[5][9] = {};
+
+    for (int i = 0; i < 5; i++)
+        for (int j = 0; j < 9; j++)
+            canAttack[i][j] = false;
+
+    // چک موقعیت شروع
+    if (s < 0 || s >= 5 || r < 0 || r >= 9) return;
+    if (cell[s][r] == nullptr) return;
+
+    visited[s][r] = true;
+    depth[s][r] = 0;
+    q.push(this);
+
+    int loopCounter = 0;
+
+    while (!q.empty()) {
+        tile* cur_tile = q.front();
+        q.pop();
+        if (!cur_tile) continue;
+
+        int cs = cur_tile->s;
+        int cr = cur_tile->r;
+        int curDepth = depth[cs][cr];
+
+        if (++loopCounter > 500) break;
+
+        if (cur_tile->neighbors.isEmpty()) continue;
+
+        for (tile* neighbor : cur_tile->neighbors) {
+            if (!neighbor) continue;
+            if (neighbor == cur_tile) continue;
+
+            int ns = neighbor->s;
+            int nr = neighbor->r;
+
+            // ✅ اصلاح محدوده‌ها
+            if (ns < 0 || ns >= 5 || nr < 0 || nr >= 9) continue;
+
+            if (visited[ns][nr]) continue;
+            //if (!a->canMoveT0(neighbor->type)) continue;
+
+
+            visited[ns][nr] = true;
+            depth[ns][nr] = curDepth + 1;
+            q.push(neighbor);
+        }
+    }
+
+    // ✅ حلقه‌ی پرکردن canGo رو آوردیم بیرون
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 9; j++) {
+            if (visited[i][j] && depth[i][j] <= d && cell[i][j] != nullptr) {
+                canAttack[i][j] = (cell[i][j]->agent == nullptr);
+            }
+        }
+    }
+}
+
 
 /*
 void tile::bfsMove(int d, Agent* a, bool canGo[][9]) {
@@ -101,6 +249,7 @@ void tile::bfsMove(int d, Agent* a, bool canGo[][9]) {
 
 }
 */
+/*
 void tile::bfsMove(int d, Agent* a, bool canGo[5][9]) {
    // qDebug() << "in bfs";
     if (!a) return;
@@ -170,10 +319,11 @@ void tile::bfsMove(int d, Agent* a, bool canGo[5][9]) {
             int ns = neighbor->s;
             int nr = neighbor->r;
 
-            if (ns < 0 || ns >= 9 || nr < 0 || nr >= 5) {
-                //qDebug() << "[bfsMove] Neighbor out of bounds:" << ns << nr;
+
+            if (ns < 0 || ns >= 5 || nr < 0 || nr >= 9) {
                 continue;
             }
+
 
             if (visited[ns][nr]) continue;
            // qDebug() << "1";
@@ -193,24 +343,27 @@ void tile::bfsMove(int d, Agent* a, bool canGo[5][9]) {
                     continue;
                 }
             }
-            */
+
             visited[ns][nr] = true;
             depth[ns][nr] = curDepth + 1;
             q.push(neighbor);
         }
 
 
+
+
+}
     for (int i = 0; i < 5; i++)
-        for (int j = 0; j < 9; j++)
-            if (visited[i][j] && depth[i][j] <= d && cell[i][j] != nullptr){
+    for (int j = 0; j < 9; j++)
+        if (visited[i][j] && depth[i][j] <= d && cell[i][j] != nullptr){
 
-                canGo[i][j] = true;
-                if(cell[i][j]&&cell[i][j]->agent)
-                    canGo[i][j]=false;
-            }
-
+            canGo[i][j] = true;
+            if(cell[i][j]&&cell[i][j]->agent)
+                canGo[i][j]=false;
+        }
 }
-}
+*/
+/*
 void tile::bfsAttack(int d, Agent* a, bool canAttack[5][9]) {
     qDebug() << "in bfsAttack";
     if (!a) return;
@@ -303,7 +456,7 @@ void tile::bfsAttack(int d, Agent* a, bool canAttack[5][9]) {
                     continue;
                 }
             }
-            */
+
             visited[ns][nr] = true;
             depth[ns][nr] = curDepth + 1;
             q.push(neighbor);
@@ -323,7 +476,7 @@ void tile::bfsAttack(int d, Agent* a, bool canAttack[5][9]) {
 
     }
 }
-
+*/
 
 /*
 void tile::bfsAttack(int d, Agent* a, bool canAttack[9][9]) { // Fixed size

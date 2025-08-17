@@ -17,10 +17,15 @@ class Player
 public:
     Player(QString n, int c);
     void addAgent(Agent *a);
+    QVector<Agent *> getPlayerAgents(){return playerAgents;}
+    void removeAgent(Agent* a) { playerAgents.removeOne(a); }
+
+
+
 private:
     QString name;
     int countAgent;
-    vector<Agent *> playerAgents;
+    QVector<Agent *> playerAgents;
 };
 
 extern Player player1, player2, *currentPlayer;

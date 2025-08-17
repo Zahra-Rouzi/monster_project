@@ -1,38 +1,42 @@
 #include "grounded.h"
-#include "agent.h"
-
 #include <utility>
+#include "agent.h"
+#include "player.h"
+#include "tile.h"
+#include "mainpage.h"
+#include <QObject>
+#include <QMetaObject>
+#include <QEvent>
+void Grounded::attack(Agent* target)  {
+    target->setHP((target->getHP())-(this->getDamage()));
+    setHP((this->getHP())-(target->getDamage()/2));
+    int r=rand()%6;
+    tile*randomCell=target->getCell();
+    tile*w=nullptr;
+    if(r<=randomCell->getNeighbors().size()){
+        if(randomCell->getNeighbors()[r] && canStandOn(randomCell->getNeighbors()[r]->getType())
+            && !randomCell->getNeighbors()[r]->getAgent() ){
 
-class GroundedData : public Agent
-{
-public:
-};
+            w=randomCell->getNeighbors()[r];
+            this->setGeometry(w->geometry());
+            this->getCell()->setAgent(nullptr);
+            this->setCell(w);
+            w->setAgent(this);
 
-/*Grounded::Grounded()
-    : data(new GroundedData)
-{}
 
-Grounded::Grounded(const Grounded &rhs)
-    : data{rhs.data}
-{}
 
-Grounded::Grounded(Grounded &&rhs)
-    : data{std::move(rhs.data)}
-{}
+        }
+        if(target->getHP()<=0){
+            target->getOwner()->removeAgent(target);
 
-Grounded &Grounded::operator=(const Grounded &rhs)
-{
-    if (this != &rhs)
-        data = rhs.data;
-    return *this;
+            target->getCell()->setAgent(nullptr);
+            target->setCell(nullptr);
+            target->hide();
+
+        }
+    }
+
+
+
+
 }
-
-Grounded &Grounded::operator=(Grounded &&rhs)
-{
-    if (this != &rhs)
-        data = std::move(rhs.data);
-    return *this;
-}
-
-Grounded::~Grounded() {}
-*/
