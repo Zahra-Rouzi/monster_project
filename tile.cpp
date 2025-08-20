@@ -3,6 +3,7 @@
 #include "agent.h"
 #include "player.h"
 #include <queue>
+#include <QMessageBox>
 
 #include <vector>
 
@@ -13,44 +14,125 @@ tile::tile(double x, double y, QWidget *parent, int t,int s ,int r): type(t),s(s
     vec.push_back(w);
     //neighbors={};
     connect(w, &QPushButton::clicked, w, [=](){
-        for(Agent * a : player1.playerAgents){
-            a->raise();
+
+        qDebug() << "tile click at (" << s << "," << r << ")";
+        qDebug() << "=== CRITICAL DEBUG ===";
+        qDebug() << "cell[" << s << "][" << r << "] pointer:" << cell[s][r];
+        if (cell[s][r]) {
+            qDebug() << "cell[" << s << "][" << r << "]->agent:" << cell[s][r]->agent;
         }
-        //Agent * selectedAgent = nullptr;
-        qDebug()<<"conectttile";
-        for(Agent *a : currentPlayer->playerAgents){
-            if(!a) return;
-            if(a->WaitingForTarget){
-                if(!a) return;
-                if(!this->agent){
-                    qDebug()<<"CANGO:FINAL TILE!"<<canGo[this->s][this->r];
+        qDebug() << "this tile pointer:" << this;
+        qDebug() << "this->s:" << this->s << ", this->r:" << this->r;
+        qDebug() << "this->agent:" << this->agent;
+        Agent* a = selectedAgent;
+        if (!a || !a->WaitingForTarget) {
+            qDebug() << "No selected agent or not waiting.";
+            return;
+        }
 
-                    a->setGeometry(w->geometry());
-                    //a->WaitingForTarget = false;
-                    a->getCell()->agent= nullptr;
-                    a->setCell(this);
-                    this->agent = a;
-                    qDebug()<<"moved";
+        // کلیک روی همون خانه‌ی خودش؟ نادیده بگیر.
+        if (a->getCell() == this) {
+            qDebug() << "Clicked on own tile -> ignore";
+            return;
+        }
 
-                }
+        qDebug() << "=== DETAILED TILE CLICK DEBUG ===";
+        qDebug() << "Clicked tile (" << s << "," << r << ")";
+        qDebug() << "this->agent:" << this->agent;
+        qDebug() << "canGo[" << s << "][" << r << "]:" << canGo[s][r];
+        qDebug() << "canAttack[" << s << "][" << r << "]:" << canAttack[s][r];
 
-                if(this->agent && this->getAgent()->getOwner()!=a->getOwner()){
-                    //a->attack(this->agent);
-                    qDebug()<<"atack";
-                    //a->WaitingForTarget = false;
-                }
-                a->WaitingForTarget = false;
-                if (currentPlayer == &player1) {
-                    currentPlayer = &player2;
-                    qDebug() << "Turn: Player 2";
-                } else {
-                    currentPlayer = &player1;
-                    qDebug() << "Turn: Player 1";
-                }
+        if (this->agent) {
+            qDebug() << "✅ Target agent exists!";
+            qDebug() << "Target owner:" << (this->agent->getOwner() ?
+                                                this->agent->getOwner()->name : "NULL");
+            qDebug() << "Current agent owner:" << (a->getOwner() ?
+                                                       a->getOwner()->name : "NULL");
+        } else {
+            qDebug() << "❌ NO AGENT ON THIS TILE!";
+        }
+
+        // دیباگ وضعیت
+        qDebug() << "tile.agent?" << (this->agent != nullptr)
+                 << "canGo?" << canGo[s][r]
+                 << "canAttack?" << canAttack[s][r];
+
+        // اول حمله، بعد حرکت (tile نمی‌تونه همزمان پر و خالی باشه، ولی این ترتیب منطقی‌تره)
+        bool didSomething = false;
+
+        if (this->agent) {
+            // دشمن بودن
+            bool enemy = false;
+            if (this->agent != a && this->agent->getOwner() && a->getOwner())
+                enemy = (this->agent->getOwner()->name != a->getOwner()->name); // ترجیحاً با id
+
+            qDebug() << "enemy?" << enemy;
+            //bool newCanAttack[5][9];
+            //a->getCell()->bfsAttack(a->attackRange, a, canAttack);
+            if (enemy && canAttack[this->s][this->r]) {
+                qDebug() << "ATTACK!";
+                a->attack(this->agent);
+                didSomething = true;
+                done=true;
+                isPlaying=false;
+
+            }
+        } else {
+            if (canGo[s][r]) {
+                qDebug() << "MOVE!";
+                a->setGeometry(w->geometry());
+                if(a->currentCell)a->currentCell->agent=nullptr ;
+                qDebug() << "cell has agent?old"<<a->currentCell->agent;
+                a->setCell(this);
+                qDebug() << "cell has agent?now"<<this->agent;
+
+                //this->agent=a;
+                /*for (int i = 0; i < 5; i++) {
+                    for (int j = 0; j < 9; j++) {
+                        if (cell[i][j] && cell[i][j]->agent) {
+                            Agent* target = cell[i][j]->agent;
+                            if (target->getOwner() && a->getOwner() &&
+                                target->getOwner()->name != a->getOwner()->name) {
+                                // محاسبه فاصله
+                                double distance = sqrt(pow(i - s, 2) + pow(j - r, 2));
+                                if (distance <= a->attackRange) {
+                                    qDebug() << "IMMEDIATE ATTACK AFTER MOVE!"<<target->getHP();;
+                                    a->attack(target);
+                                    qDebug() << "HP"<<target->getHP();
+
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }*/
+                qDebug() << "After setCell - this->agent:" << this->agent;
+                qDebug() << "After setCell - agent position:" << a->getCell()->getS() << "," << a->getCell()->getR();
+                didSomething = true;
+                done=true;
+                isPlaying=false;
             }
         }
 
+        if (!didSomething) {
+            qDebug() << "No action: reason ->"
+                     << (this->agent ? "ally or out of range" : "blocked/out of range");
+            return; // اگر کاری انجام نشد، نوبت عوض نکن
+        }
+
+        // پایان اکشن: خروج از حالت انتخاب و تعویض نوبت
+        a->WaitingForTarget = false;
+        selectedAgent = nullptr;
+        if (currentPlayer == &player1) {
+            currentPlayer = &player2;
+            qDebug() << "Turn: Player 2";
+        } else {
+            currentPlayer = &player1;
+            qDebug() << "Turn: Player 1";
+        }
+
     });
+
 }
 
 tile::tile(tile & o){
@@ -137,7 +219,7 @@ void tile::bfsMove(int d, Agent* a, bool canGo[5][9]) {
         }
     }
 }
-/*void tile::bfsAttack(int d, Agent* a, bool canAttack[5][9]) {
+void tile::bfsAttack(int d, Agent* a, bool canAttack[5][9]) {
     if (!a) return;
 
     std::queue<tile*> q;
@@ -195,12 +277,51 @@ void tile::bfsMove(int d, Agent* a, bool canGo[5][9]) {
     for (int i = 0; i < 5; i++) {
         for (int j = 0; j < 9; j++) {
             if (visited[i][j] && depth[i][j] <= d && cell[i][j] != nullptr) {
-                canAttack[i][j] = (cell[i][j]->agent == nullptr);
+                Agent* target = cell[i][j]->agent;
+                if (target && target->getOwner() && a->getOwner() &&
+                    target->getOwner()->name == a->getOwner()->name) {
+                    canAttack[i][j] = false;  // متحد است
+                } else {
+                    canAttack[i][j] = true;
+                }
             }
+
         }
     }
-}
 
+}
+/*if(player1.getPlayerAgents().size()==0){
+                        qDebug() << "game finished!"<<player2.name<<"won the game !";
+
+                        QMessageBox msgBox(QMessageBox::Warning,
+                                           "game finished",
+                                           "player2 won the game!",
+                                           QMessageBox::Ok,
+                                           parent);
+                        msgBox.setStyleSheet(
+                            "QMessageBox {"
+                            "background-color: #FFC07C;"
+                            "color: #000000;"
+                            "font-size: 12px;"
+                            "padding: 10px;"
+                            "}"
+                            "QLabel {"
+                            "color: #000000;"
+                            "font-size: 12px;"
+                            "}"
+                            "QPushButton {"
+                            "background-color: #FFF;"
+                            "color: #000000;"
+                            "border: 1px solid #FFC07C;"
+                            "border-radius: 5px;"
+                            "padding: 5px;"
+                            "}"
+                            );
+                        msgBox.exec();)
+                        //MainPage.close();
+                        }
+                    }
+*/
 
 /*
 void tile::bfsMove(int d, Agent* a, bool canGo[][9]) {

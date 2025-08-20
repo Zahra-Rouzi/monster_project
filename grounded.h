@@ -15,7 +15,9 @@ class Grounded : public Agent
     Q_OBJECT
     QML_ELEMENT
 public:
-    Grounded(QWidget *parent = nullptr):Agent(parent){}
+    Grounded(QWidget *parent = nullptr):Agent(parent){
+        //setHP(h);
+    }
     bool canMoveT0(int type) const override{
         if(type == 0 || type == 1 || type == 2)
             return 1;

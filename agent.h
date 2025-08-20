@@ -18,7 +18,7 @@ class Agent : public QPushButton
     Q_OBJECT
     QML_ELEMENT
 public:
-    Agent(QWidget *parent = nullptr, int h = 100, int m = 2, int d = 100, int a = 1);
+    Agent(QWidget *parent = nullptr, int h = 300, int m = 2, int d = 50, int a = 2);
     void setConnection();
     tile* getCell(){return currentCell;}
     int getDamage(){return Damage;}
@@ -29,12 +29,18 @@ public:
     void setHP(int h){
         HP = (h < 0) ? 0 : h;
     }
+    void setMobility(int m){Mobility=m;}
+    void setAttackRange(int a){attackRange=a;}
+    void setDamage(int d){Damage=d;}
+
     void setCell(tile *t);  // فقط اعلان
 
 
     void setOwner(Player* pl){
         owner=pl;
     }
+    void moveToTile(tile* t);
+
     virtual void attack(Agent* target)=0;
     virtual bool canMoveT0(int type) const = 0;
     virtual bool canStandOn(int type) const = 0;
@@ -50,5 +56,7 @@ private:
 
 };
 extern Agent* selectedAgent;
+extern bool isPlaying;
+extern bool done;
 
 #endif // AGENT_H

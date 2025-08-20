@@ -18,9 +18,13 @@ public:
     Player(QString n, int c);
     void addAgent(Agent *a);
     QVector<Agent *> getPlayerAgents(){return playerAgents;}
-    void removeAgent(Agent* a) { playerAgents.removeOne(a); }
-
-
+    void removeAgent(Agent* a) {
+        playerAgents.removeOne(a);
+        countAgent--;
+    }
+    void setCount(int m){ countAgent-=m;}
+    int  getCountAgent(){return countAgent;}
+    QString getName(){return name;}
 
 private:
     QString name;
