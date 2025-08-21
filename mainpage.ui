@@ -75,7 +75,7 @@ QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>-4593</y>
+       <y>0</y>
        <width>197</width>
        <height>6100</height>
       </rect>
@@ -1805,7 +1805,7 @@ QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
      <x>0</x>
      <y>0</y>
      <width>1388</width>
-     <height>22</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

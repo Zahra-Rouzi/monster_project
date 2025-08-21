@@ -62,8 +62,12 @@ void startPage::on_pushButton_clicked()
     if(s == ""){
         QMessageBox::warning(this, "Warning!", "Please Enter Your Name");
     }
+    if(s == player1.name){
+        QMessageBox::warning(this, "Warning!", "Please choose a different name !");
+    }
     else{
-        player2.name = s;
+        if(s!=player1.name)player2.name = s;
+
         MainPage *w3 = new MainPage;
         w3->showFullScreen();
         this->close();

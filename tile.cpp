@@ -116,6 +116,7 @@ tile::tile(double x, double y, QWidget *parent, int t,int s ,int r): type(t),s(s
                 if (currentPlayer == &player1) {
                     currentPlayer = &player2;
                     qDebug() << "Turn: Player 2";
+
                 } else {
                     currentPlayer = &player1;
                     qDebug() << "Turn: Player 1";

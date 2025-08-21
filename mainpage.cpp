@@ -635,6 +635,9 @@ public:
                         for(Agent * A : player2.playerAgents){
                             A->setConnection();
                         }
+
+
+
                     }
 
                     validButtons.removeAll(p);
