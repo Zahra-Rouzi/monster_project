@@ -13,7 +13,7 @@ class waterWalking : public Agent
     Q_OBJECT
     QML_ELEMENT
 public:
-    waterWalking(QWidget * parent): Agent(parent){}
+    waterWalking(QWidget * parent, int h, int m, int d, int a): Agent(parent, h, m, d, a){}
     bool canMoveT0(int type) const override;
     bool canStandOn(int type) const override;
     void attack(Agent* target) override;

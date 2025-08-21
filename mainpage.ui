@@ -75,7 +75,7 @@ QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>-5409</y>
+       <y>-4593</y>
        <width>197</width>
        <height>6100</height>
       </rect>
@@ -128,36 +128,10 @@ QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/newagents/grounded8.png);</string>
+       <string notr="true">image: url(:/new/prefix1/newagents/grounded10.png);</string>
       </property>
       <property name="text">
        <string/>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_3">
-      <property name="geometry">
-       <rect>
-        <x>61</x>
-        <y>5189</y>
-        <width>75</width>
-        <height>24</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_4">
-      <property name="geometry">
-       <rect>
-        <x>61</x>
-        <y>5406</y>
-        <width>75</width>
-        <height>24</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>PushButton</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_14">
@@ -357,37 +331,11 @@ QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
        <string>PushButton</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_7">
-      <property name="geometry">
-       <rect>
-        <x>61</x>
-        <y>6057</y>
-        <width>75</width>
-        <height>24</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
      <widget class="QPushButton" name="pushButton_23">
       <property name="geometry">
        <rect>
         <x>61</x>
         <y>1283</y>
-        <width>75</width>
-        <height>24</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_6">
-      <property name="geometry">
-       <rect>
-        <x>61</x>
-        <y>5840</y>
         <width>75</width>
         <height>24</height>
        </rect>
@@ -561,7 +509,7 @@ QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/newagents/grounded17.png);</string>
+       <string notr="true">image: url(:/new/prefix1/newagents/flying1.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -635,28 +583,6 @@ QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
        <string>PushButton</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_5">
-      <property name="geometry">
-       <rect>
-        <x>61</x>
-        <y>5436</y>
-        <width>101</width>
-        <height>181</height>
-       </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>101</width>
-        <height>181</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/newagents/flying1.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
      <widget class="QPushButton" name="pushButton_21">
       <property name="geometry">
        <rect>
@@ -675,19 +601,6 @@ QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
        <rect>
         <x>61</x>
         <y>4972</y>
-        <width>75</width>
-        <height>24</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_5">
-      <property name="geometry">
-       <rect>
-        <x>61</x>
-        <y>5623</y>
         <width>75</width>
         <height>24</height>
        </rect>
@@ -734,7 +647,7 @@ QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/newagents/grounded4.png);</string>
+       <string notr="true">image: url(:/new/prefix1/newagents/grounded1.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -905,28 +818,6 @@ QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/newagents/grounded16.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_3">
-      <property name="geometry">
-       <rect>
-        <x>61</x>
-        <y>5002</y>
-        <width>101</width>
-        <height>181</height>
-       </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>101</width>
-        <height>181</height>
-       </size>
-      </property>
-      <property name="styleSheet">
        <string notr="true">image: url(:/new/prefix1/newagents/floating2.png);</string>
       </property>
       <property name="text">
@@ -944,28 +835,6 @@ QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
       </property>
       <property name="text">
        <string>PushButton</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_6">
-      <property name="geometry">
-       <rect>
-        <x>61</x>
-        <y>5653</y>
-        <width>101</width>
-        <height>181</height>
-       </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>101</width>
-        <height>181</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/newagents/grounded1.png);</string>
-      </property>
-      <property name="text">
-       <string/>
       </property>
      </widget>
      <widget class="QLabel" name="label_25">
@@ -1014,50 +883,6 @@ QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
       </property>
       <property name="text">
        <string>PushButton</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_4">
-      <property name="geometry">
-       <rect>
-        <x>61</x>
-        <y>5219</y>
-        <width>101</width>
-        <height>181</height>
-       </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>101</width>
-        <height>181</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/newagents/floating3.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_7">
-      <property name="geometry">
-       <rect>
-        <x>61</x>
-        <y>5870</y>
-        <width>101</width>
-        <height>181</height>
-       </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>101</width>
-        <height>181</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/newagents/grounded10.png);</string>
-      </property>
-      <property name="text">
-       <string/>
       </property>
      </widget>
      <widget class="QLabel" name="label_22">
@@ -1139,7 +964,7 @@ QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>-2880</y>
+       <y>0</y>
        <width>197</width>
        <height>6100</height>
       </rect>
@@ -1980,7 +1805,7 @@ QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
      <x>0</x>
      <y>0</y>
      <width>1388</width>
-     <height>25</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

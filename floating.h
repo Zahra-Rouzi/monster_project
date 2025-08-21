@@ -15,7 +15,7 @@ class floating : public Agent
     Q_OBJECT
     QML_ELEMENT
 public:
-    floating(QWidget * parent): Agent(parent){}
+    floating(QWidget * parent, int h, int m, int d, int a): Agent(parent, h, m, d, a){}
     bool canMoveT0(int type) const override{
         return 1;
     }

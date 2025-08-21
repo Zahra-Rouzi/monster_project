@@ -78,7 +78,7 @@ tile::tile(double x, double y, QWidget *parent, int t,int s ,int r): type(t),s(s
 
             }
         } else {
-            if (canGo[s][r]) {
+            if (canGo[s][r] && a->canStandOn(type)) {
                 qDebug() << "MOVE!";
                 a->setGeometry(w->geometry());
                 if(a->currentCell)a->currentCell->agent=nullptr ;

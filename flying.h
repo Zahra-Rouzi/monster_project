@@ -15,7 +15,7 @@ class flying : public Agent
     Q_OBJECT
     QML_ELEMENT
 public:
-    flying(QWidget * parent): Agent(parent){}
+    flying(QWidget * parent, int h, int m, int d, int a): Agent(parent, h, m, d, a){}
     bool canMoveT0(int type) const override{
         return 1;
     }

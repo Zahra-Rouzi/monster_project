@@ -18,13 +18,17 @@ void Grounded::attack(Agent* target)  {
 
     tile*p=nullptr;
     bool randomMoved =false;
+    int t=0;
     while(!randomMoved){
+        t++;
         int r=rand()%(randomCell->getNeighbors().size());
+
         qDebug() << "random tile:" << r;
 
         if(r<=randomCell->getNeighbors().size()){
+            qDebug()<<"first if";
             if(randomCell->getNeighbors()[r] && canStandOn(randomCell->getNeighbors()[r]->getType())
-                && !randomCell->getNeighbors()[r]->getAgent() ){
+                && !(randomCell->getNeighbors()[r]->getAgent()) ){
 
                 p=randomCell->getNeighbors()[r];
                 //this->move(p->getW()->pos());
@@ -43,7 +47,7 @@ void Grounded::attack(Agent* target)  {
                 this->getCell()->setAgent(nullptr);
                 this->setCell(p);
                 p->setAgent(this);
-
+                randomMoved=true;
             }
             if(target->getHP()<=0){
                 qDebug()<<"target dided! hp<=0"<<target->getHP();
@@ -75,10 +79,12 @@ void Grounded::attack(Agent* target)  {
                 qDebug()<<"hiding";
                 delete this;
                 qDebug()<<"deleating!";
+                break;
 
 
             }
-            randomMoved=true;
+
+            qDebug()<<"random moved?"<<randomMoved;
         }
 
     }
@@ -140,6 +146,5 @@ void Grounded::attack(Agent* target)  {
         msgBox.exec();
         //MainPage.close();
     }
-
 
 }
