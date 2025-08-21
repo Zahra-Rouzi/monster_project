@@ -111,6 +111,15 @@ tile::tile(double x, double y, QWidget *parent, int t,int s ,int r): type(t),s(s
                 didSomething = true;
                 done=true;
                 isPlaying=false;
+                a->WaitingForTarget = false;
+                selectedAgent = nullptr;
+                if (currentPlayer == &player1) {
+                    currentPlayer = &player2;
+                    qDebug() << "Turn: Player 2";
+                } else {
+                    currentPlayer = &player1;
+                    qDebug() << "Turn: Player 1";
+                }
             }
         }
 
@@ -121,15 +130,7 @@ tile::tile(double x, double y, QWidget *parent, int t,int s ,int r): type(t),s(s
         }
 
         // پایان اکشن: خروج از حالت انتخاب و تعویض نوبت
-        a->WaitingForTarget = false;
-        selectedAgent = nullptr;
-        if (currentPlayer == &player1) {
-            currentPlayer = &player2;
-            qDebug() << "Turn: Player 2";
-        } else {
-            currentPlayer = &player1;
-            qDebug() << "Turn: Player 1";
-        }
+
 
     });
 

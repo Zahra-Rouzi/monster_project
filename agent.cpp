@@ -48,9 +48,10 @@ void Agent::setConnection(){
                     currentPlayer = &player1;
                     qDebug() << "Turn: Player 1";
                 }
-                return;
+                  return;
 
             }
+            if(this->getOwner()->name!=currentPlayer->name){qDebug()<<"not your turn";return;}
             qDebug()<<"agent conection"<<this<<"selected Agent:"<<selectedAgent;
             if(isPlaying){
                 qDebug() <<"isPlaying?"<<isPlaying;
