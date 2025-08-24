@@ -259,7 +259,7 @@ void MainPage::highlight(QWidget *m) {
                     p->setStyleSheet("image: url(:/new/prefix18/Greenw.png); "
                                      "background-color: transparent");
                 if(c == 4)
-                    p->setStyleSheet("image: url(:/new/prefix18/Greend.png); "
+                    p->setStyleSheet("image: url(:/new/prefix18/Greenr.png); "
                                      "background-color: transparent");
             }
         }
