@@ -76,18 +76,7 @@ void startPage::on_pushButton_clicked()
 
 
 void startPage::on_Gallery_clicked(){
-    QString s = ui->lineEdit->text();
-    if(s == ""){
-        QMessageBox::warning(this, "Warning!", "Please Enter Your Name");
-    }
-    if(s == player1.name){
-        QMessageBox::warning(this, "Warning!", "Please choose a different name !");
-    }
-    else{
-        if(s!=player1.name)player2.name = s;
-
-        MainPage *w3 = new MainPage;
-        w3->showFullScreen();
-        this->close();
-    }
+    Gallery *w4 = new Gallery;
+    w4->showFullScreen();
+    this->close();
 }

@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -123,6 +124,8 @@ public:
     QPushButton *pushButton2_10;
     QPushButton *pushButton2_13;
     QLabel *label2_7;
+    QLineEdit *lineEdit;
+    QLineEdit *lineEdit_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -601,6 +604,39 @@ public:
         label2_7->setMinimumSize(QSize(101, 181));
         label2_7->setStyleSheet(QString::fromUtf8("image: url(:/new/prefix1/newagents/waterwalking2.png);"));
         scrollArea_4->setWidget(scrollAreaWidgetContents_4);
+        lineEdit = new QLineEdit(centralwidget);
+        lineEdit->setObjectName("lineEdit");
+        lineEdit->setGeometry(QRect(640, 40, 131, 41));
+        lineEdit->setStyleSheet(QString::fromUtf8("\n"
+"    color: #FFD700; /* \330\267\331\204\330\247\333\214\333\214 \330\250\330\261\330\247\331\202 */\n"
+"   /* background-color: rgba(0, 0, 0, 80);  \331\206\333\214\331\205\331\207\342\200\214\330\264\331\201\330\247\331\201 \330\252\333\214\330\261\331\207 */\n"
+"    border: 1px solid #FFD700;\n"
+"	\n"
+"    border-radius: 8px;\n"
+"	background-color: transparent;\n"
+"    padding: 6px 12px;\n"
+"    font-family: \"Vazirmatn\", \"Tahoma\";\n"
+"    font-size: 12px;\n"
+"    font-weight: bold;\n"
+"font-size: 14px;\n"
+"font-weight: bold;\n"
+"qproperty-alignment: 'AlignCenter';\n"
+""));
+        lineEdit_2 = new QLineEdit(centralwidget);
+        lineEdit_2->setObjectName("lineEdit_2");
+        lineEdit_2->setGeometry(QRect(540, 90, 341, 31));
+        lineEdit_2->setStyleSheet(QString::fromUtf8("\n"
+"    color: #FFD700; /* \330\267\331\204\330\247\333\214\333\214 \330\250\330\261\330\247\331\202 */\n"
+"   /* background-color: rgba(0, 0, 0, 80);  \331\206\333\214\331\205\331\207\342\200\214\330\264\331\201\330\247\331\201 \330\252\333\214\330\261\331\207 */\n"
+"    border: 1px solid #FFD700;\n"
+"	\n"
+"    border-radius: 8px;\n"
+"	background-color: transparent;\n"
+"    padding: 6px 12px;\n"
+"    font-family: \"Vazirmatn\", \"Tahoma\";\n"
+"    font-size: 12px;\n"
+"    font-weight: bold;\n"
+"qproperty-alignment: 'AlignCenter';"));
         MainPage->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainPage);
         menubar->setObjectName("menubar");
@@ -712,6 +748,7 @@ public:
         pushButton2_10->setText(QCoreApplication::translate("MainPage", "PushButton", nullptr));
         pushButton2_13->setText(QCoreApplication::translate("MainPage", "PushButton", nullptr));
         label2_7->setText(QString());
+        lineEdit->setText(QCoreApplication::translate("MainPage", "Player 1", nullptr));
     } // retranslateUi
 
 };

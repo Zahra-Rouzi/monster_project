@@ -209,7 +209,13 @@ debug/qrc_images.cpp: ../../images.qrc \
 		../../d.png \
 		../../a1.png \
 		../../bg9.jpg \
+		../../Greenr.png \
+		../../Greenw.png \
+		../../Greend.png \
 		../../Game/galleri_bg.jpg \
+		../../redd.png \
+		../../reds.png \
+		../../redw.png \
 		../../a3.png \
 		../../rockgray.png \
 		../../Welcome.png \
@@ -2536,6 +2542,7 @@ debug/agent.o: ../../agent.cpp ../../agent.h \
 		../../player.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/Qstring \
 		../../startpage.h \
+		ui_mainpage.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/QMetaObject \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/QEvent
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\agent.o ..\..\agent.cpp
@@ -2778,7 +2785,11 @@ debug/floating.o: ../../floating.cpp ../../floating.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/Qstring \
 		../../startpage.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/QMetaObject \
-		C:/Qt/6.8.2/mingw_64/include/QtCore/QEvent
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QEvent \
+		C:/Qt/6.8.2/mingw_64/include/QtWidgets/QMessageBox \
+		C:/Qt/6.8.2/mingw_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/6.8.2/mingw_64/include/QtWidgets/qdialog.h \
+		C:/Qt/6.8.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\floating.o ..\..\floating.cpp
 
 debug/flying.o: ../../flying.cpp ../../flying.h \
@@ -3019,6 +3030,10 @@ debug/flying.o: ../../flying.cpp ../../flying.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/Qstring \
 		../../startpage.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/QMetaObject \
+		C:/Qt/6.8.2/mingw_64/include/QtWidgets/QMessageBox \
+		C:/Qt/6.8.2/mingw_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/6.8.2/mingw_64/include/QtWidgets/qdialog.h \
+		C:/Qt/6.8.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/QEvent
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\flying.o ..\..\flying.cpp
 
@@ -3456,7 +3471,11 @@ debug/grounded.o: ../../grounded.cpp ../../grounded.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/Qstring \
 		../../startpage.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/QMetaObject \
-		C:/Qt/6.8.2/mingw_64/include/QtCore/QEvent
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QEvent \
+		C:/Qt/6.8.2/mingw_64/include/QtWidgets/QMessageBox \
+		C:/Qt/6.8.2/mingw_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/6.8.2/mingw_64/include/QtWidgets/qdialog.h \
+		C:/Qt/6.8.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\grounded.o ..\..\grounded.cpp
 
 debug/main.o: ../../main.cpp ../../welcome.h \
@@ -4678,9 +4697,14 @@ debug/tile.o: ../../tile.cpp ../../tile.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/QSharedDataPointer \
 		C:/Qt/6.8.2/mingw_64/include/QtWidgets/QWidget \
 		../../agent.h \
+		ui_mainpage.h \
 		../../player.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/Qstring \
-		../../startpage.h
+		../../startpage.h \
+		C:/Qt/6.8.2/mingw_64/include/QtWidgets/QMessageBox \
+		C:/Qt/6.8.2/mingw_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/6.8.2/mingw_64/include/QtWidgets/qdialog.h \
+		C:/Qt/6.8.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\tile.o ..\..\tile.cpp
 
 debug/waterwalking.o: ../../waterwalking.cpp ../../waterWalking.h \
@@ -4921,7 +4945,11 @@ debug/waterwalking.o: ../../waterwalking.cpp ../../waterWalking.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/Qstring \
 		../../startpage.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/QMetaObject \
-		C:/Qt/6.8.2/mingw_64/include/QtCore/QEvent
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QEvent \
+		C:/Qt/6.8.2/mingw_64/include/QtWidgets/QMessageBox \
+		C:/Qt/6.8.2/mingw_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/6.8.2/mingw_64/include/QtWidgets/qdialog.h \
+		C:/Qt/6.8.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\waterwalking.o ..\..\waterwalking.cpp
 
 debug/welcome.o: ../../welcome.cpp ../../welcome.h \
