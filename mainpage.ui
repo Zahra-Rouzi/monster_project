@@ -1798,6 +1798,60 @@ QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
      </widget>
     </widget>
    </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>40</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+    color: #FFD700; /* طلایی براق */
+   /* background-color: rgba(0, 0, 0, 80);  نیمه‌شفاف تیره */
+    border: 1px solid #FFD700;
+	
+    border-radius: 8px;
+	background-color: transparent;
+    padding: 6px 12px;
+    font-family: &quot;Vazirmatn&quot;, &quot;Tahoma&quot;;
+    font-size: 12px;
+    font-weight: bold;
+font-size: 14px;
+font-weight: bold;
+qproperty-alignment: 'AlignCenter';
+</string>
+    </property>
+    <property name="text">
+     <string>Player 1</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_2">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>90</y>
+      <width>341</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+    color: #FFD700; /* طلایی براق */
+   /* background-color: rgba(0, 0, 0, 80);  نیمه‌شفاف تیره */
+    border: 1px solid #FFD700;
+	
+    border-radius: 8px;
+	background-color: transparent;
+    padding: 6px 12px;
+    font-family: &quot;Vazirmatn&quot;, &quot;Tahoma&quot;;
+    font-size: 12px;
+    font-weight: bold;
+qproperty-alignment: 'AlignCenter';</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

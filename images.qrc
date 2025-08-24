@@ -52,4 +52,14 @@
         <file>agents/Screenshot_2025-04-19-18-12-23-074_com.android.chrome-edit (10).png</file>
         <file>agents/Screenshot_2025-04-19-18-12-23-074_com.android.chrome-edit (11).png</file>
     </qresource>
+    <qresource prefix="/new/prefix17">
+        <file>redd.png</file>
+        <file>reds.png</file>
+        <file>redw.png</file>
+    </qresource>
+    <qresource prefix="/new/prefix18">
+        <file>Greend.png</file>
+        <file>Greenw.png</file>
+        <file>Greenr.png</file>
+    </qresource>
 </RCC>

@@ -1,5 +1,6 @@
 #include "tile.h"
 #include "mainpage.h"
+#include "ui_mainpage.h"
 #include "agent.h"
 #include "player.h"
 #include <queue>
@@ -8,7 +9,7 @@
 #include <vector>
 
 
-tile::tile(double x, double y, QWidget *parent, int t,int s ,int r): type(t),s(s),r(r){
+tile::tile(MainPage *m, double x, double y, QWidget *parent, int t,int s ,int r): type(t),s(s),r(r){
     w = new QPushButton(parent);
     w->setGeometry(x, y, 100, 86);
     vec.push_back(w);
@@ -113,12 +114,15 @@ tile::tile(double x, double y, QWidget *parent, int t,int s ,int r): type(t),s(s
                 isPlaying=false;
                 a->WaitingForTarget = false;
                 selectedAgent = nullptr;
+                m->changeBack();
                 if (currentPlayer == &player1) {
+                    m->ui->lineEdit->setText("Player2");
                     currentPlayer = &player2;
                     qDebug() << "Turn: Player 2";
 
                 } else {
                     currentPlayer = &player1;
+                    m->ui->lineEdit->setText("Player1");
                     qDebug() << "Turn: Player 1";
                 }
             }

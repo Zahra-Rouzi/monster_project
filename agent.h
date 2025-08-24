@@ -8,9 +8,10 @@
 #include <QSharedDataPointer>
 #include <QWidget>
 #include "tile.h"
-
+#include "mainpage.h"
 class Player;
 class tile;
+class MainPage;
 class Agent : public QPushButton
 {
     friend class tile;
@@ -19,7 +20,7 @@ class Agent : public QPushButton
     QML_ELEMENT
 public:
     Agent(QWidget *parent = nullptr, int h = 300, int m = 2, int d = 50, int a = 2);
-    void setConnection();
+    void setConnection(MainPage *m);
     tile* getCell(){return currentCell;}
     int getDamage(){return Damage;}
     int getHP(){return HP;}

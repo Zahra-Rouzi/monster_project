@@ -147,6 +147,7 @@ void waterWalking::attack(Agent* target)  {
     }
 }
 
+
 bool waterWalking:: canMoveT0(int type) const {
     if(type == 0 || type == 1 || type == 2 || type == 3)
         return 1;
