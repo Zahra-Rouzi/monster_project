@@ -2,6 +2,7 @@
 #include "player.h"
 #include "tile.h"
 #include "mainpage.h"
+#include "ui_mainpage.h"
 #include <QObject>
 #include <QMetaObject>
 #include <utility>
@@ -22,7 +23,7 @@ Agent::Agent(QWidget *p, int h, int m, int d, int a)
     setFocusPolicy(Qt::NoFocus);
 }
 
-void Agent::setConnection(){
+void Agent::setConnection(MainPage *m){
 
     for (int row = 0; row < 5; ++row) {
         for (int col = 0; col < 9; ++col) {
@@ -33,7 +34,7 @@ void Agent::setConnection(){
     }
     if(done){
         connect(this, &QPushButton::clicked, this, [=, this]() {
-
+            m->ui->lineEdit_2->setText(this->owner->getName() +' '+ QString::number(this->HP) + ' '+QString::number(this->Damage));
             if(selectedAgent && selectedAgent!=this && selectedAgent->getOwner()->name!=this->getOwner()->name && canAttack[this->currentCell->s][this->currentCell->r]){
                 qDebug() << "ATTACK!";
                 selectedAgent->attack(this);
@@ -41,10 +42,13 @@ void Agent::setConnection(){
                 isPlaying=false;
                 selectedAgent->WaitingForTarget=false;
                 selectedAgent = nullptr;
+                m->changeBack();
                 if (currentPlayer == &player1) {
+                    m->ui->lineEdit->setText("Player2");
                     currentPlayer = &player2;
                     qDebug() << "Turn: Player 2";
                 } else {
+                    m->ui->lineEdit->setText("Player1");
                     currentPlayer = &player1;
                     qDebug() << "Turn: Player 1";
                 }
@@ -88,7 +92,7 @@ void Agent::setConnection(){
                 }
             }
             qDebug() << "Total agents on board:" << agentCount;
-            //highlight(m);
+            m->highlight(m);
 
             for (int row = 0; row < 5; ++row) {
                 for (int col = 0; col < 9; ++col) {

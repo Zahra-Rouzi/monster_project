@@ -5,6 +5,7 @@
 #include <QMainWindow>
 #include <QObject>
 #include "tile.h"
+
 #include <QVector>
 class tile;
 extern QVector<QPushButton*> vec, v1, v2;
@@ -20,10 +21,12 @@ class MainPage : public QMainWindow
 {
     Q_OBJECT
     friend class tile;
+    friend class Agent;
 public:
     explicit MainPage(QWidget *parent = nullptr);
     void hid1();
     void hid2();
+    void changeBack();
     ~MainPage();
     void switchTurn();
     void highlightingMove(QPushButton *p);
@@ -31,6 +34,7 @@ public:
     void highlightAtacking(QWidget *m) ;
     void highlight(QWidget *m);
     void loop(QWidget *m);
+
     QVector <tile*>  getNeighbors(int row, int col);
 
 

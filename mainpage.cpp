@@ -23,9 +23,10 @@ tile *cell[5][9] = {};
 bool canGo[5][9] = {};
 bool canAttack[5][9] = {};
 QList<QLabel*> previousHighlights;
+QVector<QPushButton*> vec, v1, v2;
+std::vector<int> hexa;
 QVector<tile*> MainPage:: getNeighbors(int row, int col) {
     QVector<tile*> neighbors;
-
     // جهت‌ها برای ستون زوج
     static const int even_directions[6][2] = {
         {-1, 0}, {-1, 1}, {0, 1},
@@ -232,93 +233,39 @@ void MainPage::highlightAtacking(QWidget *m) {
     qDebug() << "[highlight] finished";
 }
 void MainPage::highlight(QWidget *m) {
-    qDebug() << "[highlight] started";
 
-    // پاک کردن هایلایت‌های قبلی
-    for (QLabel* label : previousHighlights) {
-        if (label) {
-            label->hide();
-            label->deleteLater();
-        }
-    }
-    previousHighlights.clear();
-
-    const int overlayWidth = 100;
-    const int overlayHeight = 100;
-    const int size = 20;
-    const float height = sqrt(3) * size;
-
-    for (int row = 0; row < 5; ++row) {
-        for (int col = 0; col < 9; ++col) {
-            qDebug() << "[highlight] checking cell[" << row << "][" << col << "]";
-
-            if (!cell[row][col]) {
-                qDebug() << "[highlight] cell is null";
-                continue;
+    for(int row = 0; row < 5; row++){
+        for(int col = 0; col < 9; col++){
+            if(!cell[row][col]) continue;
+            if(!canGo[row][col] && !canAttack[row][col]) continue;
+            QPushButton *p = cell[row][col]->w;
+            int c = cell[row][col]->type;
+            if(canAttack[row][col]){
+                if(c == 0 || c == 1 || c == 2)
+                    p->setStyleSheet("image: url(:/new/prefix17/redd.png); "
+                                     "background-color: transparent");
+                if(c == 3)
+                    p->setStyleSheet("image: url(:/new/prefix17/redw.png); "
+                                     "background-color: transparent");
+                if(c == 4)
+                    p->setStyleSheet("image: url(:/new/prefix17/reds.png); "
+                                     "background-color: transparent");
             }
-            QColor color;
-            if (canGo[row][col] && canAttack[row][col]) {
-                color = QColor(255, 165, 0, 128); // نارنجی = هم حمله هم حرکت
-            } else if (canGo[row][col]) {
-                color = QColor(255, 0, 0, 128); // قرمز = فقط حرکت
-            } else if (canAttack[row][col]) {
-                color = QColor(0, 255, 0, 128); // سبز = فقط حمله
-            } else {
-                continue;
+            else if(canGo[row][col]){
+                if(c == 0 || c == 1 || c == 2)
+                    p->setStyleSheet("image: url(:/new/prefix18/Greend.png); "
+                                     "background-color: transparent");
+                if(c == 3)
+                    p->setStyleSheet("image: url(:/new/prefix18/Greenw.png); "
+                                     "background-color: transparent");
+                if(c == 4)
+                    p->setStyleSheet("image: url(:/new/prefix18/Greend.png); "
+                                     "background-color: transparent");
             }
-
-            tile *p = cell[row][col];
-            if (!p) {
-                qDebug() << "[highlight] tile pointer is null after cell check!";
-                continue;
-            }
-
-            int pw = p->width();
-            int ph = p->height();
-
-            if (pw <= 0 || ph <= 0 || pw > 1000 || ph > 1000) {
-                qDebug() << "[highlight] invalid tile size: width=" << pw << ", height=" << ph;
-                continue;
-            }
-
-            double x = (size * 3.0 / 2 + 55.0) * col;
-            double y = (height + 55.0) * (row + 0.5 * (col % 2));
-
-            QLabel* overlay = new QLabel(m);
-            overlay->setGeometry(x + 280, y + 146, overlayWidth, overlayHeight);
-
-            QPixmap pixmap(overlayWidth, overlayHeight);
-            pixmap.fill(Qt::transparent);
-
-            QPainter painter(&pixmap);
-            painter.setRenderHint(QPainter::Antialiasing);
-            painter.setBrush(color);
-            painter.setPen(Qt::NoPen);
-
-            QPolygon hexagon;
-            for (int i = 0; i < 6; ++i) {
-                double angle_deg = 60 * i - 60;
-                double angle_rad = M_PI / 180 * angle_deg;
-                int px = overlayWidth / 2 + (overlayWidth / 2) * cos(angle_rad);
-                int py = overlayHeight / 2 + (overlayHeight / 2) * sin(angle_rad);
-                hexagon << QPoint(px, py);
-            }
-
-            painter.drawPolygon(hexagon);
-            painter.end();
-
-            overlay->setPixmap(pixmap);
-            overlay->setAttribute(Qt::WA_TransparentForMouseEvents);
-            overlay->show();
-            overlay->raise();
-
-            previousHighlights.append(overlay);
-
-            qDebug() << "[highlight] overlay added at" << row << col;
         }
     }
 
-    qDebug() << "[highlight] finished";
+
 }
 /*
 void MainPage::highlight(QWidget *m) {
@@ -441,8 +388,7 @@ void MainPage::loop(QWidget *m) {
 }
 
 
-QVector<QPushButton*> vec, v1, v2;
-std::vector<int> hexa;
+
 //tile *cell[8][8] = {};
 void changeStyle(QPushButton *p, int c){
 
@@ -458,7 +404,7 @@ void changeStyle(QPushButton *p, int c){
 }
 
 
-void changeBack(){
+void MainPage::changeBack(){
 
     for(int i = 0; i < vec.size(); i++){
         QPushButton *p = vec[i];
@@ -626,20 +572,21 @@ public:
                         currentPlayer = &player2;
                     }
                     if (player2.countAgent == 5) {
+                       // parent2->ui->lineEdit->show();
                         parent2->hid2();
                         currentPlayer = &player1;
                         parent2->loop(parent2);
                         for(Agent * A : player1.playerAgents){
-                            A->setConnection();
+                            A->setConnection(parent2);
                         }
                         for(Agent * A : player2.playerAgents){
-                            A->setConnection();
+                            A->setConnection(parent2);
                         }
                     }
 
                     validButtons.removeAll(p);
                     hasCharachter=true;
-                    changeBack();
+                    parent2->changeBack();
 
                     for (Agent* a : player1.playerAgents) a->raise();
                     for (Agent* a : player2.playerAgents) a->raise();
@@ -715,7 +662,7 @@ MainPage::MainPage(QWidget *parent)
     , ui(new Ui::MainPage)
 {
     ui->setupUi(this);
-
+    ui->lineEdit->setDisabled(1);;
     //QString fileName = ":/new/prefix1/board/grid1.txt";
     QString fileName;
     int r=rand()%8;
@@ -803,7 +750,7 @@ MainPage::MainPage(QWidget *parent)
             double x = (size * 3.0/2 + 55.0) * col;
             double y = (height + 55.0) * (row + 0.5 * (col % 2));
 
-            cell[row][col] = new tile(x + 280, y + 150, this, hexa[cnt], row, col);
+            cell[row][col] = new tile(this, x + 280, y + 150, this, hexa[cnt], row, col);
 
             if (hexa[cnt] == 1) v1.push_back(vec[cnt]);
             else if (hexa[cnt] == 2) v2.push_back(vec[cnt]);
@@ -817,7 +764,7 @@ MainPage::MainPage(QWidget *parent)
             double x = (size * 3.0/2 + 55.0) * col;
             double y = (height + 55.0) * (row + 0.5 * (col % 2));
 
-            cell[row][col] = new tile(x + 280, y + 150, this, hexa[cnt], row, col);
+            cell[row][col] = new tile(this, x + 280, y + 150, this, hexa[cnt], row, col);
 
             if (hexa[cnt] == 1) v1.push_back(vec[cnt]);
             else if (hexa[cnt] == 2) v2.push_back(vec[cnt]);

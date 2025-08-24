@@ -18,7 +18,7 @@ class tile : public QPushButton {
     // Q_OBJECT
 
 public:
-    tile(double , double , QWidget *, int,int,int);//tile**?
+    tile(MainPage* ,double , double , QWidget *, int,int,int);//tile**?
     tile(tile &o);
     void pic(int c);
     void bfsMove(int d,Agent * a,bool canGo[5][9]);
